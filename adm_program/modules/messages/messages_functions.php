@@ -70,7 +70,7 @@ function prepareReceivers($receiversString): string
  * @param int                 $usrId
  * @return string
  */
-function getReceiverName($row, $usrId): string
+function getReceiverName(array $row, $usrId): string
 {
     global $gDb, $gProfileFields;
 
