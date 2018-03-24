@@ -74,7 +74,7 @@ class Organization extends TableAccess
     /**
      * @return SettingsManager
      */
-    public function &getSettingsManager()
+    public function &getSettingsManager(): SettingsManager
     {
         if(!$this->settingsManager instanceof SettingsManager)
         {
