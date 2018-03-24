@@ -449,7 +449,7 @@ class TableFolder extends TableAccess
      * @throws AdmException
      * @return true Returns **true** if everything is ok otherwise an AdmException is thrown.
      */
-    public function getFolderForDownload(int $folderId)
+    public function getFolderForDownload(int $folderId): bool
     {
         global $gCurrentOrganization, $gCurrentUser;
 

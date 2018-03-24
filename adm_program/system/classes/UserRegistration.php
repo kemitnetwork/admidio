@@ -78,7 +78,7 @@ class UserRegistration extends User
      * If function returns true than the user can login for the organization of this object.
      * @return true Returns **true** if the registration was successful
      */
-    public function acceptRegistration()
+    public function acceptRegistration(): bool
     {
         global $gSettingsManager;
 

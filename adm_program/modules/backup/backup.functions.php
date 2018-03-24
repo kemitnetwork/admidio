@@ -228,7 +228,7 @@ function FileSizeNiceDisplay(int $filesize, int $precision = 2): string
  * @param string $text
  * @return true
  */
-function OutputInformation(string $id, string $dhtml, string $text = '')
+function OutputInformation(string $id, string $dhtml, string $text = ''): bool
 {
     global $DHTMLenabled;
     if ($DHTMLenabled)

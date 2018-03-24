@@ -200,7 +200,7 @@ class TableAccess
      * Deletes the selected record of the table and initializes the class
      * @return true Returns **true** if no error occurred
      */
-    public function delete()
+    public function delete(): bool
     {
         if (array_key_exists($this->keyColumnName, $this->dbColumns) && $this->dbColumns[$this->keyColumnName] !== '')
         {
