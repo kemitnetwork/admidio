@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  ***********************************************************************************************
  * Diese Klasse dient dazu Systemmails zu verschicken

@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  ***********************************************************************************************
  * Klasse erweitert das PHP-DateTime-Objekt um einige nuetzliche Funktionen

@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  ***********************************************************************************************
  * Diese Klasse verwaltet Bilder und bietet Methoden zum Anpassen dieser
