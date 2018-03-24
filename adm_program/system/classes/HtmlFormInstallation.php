@@ -52,7 +52,7 @@ class HtmlFormInstallation extends HtmlForm
      * @param string $id     Id of the form
      * @param string $action Optional action attribute of the form
      */
-    public function __construct($id, $action)
+    public function __construct(string $id, string $action)
     {
         parent::__construct($id, $action);
     }
@@ -60,7 +60,7 @@ class HtmlFormInstallation extends HtmlForm
     /**
      * @param $header string
      */
-    public function addHeader($header)
+    public function addHeader(string $header)
     {
         $this->headers[] = $header;
     }
@@ -72,7 +72,7 @@ class HtmlFormInstallation extends HtmlForm
      * @param string $title       The headline of the description. If set than this will be displayed
      *                            before the description as h2
      */
-    public function setFormDescription($description, $title = '')
+    public function setFormDescription(string $description, string $title = '')
     {
         $this->descriptionText  = $description;
         $this->descriptionTitle = $title;
@@ -107,7 +107,7 @@ class HtmlFormInstallation extends HtmlForm
      * @param bool $directOutput This is only used for compatibility to show method of parent class HtmlForm
      * @return string Return the html code of the form.
      */
-    public function show($directOutput = true): string
+    public function show(bool $directOutput = true): string
     {
         // if no modus set then set installation modus
         if ($this->title === '')

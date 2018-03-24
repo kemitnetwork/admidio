@@ -18,7 +18,7 @@ if (basename($_SERVER['SCRIPT_FILENAME']) === 'roles_functions.php')
  * @param int $userId
  * @return \PDOStatement
  */
-function getRolesFromDatabase($userId): \PDOStatement
+function getRolesFromDatabase(int $userId): \PDOStatement
 {
     global $gDb, $gCurrentOrganization;
 
@@ -44,7 +44,7 @@ function getRolesFromDatabase($userId): \PDOStatement
  * @param int $userId
  * @return \PDOStatement
  */
-function getFutureRolesFromDatabase($userId): \PDOStatement
+function getFutureRolesFromDatabase(int $userId): \PDOStatement
 {
     global $gDb, $gCurrentOrganization;
 
@@ -69,7 +69,7 @@ function getFutureRolesFromDatabase($userId): \PDOStatement
  * @param int $userId
  * @return \PDOStatement
  */
-function getFormerRolesFromDatabase($userId): \PDOStatement
+function getFormerRolesFromDatabase(int $userId): \PDOStatement
 {
     global $gDb, $gCurrentOrganization;
 
@@ -97,7 +97,7 @@ function getFormerRolesFromDatabase($userId): \PDOStatement
  * @param bool          $directOutput  deprecated
  * @return string
  */
-function getRoleMemberships($htmlListId, User $user, \PDOStatement $roleStatement, $countRole = 0, $directOutput = false): string
+function getRoleMemberships(string $htmlListId, User $user, \PDOStatement $roleStatement, int $countRole = 0, bool $directOutput = false): string
 {
     global $gDb, $gL10n, $gCurrentUser, $gSettingsManager;
 

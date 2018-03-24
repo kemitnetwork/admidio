@@ -25,7 +25,7 @@ class TableGuestbookComment extends TableAccess
      * @param Database $database Object of the class Database. This should be the default global object **$gDb**.
      * @param int      $gbcId    The recordset of the guestbook comment with this id will be loaded. If id isn't set than an empty object of the table is created.
      */
-    public function __construct(Database $database, $gbcId = 0)
+    public function __construct(Database $database, int $gbcId = 0)
     {
         // read also data of assigned guestbook entry
         $this->connectAdditionalTable(TBL_GUESTBOOK, 'gbo_id', 'gbc_gbo_id');
@@ -42,7 +42,7 @@ class TableGuestbookComment extends TableAccess
      * @return int|string|bool Returns the value of the database column.
      *                         If the value was manipulated before with **setValue** than the manipulated value is returned.
      */
-    public function getValue($columnName, $format = '')
+    public function getValue(string $columnName, string $format = '')
     {
         if ($columnName === 'gbc_text')
         {
@@ -84,7 +84,7 @@ class TableGuestbookComment extends TableAccess
      * @param bool $updateFingerPrint Default **true**. Will update the creator or editor of the recordset if table has columns like **usr_id_create** or **usr_id_changed**
      * @return bool If an update or insert into the database was done then return true, otherwise false.
      */
-    public function save($updateFingerPrint = true): bool
+    public function save(bool $updateFingerPrint = true): bool
     {
         global $gCurrentOrganization;
 
@@ -105,7 +105,7 @@ class TableGuestbookComment extends TableAccess
      * @param bool   $checkValue The value will be checked if it's valid. If set to **false** than the value will not be checked.
      * @return bool Returns **true** if the value is stored in the current object and **false** if a check failed
      */
-    public function setValue($columnName, $newValue, $checkValue = true): bool
+    public function setValue(string $columnName, $newValue, bool $checkValue = true): bool
     {
         if ($columnName === 'gbc_text')
         {

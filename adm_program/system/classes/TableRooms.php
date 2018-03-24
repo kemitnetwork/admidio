@@ -21,7 +21,7 @@ class TableRooms extends TableAccess
      * @param Database $database Object of the class Database. This should be the default global object **$gDb**.
      * @param int      $roomId   The recordset of the room with this id will be loaded. If id isn't set than an empty object of the table is created.
      */
-    public function __construct(Database $database, $roomId = 0)
+    public function __construct(Database $database, int $roomId = 0)
     {
         parent::__construct($database, TBL_ROOMS, 'room', $roomId);
     }
@@ -35,7 +35,7 @@ class TableRooms extends TableAccess
      * @return int|string Returns the value of the database column.
      *                    If the value was manipulated before with **setValue** than the manipulated value is returned.
      */
-    public function getValue($columnName, $format = '')
+    public function getValue(string $columnName, string $format = '')
     {
         if ($columnName === 'room_description')
         {
@@ -66,7 +66,7 @@ class TableRooms extends TableAccess
      * @param bool   $checkValue The value will be checked if it's valid. If set to **false** than the value will not be checked.
      * @return bool Returns **true** if the value is stored in the current object and **false** if a check failed
      */
-    public function setValue($columnName, $newValue, $checkValue = true): bool
+    public function setValue(string $columnName, $newValue, bool $checkValue = true): bool
     {
         if ($columnName === 'room_description')
         {

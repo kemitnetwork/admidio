@@ -55,7 +55,7 @@ class MyFiles extends Folder
      * @deprecated 3.3.0:4.0.0 The class "MyFiles" is deprecated and should not be used anymore. The class "FileSystemUtils" should be used instead.
      * @param string $module
      */
-    public function __construct($module)
+    public function __construct(string $module)
     {
         global $gLogger;
 
@@ -181,7 +181,7 @@ class MyFiles extends Folder
      * @param string $folder subfolder name
      * @return bool Returns true if folder is successfully created and writable.
      */
-    public function setSubFolder($folder): bool
+    public function setSubFolder(string $folder): bool
     {
         if(!admStrIsValidFileName($folder))
         {

@@ -34,7 +34,7 @@ if(!$gCurrentUser->isAdministrator())
  * @param int               $level
  * @param int               $menId
  */
-function subMenu(&$menuList, $parentId, $level, $menId)
+function subMenu(array &$menuList, int $parentId, int $level, int $menId)
 {
     global $gDb;
 

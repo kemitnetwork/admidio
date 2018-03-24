@@ -36,7 +36,7 @@ if(!$gCurrentUser->hasRightViewProfile($user))
  * @param User   $user
  * @return false|array<string,string>
  */
-function getFieldCode($fieldNameIntern, User $user)
+function getFieldCode(string $fieldNameIntern, User $user)
 {
     global $gCurrentUser, $gProfileFields, $gL10n;
 

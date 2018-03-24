@@ -18,7 +18,7 @@
  * @param string $buttonIcon The icon of the button.
  * @param bool   $update
  */
-function showNotice($message, $url, $buttonText, $buttonIcon, $update = false)
+function showNotice(string $message, string $url, string $buttonText, string $buttonIcon, bool $update = false)
 {
     global $gL10n;
 
@@ -92,7 +92,7 @@ function checkPhpVersion()
  * @param string   $sqlFileName
  * @return true|string Returns true no error occurs ales error message is returned
  */
-function querySqlFile(Database $db, $sqlFileName)
+function querySqlFile(Database $db, string $sqlFileName)
 {
     global $gL10n;
 
@@ -140,7 +140,7 @@ function disableSoundexSearchIfPgSql(Database $db)
  * @param string $message
  * @return string
  */
-function getErrorMessage($message): string
+function getErrorMessage(string $message): string
 {
     return '
         <div class="alert alert-danger alert-small" role="alert">

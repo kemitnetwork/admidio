@@ -78,7 +78,7 @@ class Language
      * @throws \UnexpectedValueException
      * @return bool Returns true if language path is added.
      */
-    public function addLanguageFolderPath($languageFolderPath): bool
+    public function addLanguageFolderPath(string $languageFolderPath): bool
     {
         return $this->languageData->addLanguageFolderPath($languageFolderPath);
     }
@@ -101,7 +101,7 @@ class Language
      * echo $gL10n->get('MAI_EMAIL_SEND_TO_ROLE_ACTIVE', array('John Doe', 'Demo-Organization', 'Administrator'));
      * ``
      */
-    public function get($textId, $params = array()): string
+    public function get(string $textId, $params = array()): string
     {
         global $gLogger;
 
@@ -206,7 +206,7 @@ class Language
      * @throws \OutOfBoundsException
      * @return string Return the name of the country in the language of this object.
      */
-    public function getCountryName($countryIsoCode): string
+    public function getCountryName(string $countryIsoCode): string
     {
         if (!preg_match('/^[A-Z]{3}$/', $countryIsoCode))
         {
@@ -231,7 +231,7 @@ class Language
      * @throws \OutOfBoundsException
      * @return string Return the three digits ISO code (ISO 3166 ALPHA-3) of the country.
      */
-    public function getCountryIsoCode($countryName): string
+    public function getCountryIsoCode(string $countryName): string
     {
         if ($countryName === '')
         {
@@ -255,7 +255,7 @@ class Language
      * @param bool $referenceLanguage If set to **true** than the language code of the reference language will returned.
      * @return string Returns the language code of the language of this object or the reference language.
      */
-    public function getLanguage($referenceLanguage = false): string
+    public function getLanguage(bool $referenceLanguage = false): string
     {
         global $gLogger;
 
@@ -274,7 +274,7 @@ class Language
      * @param bool $referenceLanguage If set to **true** than the ISO code of the reference language will returned.
      * @return string Returns the ISO code of the language of this object or the reference language e.g. **de** or **en**.
      */
-    public function getLanguageIsoCode($referenceLanguage = false): string
+    public function getLanguageIsoCode(bool $referenceLanguage = false): string
     {
         $language = $this->getLanguage($referenceLanguage);
 
@@ -293,7 +293,7 @@ class Language
      * @throws \UnexpectedValueException
      * @return string Returns the text string of the text id.
      */
-    private function getTextFromTextId($textId): string
+    private function getTextFromTextId(string $textId): string
     {
         // first search text id in text-cache
         try
@@ -379,7 +379,7 @@ class Language
      * @param array<int,string> $params
      * @return string
      */
-    private static function prepareTextPlaceholders($text, array $params): string
+    private static function prepareTextPlaceholders(string $text, array $params): string
     {
         // replace placeholder with value of parameters
         foreach ($params as $index => $param)
@@ -401,7 +401,7 @@ class Language
      * @param string $text
      * @return string
      */
-    private static function prepareXmlText($text): string
+    private static function prepareXmlText(string $text): string
     {
         // set line break with html
         // Within Android string resource all apostrophe are escaped so we must remove the escape char
@@ -423,7 +423,7 @@ class Language
      * @throws \OutOfBoundsException
      * @return string Return the text in the language or nothing if text id wasn't found.
      */
-    private function searchLanguageText(array &$xmlLanguageObjects, $languageFilePath, $textId): string
+    private function searchLanguageText(array &$xmlLanguageObjects, string $languageFilePath, string $textId): string
     {
         global $gLogger;
 
@@ -470,7 +470,7 @@ class Language
      * @throws \UnexpectedValueException
      * @return string Returns the text string of the text id.
      */
-    private function searchTextIdInLangObject(array &$xmlLanguageObjects, $language, $textId): string
+    private function searchTextIdInLangObject(array &$xmlLanguageObjects, string $language, string $textId): string
     {
         $languageFolderPaths = $this->languageData->getLanguageFolderPaths();
         foreach ($languageFolderPaths as $languageFolderPath)
@@ -495,7 +495,7 @@ class Language
      * @param string $language ISO code of the language that should be set to this object.
      * @return bool Returns true if language changed.
      */
-    public function setLanguage($language): bool
+    public function setLanguage(string $language): bool
     {
         if ($language === $this->languageData->getLanguage())
         {
@@ -516,7 +516,7 @@ class Language
      * @param string $string The string to check
      * @return bool Returns true if the given string is a translation-string-id
      */
-    public static function isTranslationStringId($string): bool
+    public static function isTranslationStringId(string $string): bool
     {
         return (bool) preg_match('/^[A-Z]{3}_([A-Z0-9]_?)*[A-Z0-9]$/', $string);
     }
@@ -526,7 +526,7 @@ class Language
      * @param string $string The string to check for translation
      * @return string Returns the translated or original string
      */
-    public static function translateIfTranslationStrId($string): string
+    public static function translateIfTranslationStrId(string $string): string
     {
         global $gL10n;
 
@@ -560,7 +560,7 @@ class Language
      * @param string $languageFolderPath Server path where Admidio should search for language files.
      * @return bool Returns true if language path is added.
      */
-    public function addLanguagePath($languageFolderPath): bool
+    public function addLanguagePath(string $languageFolderPath): bool
     {
         global $gLogger;
 
@@ -583,7 +583,7 @@ class Language
      * @deprecated 3.3.0:4.0.0 "$gL10n->getCountryByCode()" is deprecated, use "$gL10n->getCountryName()" instead.
      * @return string|false Return the name of the country in the language of this object.
      */
-    public function getCountryByCode($countryIsoCode)
+    public function getCountryByCode(string $countryIsoCode)
     {
         global $gLogger;
 
@@ -606,7 +606,7 @@ class Language
      * @deprecated 3.3.0:4.0.0 "$gL10n->getCountryByName()" is deprecated, use "$gL10n->getCountryIsoCode()" instead.
      * @return string|false Return the three digits ISO code (ISO 3166 ALPHA-3) of the country or false if country not found.
      */
-    public function getCountryByName($countryName)
+    public function getCountryByName(string $countryName)
     {
         global $gLogger;
 

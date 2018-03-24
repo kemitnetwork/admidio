@@ -38,7 +38,7 @@ class FunctionClass
      * @param string $directory Path of the directory with the template files
      * @return array<int,string> Returns an array of the template filenames
      */
-    public function getFileNames($directory): array
+    public function getFileNames(string $directory): array
     {
         try
         {
@@ -58,7 +58,7 @@ class FunctionClass
      * @param string $tplFolder   Folder path of the templates
      * @return string|null Returns the content of the template file and null if file not found or couldn't open
      */
-    public function getEcardTemplate($tplFilename, $tplFolder = '')
+    public function getEcardTemplate(string $tplFilename, string $tplFolder = '')
     {
         if ($tplFolder === '')
         {
@@ -105,7 +105,7 @@ class FunctionClass
      * Bild Daten:             <%ecard_image_width%>       <%ecard_image_height%>      <%ecard_image_name%>
      * Nachricht:              <%ecard_message%>
      */
-    public function parseEcardTemplate($imageName, $ecardMessage, $ecardData, $recipientName, $recipientEmail): string
+    public function parseEcardTemplate(string $imageName, string $ecardMessage, string $ecardData, string $recipientName, string $recipientEmail): string
     {
         global $gCurrentUser;
 
@@ -169,7 +169,7 @@ class FunctionClass
      * @param string $photoServerPath der Pfad wo die Bilder in der Grußkarte am Server liegen
      * @return bool|string
      */
-    public function sendEcard($senderName, $senderEmail, $ecardHtmlData, $recipientName, $recipientEmail, $photoServerPath)
+    public function sendEcard(string $senderName, string $senderEmail, string $ecardHtmlData, string $recipientName, string $recipientEmail, string $photoServerPath)
     {
         global $gSettingsManager;
 

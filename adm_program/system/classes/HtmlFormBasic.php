@@ -107,7 +107,7 @@ class HtmlFormBasic extends HtmlElement
      * @param string $legend Description for optional legend element as string
      * @param string $id     Optional ID
      */
-    public function addFieldSet($legend = null, $id = null)
+    public function addFieldSet(string $legend = null, string $id = null)
     {
         if ($id !== null)
         {
@@ -132,7 +132,7 @@ class HtmlFormBasic extends HtmlElement
      * @param string               $value         Value of the field (Default: empty)
      * @param array<string,string> $arrAttributes Further attributes as array with key/value pairs
      */
-    public function addSimpleInput($type, $name, $id = null, $value = '', array $arrAttributes = null)
+    public function addSimpleInput(string $type, string $name, string $id = null, string $value = '', array $arrAttributes = null)
     {
         $this->addElement('input', '', '', '', true);
 
@@ -177,7 +177,7 @@ class HtmlFormBasic extends HtmlElement
      * Add a legend element in current fieldset.
      * @param string $legend Data for the element as string
      */
-    public function addLegend($legend)
+    public function addLegend(string $legend)
     {
         $this->addElement('legend', '', '', $legend);
     }
@@ -191,7 +191,7 @@ class HtmlFormBasic extends HtmlElement
      * @param bool                 $disable       Disable option (optional)
      * @param array<string,string> $arrAttributes Further attributes as array with key/value pairs
      */
-    public function addOption($value, $label, $id = null, $selected = false, $disable = false, array $arrAttributes = null)
+    public function addOption(string $value, string $label, string $id = null, bool $selected = false, bool $disable = false, array $arrAttributes = null)
     {
         $this->addElement('option');
         // set attributes
@@ -229,7 +229,7 @@ class HtmlFormBasic extends HtmlElement
      * @param bool                 $disable       Disable option group (Default: false)
      * @param array<string,string> $arrAttributes Further attributes as array with key/value pairs
      */
-    public function addOptionGroup($label, $id = null, $disable = false, array $arrAttributes = null)
+    public function addOptionGroup(string $label, string $id = null, bool $disable = false, array $arrAttributes = null)
     {
         $this->addParentElement('optgroup');
 
@@ -260,7 +260,7 @@ class HtmlFormBasic extends HtmlElement
      * @param array<string,string> $arrAttributes Further attributes as array with key/value pairs
      * @param bool                 $disable       Disable select (Default: false)
      */
-    public function addSelect($name, $id = null, array $arrAttributes = null, $disable = false)
+    public function addSelect(string $name, string $id = null, array $arrAttributes = null, bool $disable = false)
     {
         $this->addParentElement('select', 'name', $name);
 

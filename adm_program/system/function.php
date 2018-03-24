@@ -21,7 +21,7 @@ if (basename($_SERVER['SCRIPT_FILENAME']) === 'function.php')
  *                         If @userId is not set than this will be checked for the current user
  * @return bool Returns **true** if the user is a member of the role
  */
-function hasRole($roleName, $userId = 0): bool
+function hasRole(string $roleName, int $userId = 0): bool
 {
     global $gDb, $gCurrentUser, $gCurrentOrganization;
 
@@ -53,7 +53,7 @@ function hasRole($roleName, $userId = 0): bool
  * @param int $userId The id of the user who should be checked if he is a member of the current organization
  * @return bool Returns **true** if the user is a member
  */
-function isMember($userId): bool
+function isMember(int $userId): bool
 {
     global $gDb, $gCurrentOrganization;
 
@@ -87,7 +87,7 @@ function isMember($userId): bool
  *                    otherwise it checks if the user is group leader in one role of the current organization
  * @return bool Returns **true** if the user is a group leader
  */
-function isGroupLeader($userId, $roleId = 0): bool
+function isGroupLeader(int $userId, int $roleId = 0): bool
 {
     global $gDb, $gCurrentOrganization;
 
@@ -136,7 +136,7 @@ function isGroupLeader($userId, $roleId = 0): bool
  * @param string $queryParamName (optional) You can set a new name for the parameter that should be used as start parameter.
  * @return string
  */
-function admFuncGeneratePagination($baseUrl, $itemsCount, $itemsPerPage, $pageStartItem, $addPrevNextText = true, $queryParamName = 'start'): string
+function admFuncGeneratePagination(string $baseUrl, int $itemsCount, int $itemsPerPage, int $pageStartItem, bool $addPrevNextText = true, string $queryParamName = 'start'): string
 {
     global $gL10n;
 
@@ -161,7 +161,7 @@ function admFuncGeneratePagination($baseUrl, $itemsCount, $itemsPerPage, $pageSt
      * @param int    $itemsPerPage
      * @return string
      */
-    function getListElementsFromTo($start, $end, $page, $url, $paramName, $itemsPerPage): string
+    function getListElementsFromTo(int $start, int $end, int $page, string $url, string $paramName, int $itemsPerPage): string
     {
         $pageNavString = '';
 
@@ -188,7 +188,7 @@ function admFuncGeneratePagination($baseUrl, $itemsCount, $itemsPerPage, $pageSt
      * @param string $paramValue
      * @return string
      */
-    function getListElementString($linkText, $className = '', $url = '', $paramName = '', $paramValue = ''): string
+    function getListElementString(string $linkText, string $className = '', string $url = '', string $paramName = '', string $paramValue = ''): string
     {
         $classString = '';
         if ($className !== '')
@@ -326,7 +326,7 @@ function admFuncProcessableImageSize()
  * $getMode = admFuncVariableIsValid($_GET, 'mode', 'string', array('defaultValue' => 'actual', 'validValues' => array('actual', 'old')));
  * ```
  */
-function admFuncVariableIsValid(array $array, $variableName, $datatype, array $options = array())
+function admFuncVariableIsValid(array $array, string $variableName, string $datatype, array $options = array())
 {
     global $gL10n, $gMessage, $gSettingsManager;
 
@@ -507,7 +507,7 @@ function admFuncVariableIsValid(array $array, $variableName, $datatype, array $o
  * @param string $timestampEdited Date and time of the moment when the user last changed the recordset
  * @return string Returns a html string with usernames who creates item and edit item the last time
  */
-function admFuncShowCreateChangeInfoById($userIdCreated, $timestampCreate, $userIdEdited = 0, $timestampEdited = ''): string
+function admFuncShowCreateChangeInfoById(int $userIdCreated, string $timestampCreate, int $userIdEdited = 0, string $timestampEdited = ''): string
 {
     global $gDb, $gProfileFields, $gL10n, $gSettingsManager;
 
@@ -590,7 +590,7 @@ function admFuncShowCreateChangeInfoById($userIdCreated, $timestampCreate, $user
  *                                If id is set than a link to the user profile will be created
  * @return string Returns a html string with usernames who creates item and edit item the last time
  */
-function admFuncShowCreateChangeInfoByName($userNameCreated, $timestampCreate, $userNameEdited, $timestampEdited, $userIdCreated = 0, $userIdEdited = 0): string
+function admFuncShowCreateChangeInfoByName(string $userNameCreated, string $timestampCreate, string $userNameEdited, string $timestampEdited, int $userIdCreated = 0, int $userIdEdited = 0): string
 {
     global $gL10n, $gValidLogin, $gSettingsManager;
 
@@ -657,7 +657,7 @@ function admFuncShowCreateChangeInfoByName($userNameCreated, $timestampCreate, $
  *                           the type of entries that should be searched.
  * @return false|array<string,string> Returns an array with all found entries or false if an error occurs.
  */
-function admFuncGetDirectoryEntries($directory, $searchType = 'file')
+function admFuncGetDirectoryEntries(string $directory, string $searchType = 'file')
 {
     if (!is_dir($directory))
     {
@@ -702,7 +702,7 @@ function admFuncGetDirectoryEntries($directory, $searchType = 'file')
  * @param $url string
  * @return false|string
  */
-function admFuncCheckUrl($url)
+function admFuncCheckUrl(string $url)
 {
     // Homepage url have to start with "http://"
     if (strpos(admStrToLower($url), 'http://')  !== 0
@@ -726,7 +726,7 @@ function admFuncCheckUrl($url)
  * @param string $encoding Define character encoding tue use
  * @return string Escaped string
  */
-function noHTML($input, $encoding = 'UTF-8'): string
+function noHTML(string $input, string $encoding = 'UTF-8'): string
 {
     // backwards compatibility for PHP-Version < 5.4
     if (!defined('ENT_HTML5'))
@@ -744,7 +744,7 @@ function noHTML($input, $encoding = 'UTF-8'): string
  * @param bool                $escape
  * @return string
  */
-function safeUrl($path, array $params = array(), $anchor = '', $escape = false): string
+function safeUrl(string $path, array $params = array(), string $anchor = '', bool $escape = false): string
 {
     $paramsText = '';
     if (count($params) > 0)
@@ -782,7 +782,7 @@ function safeUrl($path, array $params = array(), $anchor = '', $escape = false):
  * @param int    $statusCode The status-code which should be send. (301, 302, 303 (default), 307)
  * @see https://www.owasp.org/index.php/Open_redirect
  */
-function admRedirect($url, $statusCode = 303)
+function admRedirect(string $url, int $statusCode = 303)
 {
     global $gLogger, $gMessage, $gL10n;
 
@@ -844,7 +844,7 @@ function replaceValuesArrWithQM(array $valuesArray): string
  * @param float $startTime The start time
  * @return string Returns the formated execution time
  */
-function getExecutionTime($startTime): string
+function getExecutionTime(float $startTime): string
 {
     $stopTime = microtime(true);
 
@@ -871,7 +871,7 @@ function admFuncMaxUploadSize()
  * @param bool   $decimalMulti
  * @return int
  */
-function admFuncGetBytesFromSize($data, $decimalMulti = false): int
+function admFuncGetBytesFromSize(string $data, bool $decimalMulti = false): int
 {
     global $gLogger;
 

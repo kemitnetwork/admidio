@@ -40,7 +40,7 @@ class Menu
      * @param string $id
      * @param string $title
      */
-    public function __construct($id, $title)
+    public function __construct(string $id, string $title)
     {
         $this->id    = $id;
         $this->title = $title;
@@ -55,7 +55,7 @@ class Menu
      * @throws AdmException
      * @return array<string,string|array>
      */
-    private function buildItem($id, $link, $text, $icon, $desc = ''): array
+    private function buildItem(string $id, string $link, string $text, string $icon, string $desc = ''): array
     {
         // add root path to link unless the full URL is given
         if (preg_match('/^http(s?):\/\//', $link) === 0)
@@ -88,7 +88,7 @@ class Menu
      * @param string $desc
      * @throws AdmException
      */
-    public function addItem($id, $link, $text, $icon, $desc = '')
+    public function addItem(string $id, string $link, string $text, string $icon, string $desc = '')
     {
         $this->items[$id] = $this->buildItem($id, $link, $text, $icon, $desc);
     }
@@ -99,7 +99,7 @@ class Menu
      * @param string $link
      * @param string $text
      */
-    public function addSubItem($parentId, $id, $link, $text)
+    public function addSubItem(string $parentId, string $id, string $link, string $text)
     {
         // add root path to link unless the full URL is given
         if (preg_match('/^http(s?):\/\//', $link) === 0)
@@ -115,7 +115,7 @@ class Menu
      * @param string $id
      * @return int|false
      */
-    public function getPosition($id)
+    public function getPosition(string $id)
     {
         $keys = array_keys($this->items);
         return array_search($id, $keys, true);
@@ -131,7 +131,7 @@ class Menu
      * @param string $desc
      * @throws AdmException
      */
-    public function insertItem($position, $id, $link, $text, $icon, $desc = '')
+    public function insertItem(int $position, string $id, string $link, string $text, string $icon, string $desc = '')
     {
         $item = $this->buildItem($id, $link, $text, $icon, $desc);
         $insert = array($id => $item);
@@ -146,7 +146,7 @@ class Menu
      *                      then you will create a menu with submenus and description
      * @return string Return the html code of the form.
      */
-    public function show($complex = false): string
+    public function show(bool $complex = false): string
     {
         $html = '';
 

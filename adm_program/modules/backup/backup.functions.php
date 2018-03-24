@@ -36,7 +36,7 @@ if (!function_exists('getmicrotime'))
  * @param string $function
  * @return bool
  */
-function FunctionIsDisabled($function): bool
+function FunctionIsDisabled(string $function): bool
 {
     global $gLogger;
 
@@ -67,7 +67,7 @@ function FunctionIsDisabled($function): bool
  * @param string $command
  * @return bool|string
  */
-function SafeExec($command)
+function SafeExec(string $command)
 {
     static $AllowedExecFunctions = array();
     if (count($AllowedExecFunctions) === 0)
@@ -172,7 +172,7 @@ function bzip2Version()
  * @param int   $precision
  * @return string
  */
-function FormattedTimeRemaining($seconds, $precision = 1): string
+function FormattedTimeRemaining(float $seconds, int $precision = 1): string
 {
     global $gL10n;
 
@@ -197,7 +197,7 @@ function FormattedTimeRemaining($seconds, $precision = 1): string
  * @param int $precision
  * @return string
  */
-function FileSizeNiceDisplay($filesize, $precision = 2): string
+function FileSizeNiceDisplay(int $filesize, int $precision = 2): string
 {
     if ($filesize < 1000)
     {
@@ -228,7 +228,7 @@ function FileSizeNiceDisplay($filesize, $precision = 2): string
  * @param string $text
  * @return true
  */
-function OutputInformation($id, $dhtml, $text = '')
+function OutputInformation(string $id, string $dhtml, string $text = '')
 {
     global $DHTMLenabled;
     if ($DHTMLenabled)
@@ -271,7 +271,7 @@ function OutputInformation($id, $dhtml, $text = '')
  * @param string $attachmentfilename
  * @return bool
  */
-function EmailAttachment($from, $to, $subject, $textbody, &$attachmentdata, $attachmentfilename): bool
+function EmailAttachment(string $from, string $to, string $subject, string $textbody, string &$attachmentdata, string $attachmentfilename): bool
 {
     $boundary = '_NextPart_'.time().'_'.md5($attachmentdata).'_';
 

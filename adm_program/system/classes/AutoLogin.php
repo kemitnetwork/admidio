@@ -55,7 +55,7 @@ class AutoLogin extends TableAccess
      * @param int $userId The id of the current user.
      * @return string Returns the auto login id.
      */
-    public function generateAutoLoginId($userId): string
+    public function generateAutoLoginId(int $userId): string
     {
         $loginId = '';
 
@@ -81,7 +81,7 @@ class AutoLogin extends TableAccess
      *                                if table has columns like **usr_id_create** or **usr_id_changed**
      * @return bool If an update or insert into the database was done then return true, otherwise false.
      */
-    public function save($updateFingerPrint = true): bool
+    public function save(bool $updateFingerPrint = true): bool
     {
         global $gCurrentOrganization;
 

@@ -37,7 +37,7 @@ function createLogDirIfNotExist()
  * @param int    $logLevel
  * @return \Psr\Log\LoggerInterface
  */
-function createAdmidioLogger($logDirectory, $logLevel): \Psr\Log\LoggerInterface
+function createAdmidioLogger(string $logDirectory, int $logLevel): \Psr\Log\LoggerInterface
 {
     createLogDirIfNotExist();
 

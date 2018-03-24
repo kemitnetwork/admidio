@@ -20,7 +20,7 @@ if (basename($_SERVER['SCRIPT_FILENAME']) === 'autoload.php')
  * @param string $className Name of the class for which the file should be loaded.
  * @return null|false Return **false** if the file for the class wasn't found.
  */
-function admFuncAutoload($className)
+function admFuncAutoload(string $className)
 {
     global $gLogger;
 

@@ -38,7 +38,7 @@ class Component extends TableAccess
      * @param int      $comId    The recordset of the component with this id will be loaded.
      *                           If com_id isn't set than an empty object of the table is created.
      */
-    public function __construct(Database $database, $comId = 0)
+    public function __construct(Database $database, int $comId = 0)
     {
         parent::__construct($database, TBL_COMPONENTS, 'com', $comId);
     }
@@ -101,7 +101,7 @@ class Component extends TableAccess
      * @throws \InvalidArgumentException
      * @return bool Return true if the current user is allowed to view the component
      */
-    public static function isVisible($componentName): bool
+    public static function isVisible(string $componentName): bool
     {
         global $gValidLogin, $gCurrentUser, $gSettingsManager;
 

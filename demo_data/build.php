@@ -120,7 +120,7 @@ function prepareAdmidioDataFolder()
 /**
  * @param bool $enable
  */
-function toggleForeignKeyChecks($enable)
+function toggleForeignKeyChecks(bool $enable)
 {
     global $gDb;
 
@@ -136,7 +136,7 @@ function toggleForeignKeyChecks($enable)
  * @param array<int,string> $sqlStatements
  * @param string $filename
  */
-function executeSqlStatements(array $sqlStatements, $filename)
+function executeSqlStatements(array $sqlStatements, string $filename)
 {
     global $gDb, $gL10n;
 
@@ -174,7 +174,7 @@ function executeSqlStatements(array $sqlStatements, $filename)
 /**
  * @param string $filename The SQL filename (db.sql, data.sql)
  */
-function readAndExecuteSQLFromFile($filename)
+function readAndExecuteSQLFromFile(string $filename)
 {
     $sqlFilePath = __DIR__ . '/' . $filename;
 
@@ -219,7 +219,7 @@ function resetPostgresSequences()
 /**
  * @param string $language
  */
-function setInstallationLanguage($language)
+function setInstallationLanguage(string $language)
 {
     global $gDb;
 
@@ -261,7 +261,7 @@ function getInstalledDbVersion()
  * @param string $language
  * @throws \RuntimeException
  */
-function doInstallation($language)
+function doInstallation(string $language)
 {
     global $gDb, $gL10n; // necessary for "data_edit.php"
 

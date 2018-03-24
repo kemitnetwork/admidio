@@ -23,7 +23,7 @@ class DateTimeExtended extends DateTime
      * @param string        $format   das zum Datum passende Format (Schreibweise aus date())
      * @param \DateTimeZone $timezone DateTimeZone
      */
-    public function __construct($date, $format, \DateTimeZone $timezone = null)
+    public function __construct(string $date, string $format, \DateTimeZone $timezone = null)
     {
         global $gLogger;
 
@@ -78,7 +78,7 @@ class DateTimeExtended extends DateTime
      * @param int $weekday The number of the weekday for which the name should be returned (1 = Monday ...)
      * @return string|string[] with all 7 weekday or if param weekday is set than the full name of that weekday
      */
-    public static function getWeekdays($weekday = 0)
+    public static function getWeekdays(int $weekday = 0)
     {
         global $gL10n;
 
@@ -109,7 +109,7 @@ class DateTimeExtended extends DateTime
      *                       If no format is set then the format of the class constructor will be used.
      * @return string Return the transformed format that is valid for the datepicker.
      */
-    public static function getDateFormatForDatepicker($format = 'Y-m-d'): string
+    public static function getDateFormatForDatepicker(string $format = 'Y-m-d'): string
     {
         $destFormat  = '';
         $formatArray = str_split($format);

@@ -24,7 +24,7 @@ class TableText extends TableAccess
      * @param string   $name     The recordset of the text with this name will be loaded.
      *                           If name isn't set than an empty object of the table is created.
      */
-    public function __construct(Database $database, $name = '')
+    public function __construct(Database $database, string $name = '')
     {
         parent::__construct($database, TBL_TEXTS, 'txt', $name);
     }
@@ -38,7 +38,7 @@ class TableText extends TableAccess
      * @return int|string Returns the value of the database column.
      *                    If the value was manipulated before with **setValue** than the manipulated value is returned.
      */
-    public function getValue($columnName, $format = '')
+    public function getValue(string $columnName, string $format = '')
     {
         if ($columnName === 'txt_text')
         {
@@ -57,7 +57,7 @@ class TableText extends TableAccess
      * @param bool $updateFingerPrint Default **true**. Will update the creator or editor of the recordset if table has columns like **usr_id_create** or **usr_id_changed**
      * @return bool If an update or insert into the database was done then return true, otherwise false.
      */
-    public function save($updateFingerPrint = true): bool
+    public function save(bool $updateFingerPrint = true): bool
     {
         global $gCurrentOrganization;
 

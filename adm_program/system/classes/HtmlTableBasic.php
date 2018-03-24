@@ -150,7 +150,7 @@ class HtmlTableBasic extends HtmlElement
      * @param string $class  Class name of the table
      * @param int    $border Set the table border width
      */
-    public function __construct($id = null, $class = null, $border = 0)
+    public function __construct(string $id = null, string $class = null, int $border = 0)
     {
         $this->border = $border;
 
@@ -428,7 +428,7 @@ class HtmlTableBasic extends HtmlElement
      * @param int    $column The column number where you want to set the width. The columns of the table starts with 1 (not 0).
      * @param string $width  The new width of the column. Here you can set all valid CSS values e.g. '100%' or '300px'
      */
-    public function setColumnWidth($column, $width)
+    public function setColumnWidth(int $column, string $width)
     {
         // internal datatable columns starts with 0
         $this->columnsWidth[$column - 1] = $width;

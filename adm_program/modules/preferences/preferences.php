@@ -141,7 +141,7 @@ $orgId = (int) $gCurrentOrganization->getValue('org_id');
  * @param string $info
  * @return string
  */
-function getStaticText($type, $text, $info = ''): string
+function getStaticText(string $type, string $text, string $info = ''): string
 {
     return '<span class="text-' . $type . '"><strong>' . $text . '</strong></span>' . $info;
 }
@@ -153,7 +153,7 @@ function getStaticText($type, $text, $info = ''): string
  * @param string $body
  * @return string
  */
-function getPreferencePanel($id, $title, $icon, $body): string
+function getPreferencePanel(string $id, string $title, string $icon, string $body): string
 {
     return '
         <div class="panel panel-default" id="panel_' . $id . '">

@@ -146,7 +146,7 @@ class Email extends PHPMailer
      * @param string $name
      * @return true|string
      */
-    public function addRecipient($address, $name = '')
+    public function addRecipient(string $address, string $name = '')
     {
         $address = admStrToLower($address);
 
@@ -170,7 +170,7 @@ class Email extends PHPMailer
      * @param string $name
      * @return true|string
      */
-    public function addCopy($address, $name = '')
+    public function addCopy(string $address, string $name = '')
     {
         $address = admStrToLower($address);
 
@@ -195,7 +195,7 @@ class Email extends PHPMailer
      * @param string $name
      * @return bool
      */
-    public function addBlindCopy($address, $name = ''): bool
+    public function addBlindCopy(string $address, string $name = ''): bool
     {
         $address = admStrToLower($address);
         // Blindcopy must be Ascii-US formated, so encode in MimeHeader
@@ -277,7 +277,7 @@ class Email extends PHPMailer
      * @param int    $precision The number of decimal digits to round to
      * @return float The maximum attachment size in the given size-unit
      */
-    public static function getMaxAttachmentSize($sizeUnit = self::SIZE_UNIT_BYTE, $precision = 1): float
+    public static function getMaxAttachmentSize(string $sizeUnit = self::SIZE_UNIT_BYTE, int $precision = 1): float
     {
         global $gSettingsManager;
 
@@ -308,7 +308,7 @@ class Email extends PHPMailer
      * @param string $name
      * @return true|string
      */
-    public function setSender($address, $name = '')
+    public function setSender(string $address, string $name = '')
     {
         global $gSettingsManager;
 
@@ -353,7 +353,7 @@ class Email extends PHPMailer
      * @param string $subject A text that should be the subject of the email
      * @return bool Returns **false** if the parameter has no text
      */
-    public function setSubject($subject): bool
+    public function setSubject(string $subject): bool
     {
         if ($subject !== '')
         {
@@ -367,7 +367,7 @@ class Email extends PHPMailer
      * Funktion um den Nachrichtentext an die Mail uebergeben
      * @param string $text
      */
-    public function setText($text)
+    public function setText(string $text)
     {
         // Erst mal die Zeilenumbrueche innerhalb des Mailtextes umwandeln in einfache Umbrueche
         // statt \r\n nur noch \n
@@ -398,7 +398,7 @@ class Email extends PHPMailer
      * @param string $senderName Firstname and lastname of email sender
      * @param string $receivers  List with firstname and lastname of all recipients of this mail
      */
-    public function setSenderInText($senderName, $receivers)
+    public function setSenderInText(string $senderName, string $receivers)
     {
         global $gL10n, $gValidLogin, $gCurrentOrganization;
 
@@ -591,7 +591,7 @@ class Email extends PHPMailer
      * @param string $sizeUnit 'b' = byte, 'kib' = kilobyte, 'mib' = megabyte, 'gib' = gigabyte, 'tib' = terabyte
      * @return float The maximum attachment size in the given size-unit
      */
-    public static function getMaxAttachementSize($sizeUnit = self::SIZE_UNIT_MEBIBYTE): float
+    public static function getMaxAttachementSize(string $sizeUnit = self::SIZE_UNIT_MEBIBYTE): float
     {
         global $gLogger;
 

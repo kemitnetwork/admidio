@@ -151,7 +151,7 @@ class ModuleDates extends Modules
      * @param int $limit        Limit of query rows (default: 0)
      * @return array<string,mixed> Array with all results, dates and parameters.
      */
-    public function getDataSet($startElement = 0, $limit = null): array
+    public function getDataSet(int $startElement = 0, int $limit = null): array
     {
         global $gDb, $gSettingsManager, $gCurrentUser;
 
@@ -216,7 +216,7 @@ class ModuleDates extends Modules
      * @param string $headline The initial headline of the module.
      * @return string Returns the full headline of the module
      */
-    public function getHeadline($headline): string
+    public function getHeadline(string $headline): string
     {
         global $gDb, $gL10n, $gCurrentOrganization;
 
@@ -495,7 +495,7 @@ class ModuleDates extends Modules
      * @param string $date Date to be validated and formated if needed
      * @return string|false
      */
-    private function formatDate($date)
+    private function formatDate(string $date)
     {
         global $gLogger, $gSettingsManager;
 
@@ -528,7 +528,7 @@ class ModuleDates extends Modules
      * @param string $reference Reference date
      * @return string|false String with date value, or an empty string, if $date is '1970-01-01' or reference date
      */
-    public function getFormValue($date, $reference)
+    public function getFormValue(string $date, string $reference)
     {
         global $gLogger;
 
@@ -550,7 +550,7 @@ class ModuleDates extends Modules
      * @param string $reference
      * @return string
      */
-    private function setFormValue($date, $reference): string
+    private function setFormValue(string $date, string $reference): string
     {
         global $gLogger;
 

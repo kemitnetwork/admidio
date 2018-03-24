@@ -33,7 +33,7 @@ class SettingsManager
      * @param Database $database
      * @param int      $orgId
      */
-    public function __construct(Database $database, $orgId)
+    public function __construct(Database $database, int $orgId)
     {
         $this->db = $database;
         $this->orgId = $orgId;
@@ -74,7 +74,7 @@ class SettingsManager
      * Deletes a selected setting out of the database
      * @param string $name The chosen setting name
      */
-    private function delete($name)
+    private function delete(string $name)
     {
         $sql = 'DELETE FROM '.TBL_PREFERENCES.'
                  WHERE prf_org_id = ? -- $orgId
@@ -87,7 +87,7 @@ class SettingsManager
      * @param string $name The chosen setting name
      * @throws \UnexpectedValueException Throws if the setting name is invalid or does not exist
      */
-    public function del($name)
+    public function del(string $name)
     {
         if (!self::isValidName($name))
         {
@@ -106,7 +106,7 @@ class SettingsManager
      * @param bool $update Set true to make a force reload of all settings from the database
      * @return array<string,string> Returns all settings
      */
-    public function getAll($update = false): array
+    public function getAll(bool $update = false): array
     {
         if ($update || !$this->initFullLoad)
         {
@@ -123,7 +123,7 @@ class SettingsManager
      * @throws \UnexpectedValueException Throws if the setting name is invalid or does not exist
      * @return string Returns the chosen setting value
      */
-    public function get($name, $update = false): string
+    public function get(string $name, bool $update = false): string
     {
         if (!self::isValidName($name))
         {
@@ -145,7 +145,7 @@ class SettingsManager
      * @throws \InvalidArgumentException Throws if the chosen setting value is not of type bool
      * @return bool Returns the chosen boolean setting value
      */
-    public function getBool($name, $update = false): bool
+    public function getBool(string $name, bool $update = false): bool
     {
         $value = $this->get($name, $update);
         $value = filter_var($value, FILTER_VALIDATE_BOOLEAN, FILTER_NULL_ON_FAILURE);
@@ -166,7 +166,7 @@ class SettingsManager
      * @throws \InvalidArgumentException Throws if the chosen setting value is not of type int
      * @return int Returns the chosen integer setting value
      */
-    public function getInt($name, $update = false): int
+    public function getInt(string $name, bool $update = false): int
     {
         $value = $this->get($name, $update);
         $value = filter_var($value, FILTER_VALIDATE_INT);
@@ -187,7 +187,7 @@ class SettingsManager
      * @throws \InvalidArgumentException Throws if the chosen setting value is not of type float
      * @return float Returns the chosen float setting value
      */
-    public function getFloat($name, $update = false): float
+    public function getFloat(string $name, bool $update = false): float
     {
         $value = $this->get($name, $update);
         $value = filter_var($value, FILTER_VALIDATE_FLOAT);
@@ -207,7 +207,7 @@ class SettingsManager
      * @throws \UnexpectedValueException Throws if the setting name is invalid or does not exist
      * @return string Returns the chosen string setting value
      */
-    public function getString($name, $update = false): string
+    public function getString(string $name, bool $update = false): string
     {
         return $this->get($name, $update);
     }
@@ -219,7 +219,7 @@ class SettingsManager
      * @throws \UnexpectedValueException Throws if the settings name is invalid
      * @return bool Returns true if the setting exists
      */
-    public function has($name, $update = false): bool
+    public function has(string $name, bool $update = false): bool
     {
         if (!self::isValidName($name))
         {
@@ -248,7 +248,7 @@ class SettingsManager
      * @param string $name The settings name
      * @return bool Returns true if the settings name is valid
      */
-    private static function isValidName($name): bool
+    private static function isValidName(string $name): bool
     {
         return (bool) preg_match('/^[a-z0-9](_?[a-z0-9])*$/', $name);
     }
@@ -290,7 +290,7 @@ class SettingsManager
      * @throws \UnexpectedValueException Throws if there is no setting to the given name found
      * @return string Returns the setting value
      */
-    private function load($name): string
+    private function load(string $name): string
     {
         $sql = 'SELECT prf_value
                   FROM '.TBL_PREFERENCES.'
@@ -311,7 +311,7 @@ class SettingsManager
      * @param string $name  The chosen setting name
      * @param string $value The chosen setting value
      */
-    private function insert($name, $value)
+    private function insert(string $name, string $value)
     {
         $sql = 'INSERT INTO '.TBL_PREFERENCES.'
                        (prf_org_id, prf_name, prf_value)
@@ -335,7 +335,7 @@ class SettingsManager
      * @param bool                $update   Set true to make a force reload of this setting from the database
      * @throws \UnexpectedValueException Throws if one or more of the setting names are invalid or do not exist
      */
-    public function setMulti(array $settings, $update = true)
+    public function setMulti(array $settings, bool $update = true)
     {
         foreach ($settings as $name => $value)
         {
@@ -368,7 +368,7 @@ class SettingsManager
      * @param bool   $update Set true to make a force reload of this setting from the database
      * @throws \UnexpectedValueException Throws if the setting name is invalid or does not exist
      */
-    public function set($name, $value, $update = true)
+    public function set(string $name, $value, bool $update = true)
     {
         if (!self::isValidName($name))
         {
@@ -389,7 +389,7 @@ class SettingsManager
      * @param string $name  The chosen setting name
      * @param string $value The chosen new setting value
      */
-    private function update($name, $value)
+    private function update(string $name, string $value)
     {
         $sql = 'UPDATE '.TBL_PREFERENCES.'
                    SET prf_value  = ? -- $value
@@ -405,7 +405,7 @@ class SettingsManager
      * @param bool   $update Set true to make a force reload of this setting from the database
      * @throws \UnexpectedValueException Throws if the setting name is invalid
      */
-    private function updateOrInsertSetting($name, $value, $update = true)
+    private function updateOrInsertSetting(string $name, string $value, bool$update = true)
     {
         if ($this->has($name, true))
         {

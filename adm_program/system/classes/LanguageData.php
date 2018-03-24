@@ -88,7 +88,7 @@ class LanguageData
      * @throws \UnexpectedValueException
      * @return bool Returns true if language path is added.
      */
-    public function addLanguageFolderPath($languageFolderPath): bool
+    public function addLanguageFolderPath(string $languageFolderPath): bool
     {
         if ($languageFolderPath === '' || !is_dir($languageFolderPath))
         {
@@ -110,7 +110,7 @@ class LanguageData
      * @param string $defaultLanguage This language will be set if no browser language could be determined
      * @return string Return the preferred language code of the client browser
      */
-    public static function determineBrowserLanguage($defaultLanguage): string
+    public static function determineBrowserLanguage(string $defaultLanguage): string
     {
         if (!isset($_SERVER['HTTP_ACCEPT_LANGUAGE']) || empty($_SERVER['HTTP_ACCEPT_LANGUAGE']))
         {
@@ -170,7 +170,7 @@ class LanguageData
      * @param bool $referenceLanguage If set to **true** than the language code of the reference language will returned.
      * @return string Returns the language code of the language of this object or the reference language.
      */
-    public function getLanguage($referenceLanguage = false): string
+    public function getLanguage(bool $referenceLanguage = false): string
     {
         global $gLogger;
 
@@ -189,7 +189,7 @@ class LanguageData
      * @throws \OutOfBoundsException
      * @return string Returns the cached text or empty string if text id isn't found
      */
-    public function getTextCache($textId): string
+    public function getTextCache(string $textId): string
     {
         if (!array_key_exists($textId, $this->textCache))
         {
@@ -213,7 +213,7 @@ class LanguageData
      * @param string $language ISO code of the language that should be set to this object.
      * @return bool Returns true if language changed.
      */
-    public function setLanguage($language): bool
+    public function setLanguage(string $language): bool
     {
         if ($language === $this->language)
         {
@@ -234,7 +234,7 @@ class LanguageData
      * @param string $textId Unique text id where to set the text e.g. SYS_COMMON
      * @param string $text   The text to cache
      */
-    public function setTextCache($textId, $text)
+    public function setTextCache(string $textId, string $text)
     {
         $this->textCache[$textId] = $text;
     }
@@ -246,7 +246,7 @@ class LanguageData
      * @param string $languageFolderPath Server path where Admidio should search for language files.
      * @return bool Returns true if language path is added.
      */
-    public function addLanguagePath($languageFolderPath): bool
+    public function addLanguagePath(string $languageFolderPath): bool
     {
         global $gLogger;
 

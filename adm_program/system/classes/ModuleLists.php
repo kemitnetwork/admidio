@@ -253,7 +253,7 @@ class ModuleLists extends Modules
      * @param int $limit        Number of elements returned max. Default NULL will take number from preferences.
      * @return array<string,mixed> with list and corresponding information
      */
-    public function getDataSet($startElement = 0, $limit = null): array
+    public function getDataSet(int $startElement = 0, int $limit = null): array
     {
         global $gCurrentOrganization, $gSettingsManager, $gDb;
 
@@ -366,7 +366,7 @@ class ModuleLists extends Modules
      * Sets the status of role members to be shown
      * @param string $status active(default), inactive, both
      */
-    public function setMemberStatus($status = self::MEMBER_STATUS_ACTIVE)
+    public function setMemberStatus(string $status = self::MEMBER_STATUS_ACTIVE)
     {
         if (in_array($status, array(self::MEMBER_STATUS_ACTIVE, self::MEMBER_STATUS_INACTIVE, self::MEMBER_STATUS_BOTH), true))
         {

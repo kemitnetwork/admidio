@@ -20,7 +20,7 @@ if (basename($_SERVER['SCRIPT_FILENAME']) === 'string.php')
  * @param string $string
  * @return string
  */
-function admStrToLower($string): string
+function admStrToLower(string $string): string
 {
     if(function_exists('mb_strtolower'))
     {
@@ -36,7 +36,7 @@ function admStrToLower($string): string
  * @param string $string
  * @return string
  */
-function admStrToUpper($string): string
+function admStrToUpper(string $string): string
 {
     if(function_exists('mb_strtoupper'))
     {
@@ -145,7 +145,7 @@ function strStripSlashesDeep($value)
  * @param bool $reverse
  * @return string
  */
-function strNextLetter($letter, $reverse = false): string
+function strNextLetter(string $letter, bool $reverse = false): string
 {
     $ascii      = ord($letter);
     $aLowerCase = ord('a');
@@ -188,7 +188,7 @@ function strNextLetter($letter, $reverse = false): string
  *                          Each type has a different valid character list.
  * @return bool Returns **true** if all characters of **string** match the internal character list.
  */
-function strValidCharacters($string, $checkType): bool
+function strValidCharacters(string $string, string $checkType): bool
 {
     if (trim($string) === '')
     {
@@ -239,7 +239,7 @@ function strValidCharacters($string, $checkType): bool
  * @param string $contains The containing string pattern
  * @return bool Returns true if the string contains the other string
  */
-function admStrContains($string, $contains): bool
+function admStrContains(string $string, string $contains): bool
 {
     return strpos($string, $contains) !== false;
 }
@@ -250,7 +250,7 @@ function admStrContains($string, $contains): bool
  * @param string $start  The starting string pattern
  * @return bool Returns true if the string starts with the other string
  */
-function admStrStartsWith($string, $start): bool
+function admStrStartsWith(string $string, string $start): bool
 {
     return strpos($string, $start) === 0;
 }
@@ -261,7 +261,7 @@ function admStrStartsWith($string, $start): bool
  * @param string $end    The ending string pattern
  * @return bool Returns true if the string ends with the other string
  */
-function admStrEndsWith($string, $end): bool
+function admStrEndsWith(string $string, string $end): bool
 {
     return strrpos($string, $end) === strlen($string) - strlen($end);
 }
@@ -272,7 +272,7 @@ function admStrEndsWith($string, $end): bool
  * @param array<string,string> $replaces An array with search and replace values
  * @return string The modified string
  */
-function admStrMultiReplace($string, array $replaces): string
+function admStrMultiReplace(string $string, array $replaces): string
 {
     return str_replace(array_keys($replaces), array_values($replaces), $string);
 }
@@ -288,7 +288,7 @@ function admStrMultiReplace($string, array $replaces): string
  *                      DOW_FILE_EXTENSION_INVALID : Filename contains invalid extension
  * @return true Returns @true if filename contains only valid characters. Otherwise an AdmException is thrown
  */
-function admStrIsValidFileName($filename, $checkExtension = false): bool
+function admStrIsValidFileName(string $filename, bool $checkExtension = false): bool
 {
     // If the filename was not empty
     if (trim($filename) === '')

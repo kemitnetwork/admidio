@@ -174,7 +174,7 @@ echo '</div>';
  * @param string $html The html string to parse.
  * @return string Returns the parsed html string with all tags closed.
  */
-function pluginAnnouncementsCloseTags($html): string
+function pluginAnnouncementsCloseTags(string $html): string
 {
     preg_match_all('#<(?!meta|img|br|hr|input\b)\b([a-z]+)(?: .*)?(?<![/|/ ])>#iU', $html, $result);
     $openedtags = $result[1];

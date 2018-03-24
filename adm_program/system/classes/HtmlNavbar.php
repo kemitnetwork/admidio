@@ -75,7 +75,7 @@ class HtmlNavbar
      *                           default: will be the standard navbar of all modules.
      *                           filter:  should be used if this navbar is used to filter data of within the script.
      */
-    public function __construct($id, $name = null, HtmlPage $htmlPage = null, $type = 'default')
+    public function __construct(string $id, string $name = null, HtmlPage $htmlPage = null, string $type = 'default')
     {
         global $gL10n;
 
@@ -105,7 +105,7 @@ class HtmlNavbar
      * This method adds an additional css class to the main nav tag of the menu.
      * @param string $className The name of a css class that should be add to the main nav tag of the manu
      */
-    public function addCssClass($className)
+    public function addCssClass(string $className)
     {
         $this->customCssClass = ' '.$className;
     }
@@ -114,7 +114,7 @@ class HtmlNavbar
      * Add a form to the menu. The form will be added between the left and the right part of the navbar.
      * @param string $htmlForm A html code of a form that will be added to the menu
      */
-    public function addForm($htmlForm)
+    public function addForm(string $htmlForm)
     {
         $this->htmlForm = $htmlForm;
     }
@@ -208,7 +208,7 @@ class HtmlNavbar
      * @param string                                                                $class
      * @return string
      */
-    private function getNavHtml(array $items, $class = ''): string
+    private function getNavHtml(array $items, string $class = ''): string
     {
         $html = '<ul class="nav navbar-nav ' . $class . '">';
 
@@ -254,7 +254,7 @@ class HtmlNavbar
      * Set the name of the navbar that will be shown when navbar changed to vertical mode on small devices.
      * @param string $name New name of the navbar.
      */
-    public function setName($name)
+    public function setName(string $name)
     {
         $this->name = $name;
     }

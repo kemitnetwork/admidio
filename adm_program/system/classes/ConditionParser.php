@@ -76,7 +76,7 @@ class ConditionParser
      * @param string $operator The actual operator for the **date** parameter
      * @return string String with a SQL valid date format **YYYY-MM-DD** or empty string
      */
-    private function getFormatDate($date, $operator): string
+    private function getFormatDate(string $date, string $operator): string
     {
         global $gSettingsManager;
 
@@ -152,7 +152,7 @@ class ConditionParser
      * @param string $sourceCondition
      * @return bool Returns true if date search and false if age search
      */
-    private static function isDateSearch($columnType, $sourceCondition): bool
+    private static function isDateSearch(string $columnType, string $sourceCondition): bool
     {
         $sourceCondition = admStrToUpper($sourceCondition);
 
@@ -167,7 +167,7 @@ class ConditionParser
      * **Code example:**
      * ```$parser->setNotExistsStatement('SELECT 1 FROM adm_user_data WHERE usd_usr_id = 1 AND usd_usf_id = 9');```
      */
-    public function setNotExistsStatement($sqlStatement)
+    public function setNotExistsStatement(string $sqlStatement)
     {
         $this->notExistsSql = $sqlStatement;
     }
@@ -182,7 +182,7 @@ class ConditionParser
      *                      LST_NOT_NUMERIC
      * @return string Returns a valid SQL string with the condition for that column
      */
-    public function makeSqlStatement($sourceCondition, $columnName, $columnType, $fieldName): string
+    public function makeSqlStatement(string $sourceCondition, string $columnName, string $columnType, string $fieldName): string
     {
         $conditionComplete = $this->startDestCond($columnType, $columnName, $sourceCondition);
         if ($conditionComplete)
@@ -443,7 +443,7 @@ class ConditionParser
      * @param string $sourceCondition The user condition string
      * @return string String with the predefined chars for conditions
      */
-    public function makeStandardCondition($sourceCondition): string
+    public function makeStandardCondition(string $sourceCondition): string
     {
         global $gL10n;
 
@@ -493,7 +493,7 @@ class ConditionParser
      * @param string $sourceCondition The user condition string
      * @return bool Returns true if "mDestCondition" is complete
      */
-    private function startDestCond($columnType, $columnName, $sourceCondition): bool
+    private function startDestCond(string $columnType, string $columnName, string $sourceCondition): bool
     {
         $this->destCond = ' AND ';  // Bedingungen fuer das Feld immer mit UND starten
 

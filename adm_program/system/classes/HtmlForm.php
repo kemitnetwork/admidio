@@ -98,7 +98,7 @@ class HtmlForm extends HtmlFormBasic
      *                           - **class** : An additional css classname. The class **form-horizontal**
      *                             is set as default and need not set with this parameter.
      */
-    public function __construct($id, $action, HtmlPage $htmlPage = null, array $options = array())
+    public function __construct(string $id, string $action, HtmlPage $htmlPage = null, array $options = array())
     {
         // create array with all options
         $optionsDefault = array(
@@ -168,7 +168,7 @@ class HtmlForm extends HtmlFormBasic
      * @param bool   $executeAfterPageLoad (optional) If set to **true** the javascript code will be executed after
      *                                     the page is fully loaded.
      */
-    protected function addJavascriptCode($javascriptCode, $executeAfterPageLoad = false)
+    protected function addJavascriptCode(string $javascriptCode, bool $executeAfterPageLoad = false)
     {
         if ($this->htmlPage instanceof HtmlPage)
         {
@@ -199,7 +199,7 @@ class HtmlForm extends HtmlFormBasic
      *                          is set as default and need not set with this parameter.
      *                        - **type** : Optional a button type could be set. The default is **button**.
      */
-    public function addButton($id, $text, array $options = array())
+    public function addButton(string $id, string $text, array $options = array())
     {
         ++$this->countElements;
 
@@ -286,7 +286,7 @@ class HtmlForm extends HtmlFormBasic
      *                        - **type** : If set to true this button get the type **submit**. This will
      *                          be the default.
      */
-    public function addSubmitButton($id, $text, array $options = array())
+    public function addSubmitButton(string $id, string $text, array $options = array())
     {
         // create array with all options
         $optionsDefault = array('icon' => '', 'link' => '', 'onClickText' => '', 'class' => '', 'type' => 'submit');
@@ -311,7 +311,7 @@ class HtmlForm extends HtmlFormBasic
      * @param string $class (optional) An additional css classname. The class **admTextInput**
      *                      is set as default and need not set with this parameter.
      */
-    public function addCaptcha($id, $class = '')
+    public function addCaptcha(string $id, string $class = '')
     {
         global $gL10n;
 
@@ -363,7 +363,7 @@ class HtmlForm extends HtmlFormBasic
      *                        - **class** : An additional css classname. The class **admSelectbox**
      *                          is set as default and need not set with this parameter.
      */
-    public function addCheckbox($id, $label, $checked = false, array $options = array())
+    public function addCheckbox(string $id, string $label, bool $checked = false, array $options = array())
     {
         $attributes   = array('class' => '');
         $htmlIcon     = '';
@@ -450,7 +450,7 @@ class HtmlForm extends HtmlFormBasic
      *                        - **class** : An additional css classname. The class **admSelectbox**
      *                          is set as default and need not set with this parameter.
      */
-    public function addCustomContent($label, $content, array $options = array())
+    public function addCustomContent(string $label, string $content, array $options = array())
     {
         ++$this->countElements;
 
@@ -476,7 +476,7 @@ class HtmlForm extends HtmlFormBasic
      * Add a line with a custom description to the form. No form elements will be displayed in this line.
      * @param string $text The (html) text that should be displayed.
      */
-    public function addDescription($text)
+    public function addDescription(string $text)
     {
         $this->addHtml('<p>' . $text . '</p>');
     }
@@ -508,7 +508,7 @@ class HtmlForm extends HtmlFormBasic
      *                        - **class** : An additional css classname. The class **admSelectbox**
      *                          is set as default and need not set with this parameter.
      */
-    public function addEditor($id, $label, $value, array $options = array())
+    public function addEditor(string $id, string $label, string $value, array $options = array())
     {
         global $gSettingsManager, $gL10n;
 
@@ -611,7 +611,7 @@ class HtmlForm extends HtmlFormBasic
      *                        - **class** : An additional css classname. The class **admSelectbox**
      *                          is set as default and need not set with this parameter.
      */
-    public function addFileUpload($id, $label, array $options = array())
+    public function addFileUpload(string $id, string $label, array $options = array())
     {
         global $gSettingsManager;
 
@@ -731,7 +731,7 @@ class HtmlForm extends HtmlFormBasic
      *                          is set as default and need not set with this parameter.
      *                        - **htmlAfter** : Add html code after the input field.
      */
-    public function addInput($id, $label, $value, array $options = array())
+    public function addInput(string $id, string $label, string $value, array $options = array())
     {
         global $gL10n, $gSettingsManager, $gLogger;
 
@@ -1007,7 +1007,7 @@ class HtmlForm extends HtmlFormBasic
      *                        - **class** : An additional css classname. The class **admSelectbox**
      *                          is set as default and need not set with this parameter.
      */
-    public function addMultilineTextInput($id, $label, $value, $rows, array $options = array())
+    public function addMultilineTextInput(string $id, string $label, string $value, int $rows, array $options = array())
     {
         global $gL10n;
 
@@ -1111,7 +1111,7 @@ class HtmlForm extends HtmlFormBasic
      *                        - **class** : An additional css classname. The class **admSelectbox**
      *                          is set as default and need not set with this parameter.
      */
-    public function addRadioButton($id, $label, array $values, array $options = array())
+    public function addRadioButton(string $id, string $label, array $values, array $options = array())
     {
         $attributes = array('class' => '');
         ++$this->countElements;
@@ -1226,7 +1226,7 @@ class HtmlForm extends HtmlFormBasic
      *                        - **class** : An additional css classname. The class **admSelectbox**
      *                          is set as default and need not set with this parameter.
      */
-    public function addSelectBox($id, $label, array $values, array $options = array())
+    public function addSelectBox(string $id, string $label, array $values, array $options = array())
     {
         global $gL10n;
 
@@ -1506,7 +1506,7 @@ class HtmlForm extends HtmlFormBasic
      * $form->show();
      * ```
      */
-    public function addSelectBoxFromSql($id, $label, Database $database, $sql, array $options = array())
+    public function addSelectBoxFromSql(string $id, string $label, Database $database, $sql, array $options = array())
     {
         $selectBoxEntries = array();
 
@@ -1585,7 +1585,7 @@ class HtmlForm extends HtmlFormBasic
      *                        - **class** : An additional css classname. The class **admSelectbox**
      *                          is set as default and need not set with this parameter.
      */
-    public function addSelectBoxFromXml($id, $label, $xmlFile, $xmlValueTag, $xmlViewTag, array $options = array())
+    public function addSelectBoxFromXml(string $id, string $label, string $xmlFile, string $xmlValueTag, string $xmlViewTag, array $options = array())
     {
         $selectBoxEntries = array();
 
@@ -1651,7 +1651,7 @@ class HtmlForm extends HtmlFormBasic
      *                                 - **class** : An additional css classname. The class **admSelectbox**
      *                                   is set as default and need not set with this parameter.
      */
-    public function addSelectBoxForCategories($id, $label, Database $database, $categoryType, $selectBoxModus, array $options = array())
+    public function addSelectBoxForCategories(string $id, string $label, Database $database, string $categoryType, string $selectBoxModus, array $options = array())
     {
         global $gCurrentOrganization, $gCurrentUser, $gL10n;
 
@@ -1815,7 +1815,7 @@ class HtmlForm extends HtmlFormBasic
      *                        - **class** : An additional css classname. The class **admSelectbox**
      *                          is set as default and need not set with this parameter.
      */
-    public function addStaticControl($id, $label, $value, array $options = array())
+    public function addStaticControl(string $id, string $label, string $value, array $options = array())
     {
         $attributes = array('class' => 'form-control-static');
         ++$this->countElements;
@@ -1850,7 +1850,7 @@ class HtmlForm extends HtmlFormBasic
      * @param string|array $helpTextId A unique text id from the translation xml files that should be shown e.g. SYS_DATA_CATEGORY_GLOBAL.
      *                                 If set the complete text will be shown after the form element.
      */
-    protected function closeControlStructure($helpTextId = '')
+    protected function closeControlStructure(string $helpTextId = '')
     {
         global $gL10n, $gLogger;
 
@@ -1928,7 +1928,7 @@ class HtmlForm extends HtmlFormBasic
      * @param string          $parameter If you need an additional parameter for the text you can set this parameter.
      * @return string Return a html snippet that contains a help icon with a link to a popup box that shows the message.
      */
-    public static function getHelpTextIcon($textId, $parameter = null): string
+    public static function getHelpTextIcon($textId, string $parameter = null): string
     {
         global $gL10n, $gProfileFields;
 
@@ -2065,7 +2065,7 @@ class HtmlForm extends HtmlFormBasic
      * @param string $class    (optional) An additional css classname for the row. The class **admFieldRow**
      *                         is set as default and need not set with this parameter.
      */
-    public function openGroupBox($id, $headline = null, $class = '')
+    public function openGroupBox(string $id, string $headline = null, string $class = '')
     {
         $this->addHtml('<div id="' . $id . '" class="panel panel-default ' . $class . '">');
         // add headline to groupbox
@@ -2085,7 +2085,7 @@ class HtmlForm extends HtmlFormBasic
      *                                   to the browser. If set to **false** the html will be returned.
      * @return string|null If $directOutput is set to **false** this method will return the html code of the form.
      */
-    public function show($directOutput = true)
+    public function show(bool $directOutput = true)
     {
         global $gL10n;
 

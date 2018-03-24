@@ -56,7 +56,7 @@ final class PasswordHashing
      * @param array<string,mixed> $options   The options to test
      * @return array<string,int|float> Returns an array with the maximum tested cost with the required time
      */
-    public static function costBenchmark($maxTime = 0.35, $password = 'password', $algorithm = self::HASH_ALGORITHM_DEFAULT, array $options = array('cost' => null)): array
+    public static function costBenchmark(float $maxTime = 0.35, $password = 'password', $algorithm = self::HASH_ALGORITHM_DEFAULT, array $options = array('cost' => null)): array
     {
         global $gLogger;
 
@@ -105,7 +105,7 @@ final class PasswordHashing
      * @param array<string,mixed> $options   The hash-options array
      * @return string|false Returns the hashed password or false if an error occurs
      */
-    public static function hash($password, $algorithm = self::HASH_ALGORITHM_DEFAULT, array $options = array())
+    public static function hash(string $password, string $algorithm = self::HASH_ALGORITHM_DEFAULT, array $options = array())
     {
         $options['cost'] = self::getPreparedCost($algorithm, $options);
 
@@ -134,7 +134,7 @@ final class PasswordHashing
      * @return string Returns a cryptographically strong random password string
      * @see https://paragonie.com/b/JvICXzh_jhLyt4y3
      */
-    public static function genRandomPassword($length = 16, $charset = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'): string
+    public static function genRandomPassword(int $length = 16, string $charset = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'): string
     {
         if ($length < 1)
         {
@@ -174,7 +174,7 @@ final class PasswordHashing
      * @throws AdmException SYS_GEN_RANDOM_ERROR, SYS_GEN_RANDOM_EXCEPTION
      * @return int Returns an insecure random integer
      */
-    private static function genRandomIntFallback($min, $max, $exceptionOnInsecurePRNG, $exception, $exceptionMessage): int
+    private static function genRandomIntFallback(int $min, int $max, bool $exceptionOnInsecurePRNG, $exception, string $exceptionMessage): int
     {
         global $gLogger;
 
@@ -221,7 +221,7 @@ final class PasswordHashing
      * @param array<string,mixed> $options   The hash-options array
      * @return int
      */
-    private static function getPreparedCost($algorithm, $options): int
+    private static function getPreparedCost(string $algorithm, $options): int
     {
         if ($algorithm === self::HASH_ALGORITHM_SHA512)
         {
@@ -251,7 +251,7 @@ final class PasswordHashing
      * @param string $hash The hash you want the get infos about
      * @return string|array<string,mixed> Returns an array or string with infos about the given hash
      */
-    public static function hashInfo($hash)
+    public static function hashInfo(string $hash)
     {
         $hashLength = strlen($hash);
         if ($hashLength === self::HASH_LENGTH_BCRYPT && admStrStartsWith($hash, self::HASH_INDICATOR_BCRYPT))
@@ -283,7 +283,7 @@ final class PasswordHashing
      * @param array<string,mixed> $options   The hash-options the hash should match to
      * @return bool Returns false if the hash match the given options and false if not
      */
-    public static function needsRehash($hash, $algorithm = self::HASH_ALGORITHM_DEFAULT, array $options = array()): bool
+    public static function needsRehash(string $hash, string $algorithm = self::HASH_ALGORITHM_DEFAULT, array $options = array()): bool
     {
         $options['cost'] = self::getPreparedCost($algorithm, $options);
         $hashLength = strlen($hash);
@@ -316,7 +316,7 @@ final class PasswordHashing
      * @param string $password The password you want the get infos about
      * @return array<string,int|bool> Returns an array with infos about the given password
      */
-    public static function passwordInfo($password): array
+    public static function passwordInfo(string $password): array
     {
         $passwordInfo = array(
             'length'    => 0,
@@ -354,7 +354,7 @@ final class PasswordHashing
      * @param array<int,string> $userData An array of strings for dictionary attacks
      * @return int Returns the score of the password
      */
-    public static function passwordStrength($password, array $userData = array()): int
+    public static function passwordStrength(string $password, array $userData = array()): int
     {
         $zxcvbn = new \ZxcvbnPhp\Zxcvbn();
         $strength = $zxcvbn->passwordStrength($password, $userData);
@@ -368,7 +368,7 @@ final class PasswordHashing
      * @param string $hash     The hash string to check
      * @return bool Returns true if the password belongs to the hash and false if not
      */
-    public static function verify($password, $hash): bool
+    public static function verify(string $password, string $hash): bool
     {
         $hashLength = strlen($hash);
         if ($hashLength === self::HASH_LENGTH_BCRYPT && admStrStartsWith($hash, self::HASH_INDICATOR_BCRYPT))

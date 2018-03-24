@@ -93,7 +93,7 @@ abstract class Modules
      * @param int $limit
      * @return array
      */
-    abstract public function getDataSet($startElement = 0, $limit = null): array;
+    abstract public function getDataSet(int $startElement = 0, int $limit = null): array;
 
     /**
      * @return mixed
@@ -165,7 +165,7 @@ abstract class Modules
      * @param string $parameterName The name of the parameter whose value should be returned.
      * @return mixed|null Returns the parameter value or null if parameter didn't exists
      */
-    public function getParameter($parameterName)
+    public function getParameter(string $parameterName)
     {
         if ($parameterName !== '' && array_key_exists($parameterName, $this->parameters))
         {
@@ -242,7 +242,7 @@ abstract class Modules
      * @param string $parameterName  The name of the parameter that should be added.
      * @param mixed  $parameterValue The value of the parameter that should be added.
      */
-    public function setParameter($parameterName, $parameterValue)
+    public function setParameter(string $parameterName, $parameterValue)
     {
         if ($parameterName !== '')
         {

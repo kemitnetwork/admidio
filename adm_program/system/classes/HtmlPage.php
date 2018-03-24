@@ -93,7 +93,7 @@ class HtmlPage
      * Constructor creates the page object and initialized all parameters
      * @param string $headline A string that contains the headline for the page that will be shown in the <h1> tag.
      */
-    public function __construct($headline = '')
+    public function __construct(string $headline = '')
     {
         $this->menu = new HtmlNavbar('menu_main_script', $headline, $this);
 
@@ -109,7 +109,7 @@ class HtmlPage
      * Adds a cascading style sheets file to the html page.
      * @param string $cssFile The url with filename or the relative path starting with **adm_program** of the css file.
      */
-    public function addCssFile($cssFile)
+    public function addCssFile(string $cssFile)
     {
         if (!in_array($cssFile, $this->cssFiles, true))
         {
@@ -129,7 +129,7 @@ class HtmlPage
      * @param string $rssFile The url with filename of the rss file.
      * @param string $title   (optional) Set a title. This is the name of the feed and will be shown when adding the rss feed.
      */
-    public function addRssFile($rssFile, $title = '')
+    public function addRssFile(string $rssFile, string $title = '')
     {
         if ($title !== '')
         {
@@ -145,7 +145,7 @@ class HtmlPage
      * Adds a javascript file to the html page.
      * @param string $jsFile The url with filename or the relative path starting with **adm_program** of the javascript file.
      */
-    public function addJavascriptFile($jsFile)
+    public function addJavascriptFile(string $jsFile)
     {
         if (!in_array($jsFile, $this->jsFiles, true))
         {
@@ -166,7 +166,7 @@ class HtmlPage
      * @param bool   $executeAfterPageLoad (optional) If set to **true** the javascript code will be executed after
      *                                     the page is fully loaded.
      */
-    public function addJavascript($javascriptCode, $executeAfterPageLoad = false)
+    public function addJavascript(string $javascriptCode, bool $executeAfterPageLoad = false)
     {
         if ($executeAfterPageLoad)
         {
@@ -182,7 +182,7 @@ class HtmlPage
      * Add content to the header segment of a html page.
      * @param string $header Content for the html header segment.
      */
-    public function addHeader($header)
+    public function addHeader(string $header)
     {
         $this->header .= $header;
     }
@@ -193,7 +193,7 @@ class HtmlPage
      * the page. The second call below the first etc.
      * @param string $html A valid html code that will be added to the page.
      */
-    public function addHtml($html)
+    public function addHtml(string $html)
     {
         $this->pageContent .= $html;
     }
@@ -363,7 +363,7 @@ class HtmlPage
      * @param string $filepath Filename of the NOT minified file.
      * @return string Returns the filename in dependence of the debug mode.
      */
-    private function getDebugOrMinFilepath($filepath): string
+    private function getDebugOrMinFilepath(string $filepath): string
     {
         global $gDebug;
 
@@ -395,7 +395,7 @@ class HtmlPage
      * @param string $filename Filename to load out of the theme directory
      * @return string
      */
-    private function getFileContent($filename): string
+    private function getFileContent(string $filename): string
     {
         global $gLogger, $gL10n, $gDb, $gCurrentSession, $gCurrentOrganization, $gCurrentUser;
         global $gValidLogin, $gProfileFields, $gHomepage, $gDbType, $gSettingsManager;
@@ -573,7 +573,7 @@ class HtmlPage
      * @param int $menId
      * @return \PDOStatement|false
      */
-    private static function getMenuStatement($menId)
+    private static function getMenuStatement(int $menId)
     {
         global $gDb;
 
@@ -662,7 +662,7 @@ class HtmlPage
      * @param string $headline A string that contains the headline for the page.
      * @return void
      */
-    public function setHeadline($headline)
+    public function setHeadline(string $headline)
     {
         if ($this->title === '')
         {
@@ -678,7 +678,7 @@ class HtmlPage
      * @param string $title A string that contains the title for the page.
      * @return void
      */
-    public function setTitle($title)
+    public function setTitle(string $title)
     {
         global $gCurrentOrganization;
 
@@ -709,7 +709,7 @@ class HtmlPage
      *                           to the browser. If set to **false** the html will be returned.
      * @return string|void If $directOutput is set to **false** this method will return the html code of the page.
      */
-    public function show($directOutput = true)
+    public function show(bool $directOutput = true)
     {
         $this->addMainFilesAndContent();
 
@@ -735,7 +735,7 @@ class HtmlPage
      * @param bool $details indicator to set if there should be details in the menu.
      * @return string HTML of the Menu
      */
-    public function showMainMenu($details = true): string
+    public function showMainMenu(bool $details = true): string
     {
         global $gL10n, $gValidLogin, $gSettingsManager, $gDb, $gCurrentUser;
 

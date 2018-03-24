@@ -85,7 +85,7 @@ class ModuleAnnouncements extends Modules
      * @param int $limit
      * @return array<string,mixed> Returns the Array with results, recordsets and validated parameters from $_GET Array
      */
-    public function getDataSet($startElement = 0, $limit = null): array
+    public function getDataSet(int $startElement = 0, int $limit = null): array
     {
         global $gCurrentUser, $gDb;
 
@@ -231,7 +231,7 @@ class ModuleAnnouncements extends Modules
      * @param string $dateFormat
      * @return bool
      */
-    private function setDateRangeParams($dateRange, $dateRangePoint, $dateFormat): bool
+    private function setDateRangeParams(string $dateRange, string $dateRangePoint, string $dateFormat): bool
     {
         global $gSettingsManager;
 

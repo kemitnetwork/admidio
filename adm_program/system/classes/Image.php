@@ -39,7 +39,7 @@ class Image
     /**
      * @param string $pathAndFilename
      */
-    public function __construct($pathAndFilename = '')
+    public function __construct(string $pathAndFilename = '')
     {
         if ($pathAndFilename !== '')
         {
@@ -53,7 +53,7 @@ class Image
      * @param int           $quality       die Qualitaet kann fuer jpeg-Dateien veraendert werden
      * @return bool
      */
-    public function copyToBrowser($imageResource = null, $quality = 95): bool
+    public function copyToBrowser($imageResource = null, int $quality = 95): bool
     {
         if ($imageResource === null)
         {
@@ -113,7 +113,7 @@ class Image
      * @param string $pathAndFilename
      * @return bool
      */
-    private function createResource($pathAndFilename): bool
+    private function createResource(string $pathAndFilename): bool
     {
         switch ($this->imageType)
         {
@@ -178,7 +178,7 @@ class Image
      * @param string $direction 'right' o. 'left' Richtung, in die gedreht wird
      * @return bool
      */
-    public function rotate($direction = self::ROTATE_DIRECTION_RIGHT): bool
+    public function rotate(string $direction = self::ROTATE_DIRECTION_RIGHT): bool
     {
         switch ($direction)
         {
@@ -215,7 +215,7 @@ class Image
      *                                  but maybe one side will be smaller than set with the parameters.
      * @return bool Return true if the image was scaled otherwise false.
      */
-    public function scale($newXSize, $newYSize, $maintainAspectRatio = true): bool
+    public function scale(int $newXSize, int $newYSize, bool $maintainAspectRatio = true): bool
     {
         if ($maintainAspectRatio)
         {
@@ -280,7 +280,7 @@ class Image
      * @param int $newMaxSize New maximum size in pixel to which the image should be scaled.
      * @return bool Return true if the image was scaled otherwise false.
      */
-    public function scaleLargerSide($newMaxSize): bool
+    public function scaleLargerSide(int $newMaxSize): bool
     {
         if($newMaxSize < $this->imageWidth || $newMaxSize < $this->imageHeight)
         {
@@ -311,7 +311,7 @@ class Image
      * @param string $imageData String with binary image data
      * @return bool
      */
-    public function setImageFromData($imageData): bool
+    public function setImageFromData(string $imageData): bool
     {
         $imageResource = imagecreatefromstring($imageData);
 
@@ -334,7 +334,7 @@ class Image
      * @param string $pathAndFilename
      * @return bool
      */
-    public function setImageFromPath($pathAndFilename): bool
+    public function setImageFromPath(string $pathAndFilename): bool
     {
         if (!is_file($pathAndFilename))
         {
@@ -361,7 +361,7 @@ class Image
      * @param string $imageType
      * @return bool
      */
-    public function setImageType($imageType): bool
+    public function setImageType(string $imageType): bool
     {
         switch ($imageType)
         {

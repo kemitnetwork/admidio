@@ -47,7 +47,7 @@ class AdmException extends Exception
      * @param string            $message Translation **id** that should be shown when exception is catched
      * @param array<int,string> $params  Optional parameter for language string of translation id
      */
-    public function __construct($message, $params = array())
+    public function __construct(string $message, $params = array())
     {
         global $gLogger, $gDb;
 
@@ -107,7 +107,7 @@ class AdmException extends Exception
      * @param string            $message Translation **id** that should be shown when exception is catched
      * @param array<int,string> $params  Optional parameter for language string of translation id
      */
-    public function setNewMessage($message, $params = array())
+    public function setNewMessage(string $message, $params = array())
     {
         global $gLogger;
 

@@ -46,7 +46,7 @@ class ComponentUpdate extends Component
      * @param string $versionString A version string
      * @return array<int,int> Returns an array with the version parts
      */
-    private static function getVersionArrayFromVersion($versionString): array
+    private static function getVersionArrayFromVersion(string $versionString): array
     {
         return array_map('intval', explode('.', $versionString));
     }
@@ -59,7 +59,7 @@ class ComponentUpdate extends Component
      * @throws \UnexpectedValueException
      * @return \SimpleXMLElement
      */
-    private function getXmlObject($mainVersion, $minorVersion): \SimpleXMLElement
+    private function getXmlObject(int $mainVersion, int $minorVersion): \SimpleXMLElement
     {
         global $gLogger;
 
@@ -120,7 +120,7 @@ class ComponentUpdate extends Component
      * Get method name and execute this method
      * @param string $updateStepContent
      */
-    private static function executeUpdateMethod($updateStepContent)
+    private static function executeUpdateMethod(string $updateStepContent)
     {
         // get the method name (remove "ComponentUpdateSteps::")
         $methodName = substr($updateStepContent, 22);
@@ -133,7 +133,7 @@ class ComponentUpdate extends Component
      * @param string $sql
      * @param bool   $showError
      */
-    private function executeUpdateSql($sql, $showError)
+    private function executeUpdateSql(string $sql, bool $showError)
     {
         $this->db->queryPrepared(Database::prepareSqlTablePrefix($sql), array(), $showError);
     }
@@ -215,7 +215,7 @@ class ComponentUpdate extends Component
      * in this file until the end of file is reached. If an error occurred then the update will be stopped.
      * @param string $targetVersion The target version to update.
      */
-    public function update($targetVersion)
+    public function update(string $targetVersion)
     {
         global $gLogger;
 

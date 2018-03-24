@@ -120,7 +120,7 @@ class Organization extends TableAccess
      * @param int $userId The id of the administrator who creates the new organization.
      *                    This will be the first valid user of the new organization.
      */
-    public function createBasicData($userId)
+    public function createBasicData(int $userId)
     {
         global $gL10n, $gProfileFields;
 
@@ -364,7 +364,7 @@ class Organization extends TableAccess
      * @return string Returns a string with a comma separated list of all organization
      *                ids that are parents or children and the own id
      */
-    public function getFamilySQL($shortname = false): string
+    public function getFamilySQL(bool $shortname = false): string
     {
         $organizations = $this->getOrganizationsInRelationship();
 
@@ -374,7 +374,7 @@ class Organization extends TableAccess
              * @param string $value
              * @return string
              */
-            function addQuotationMarks($value): string
+            function addQuotationMarks(string $value): string
             {
                 return '\''.$value.'\'';
             }
@@ -398,7 +398,7 @@ class Organization extends TableAccess
      *                       otherwise it will be **org_shortname**
      * @return array<int,string> Returns an array with all child and parent organizations e.g. array('org_id' => 'org_shortname')
      */
-    public function getOrganizationsInRelationship($child = true, $parent = true, $longname = false): array
+    public function getOrganizationsInRelationship(bool $child = true, bool $parent = true, bool $longname = false): array
     {
         $sqlWhere = array();
         $queryParams = array();
@@ -477,7 +477,7 @@ class Organization extends TableAccess
      * @param bool   $checkValue The value will be checked if it's valid. If set to **false** than the value will not be checked.
      * @return bool Returns **true** if the value is stored in the current object and **false** if a check failed
      */
-    public function setValue($columnName, $newValue, $checkValue = true): bool
+    public function setValue(string $columnName, $newValue, bool $checkValue = true): bool
     {
         // org_shortname shouldn't be edited
         if($columnName === 'org_shortname' && !$this->newRecord)
@@ -513,7 +513,7 @@ class Organization extends TableAccess
      * @return array<string,string> Returns an array with all preferences of this organization.
      *                              Array key is the column **prf_name** and array value is the column **prf_value**.
      */
-    public function getPreferences($update = false): array
+    public function getPreferences(bool $update = false): array
     {
         return $this->settingsManager->getAll($update);
     }
@@ -526,7 +526,7 @@ class Organization extends TableAccess
      * @param bool                 $update   If set to **false** then no update will be done, only inserts
      * @throws \UnexpectedValueException
      */
-    public function setPreferences(array $settings, $update = true)
+    public function setPreferences(array $settings, bool $update = true)
     {
         $this->settingsManager->setMulti($settings, $update);
     }

@@ -38,7 +38,7 @@ class Folder
      * @deprecated 3.3.0:4.0.0 The class "Folder" is deprecated and should not be used anymore. The class "FileSystemUtils" should be used instead.
      * @param string $folderWithPath
      */
-    public function __construct($folderWithPath = '')
+    public function __construct(string $folderWithPath = '')
     {
         global $gLogger;
 
@@ -55,7 +55,7 @@ class Folder
      * @param string $folderWithPath
      * @return bool Returns true if given folder is an existing folder
      */
-    public function setFolder($folderWithPath = ''): bool
+    public function setFolder(string $folderWithPath = ''): bool
     {
         if($folderWithPath !== '' && is_dir($folderWithPath))
         {
@@ -85,7 +85,7 @@ class Folder
      * @param bool   $writable
      * @return bool
      */
-    public function createFolder($newFolder, $writable): bool
+    public function createFolder(string $newFolder, bool $writable): bool
     {
         $newPath = $this->folderWithPath.'/'.$newFolder;
         $returnValue = true;
@@ -120,7 +120,7 @@ class Folder
      * @param string $sourceFolder
      * @return bool
      */
-    public function copy($destinationFolder, $sourceFolder = ''): bool
+    public function copy(string $destinationFolder, string $sourceFolder = ''): bool
     {
         if($sourceFolder === '')
         {
@@ -242,7 +242,7 @@ class Folder
      * @param string $sourceFolder der zu verschiebende Ordner, falls nicht gefuellt wird der Ordner aus der Klasse genommen
      * @return bool Returns true if the move works successfully
      */
-    public function move($destFolder, $sourceFolder = ''): bool
+    public function move(string $destFolder, string $sourceFolder = ''): bool
     {
         if($sourceFolder === '')
         {
@@ -264,7 +264,7 @@ class Folder
      * @param string $newName The new name of the folder.
      * @return bool Returns **true** on success or **false** on failure.
      */
-    public function rename($newName): bool
+    public function rename(string $newName): bool
     {
         return rename($this->folderWithPath, $newName);
     }

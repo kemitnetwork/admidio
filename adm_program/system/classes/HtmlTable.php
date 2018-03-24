@@ -98,7 +98,7 @@ class HtmlTable extends HtmlTableBasic
      * @param string   $class      (optional) An additional css classname. The class **table**
      *                             is set as default and need not set with this parameter.
      */
-    public function __construct($id, HtmlPage $htmlPage = null, $hoverRows = true, $datatables = false, $class = null)
+    public function __construct(string $id, HtmlPage $htmlPage = null, bool $hoverRows = true, bool $datatables = false, string $class = null)
     {
         global $gL10n;
 
@@ -175,7 +175,7 @@ class HtmlTable extends HtmlTableBasic
      * @param int                  $colspan         (optional) Number of columns that should be join together.
      * @param int                  $colspanOffset   (optional) Number of the column where the colspan should start. The first column of a table will be 1.
      */
-    public function addRowHeadingByArray(array $arrColumnValues, $id = null, array $arrAttributes = null, $colspan = 1, $colspanOffset = 1)
+    public function addRowHeadingByArray(array $arrColumnValues, string $id = null, array $arrAttributes = null, int $colspan = 1, int $colspanOffset = 1)
     {
         $this->addTableHeader();
         $this->addRowTypeByArray('th', $arrColumnValues, $id, $arrAttributes, $colspan, $colspanOffset);
@@ -193,7 +193,7 @@ class HtmlTable extends HtmlTableBasic
      * @param int                  $colspanOffset   (optional) Number of the column where the colspan should start.
      *                                              The first column of a table will be 1.
      */
-    public function addRowByArray(array $arrColumnValues, $id = null, array $arrAttributes = null, $colspan = 1, $colspanOffset = 1)
+    public function addRowByArray(array $arrColumnValues, string $id = null, array $arrAttributes = null, int $colspan = 1, int $colspanOffset = 1)
     {
         // if body area wasn't defined until now then do it
         if (!$this->tbody)
@@ -328,7 +328,7 @@ class HtmlTable extends HtmlTableBasic
      * @param int             $colspanOffset (optional) Number of the column where the colspan should start.
      *                                       The first column of a table will be 1.
      */
-    private function prepareAndAddColumn($type, $key, $value, $colspan = 1, $colspanOffset = 1)
+    private function prepareAndAddColumn(string $type, int $key, $value, int $colspan = 1, int $colspanOffset = 1)
     {
         $columnAttributes = array();
 
@@ -385,7 +385,7 @@ class HtmlTable extends HtmlTableBasic
      * @param int|int[] $arrayOrderColumns This are the columns the table will internal be sorted. If you have more
      *                                     than 1 column this must be an array. The columns of the table starts with 1 (not 0).
      */
-    public function setDatatablesAlternativeOrderColumns($selectedColumn, $arrayOrderColumns)
+    public function setDatatablesAlternativeOrderColumns(int $selectedColumn, $arrayOrderColumns)
     {
         // internal datatable columns starts with 0
         if (is_array($arrayOrderColumns))
@@ -394,7 +394,7 @@ class HtmlTable extends HtmlTableBasic
              * @param int $item
              * @return int decremented item
              */
-            function decrement($item): int
+            function decrement(int $item): int
             {
                 return --$item;
             }
@@ -429,7 +429,7 @@ class HtmlTable extends HtmlTableBasic
      * @param int $columnNumber Number of the column that should be grouped. The first column starts with 1.
      *                          The columns were set with the method **addRowByArray**.
      */
-    public function setDatatablesGroupColumn($columnNumber)
+    public function setDatatablesGroupColumn(int $columnNumber)
     {
         $this->groupedColumn = $columnNumber - 1;
 
@@ -479,7 +479,7 @@ class HtmlTable extends HtmlTableBasic
      * Set the number of rows that should be displayed on one page if the jQuery plugin DataTables is used.
      * @param int $numberRows Number of rows that should be displayed on one page.
      */
-    public function setDatatablesRowsPerPage($numberRows)
+    public function setDatatablesRowsPerPage(int $numberRows)
     {
         $this->rowsPerPage = $numberRows;
     }
@@ -490,7 +490,7 @@ class HtmlTable extends HtmlTableBasic
      * @param string $messageType (optional) As **default** the text will be shown. If **warning** or **error**
      *                            is set then a box in yellow or red with the message will be shown.
      */
-    public function setMessageIfNoRowsFound($messageId, $messageType = 'default')
+    public function setMessageIfNoRowsFound(string $messageId, string $messageType = 'default')
     {
         global $gL10n;
 
@@ -516,7 +516,7 @@ class HtmlTable extends HtmlTableBasic
      * @param string $file The url with the filename that should be called by Datatables to get the data. The
      *                     called script must return a json string.
      */
-    public function setServerSideProcessing($file)
+    public function setServerSideProcessing(string $file)
     {
         $this->serverSideProcessing = true;
         $this->serverSideFile = $file;
@@ -556,7 +556,7 @@ class HtmlTable extends HtmlTableBasic
      * @param int|int[] $arrayOrderColumns This are the columns the table will internal be sorted. If you have more
      *                                     than 1 column this must be an array. The columns of the table starts with 1 (not 0).
      */
-    public function setDatatablesAlternativOrderColumns($selectedColumn, $arrayOrderColumns)
+    public function setDatatablesAlternativOrderColumns(int $selectedColumn, $arrayOrderColumns)
     {
         global $gLogger;
 

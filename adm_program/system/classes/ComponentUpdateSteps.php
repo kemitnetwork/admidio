@@ -457,7 +457,7 @@ final class ComponentUpdateSteps
      * @param string $folder
      * @return bool
      */
-    public static function updateStepRewriteFolderRights($folder = ''): bool
+    public static function updateStepRewriteFolderRights(string $folder = ''): bool
     {
         if (!FileSystemUtils::isUnix())
         {

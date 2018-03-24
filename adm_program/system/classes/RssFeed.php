@@ -52,7 +52,7 @@ class RssFeed
      * @param string $description Short description of this channel
      * @param string $copyright   Author of the channel; in our case the organization name
      */
-    public function __construct($title, $link, $description, $copyright)
+    public function __construct(string $title, string $link, string $description, string $copyright)
     {
         $this->channel['title'] = $title;
         $this->channel['link']  = $link;
@@ -69,7 +69,7 @@ class RssFeed
      * @param string $author      The name of the member who creates this entry
      * @param string $date        Publication date of this entry
      */
-    public function addItem($title, $description, $link, $author, $date)
+    public function addItem(string $title, string $description, string $link, string $author, string $date)
     {
         $this->items[] = array('title' => $title, 'description' => $description, 'link' => $link, 'author' => $author, 'pubDate' => $date);
     }

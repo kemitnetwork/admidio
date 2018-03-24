@@ -98,7 +98,7 @@ function updateOrgPreferences()
 /**
  * @param bool $enable
  */
-function toggleForeignKeyChecks($enable)
+function toggleForeignKeyChecks(bool $enable)
 {
     global $gDb;
 
@@ -115,7 +115,7 @@ function toggleForeignKeyChecks($enable)
  * @param int $versionMinor
  * @param int $versionPatch
  */
-function doVersion2Update(&$versionMain, &$versionMinor, &$versionPatch)
+function doVersion2Update(int &$versionMain, int &$versionMinor, int &$versionPatch)
 {
     global $gLogger, $gDb, $gL10n, $gSettingsManager;
 
@@ -200,7 +200,7 @@ function doVersion3Update()
 /**
  * @param string $installedDbVersion
  */
-function doAdmidioUpdate($installedDbVersion)
+function doAdmidioUpdate(string $installedDbVersion)
 {
     global $gLogger, $gDb;
 

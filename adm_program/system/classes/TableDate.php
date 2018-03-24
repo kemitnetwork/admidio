@@ -43,7 +43,7 @@ class TableDate extends TableAccess
      * @param Database $database Object of the class Database. This should be the default global object **$gDb**.
      * @param int      $datId    The recordset of the date with this id will be loaded. If id isn't set than an empty object of the table is created.
      */
-    public function __construct(Database $database, $datId = 0)
+    public function __construct(Database $database, int $datId = 0)
     {
         // read also data of assigned category
         $this->connectAdditionalTable(TBL_CATEGORIES, 'cat_id', 'dat_cat_id');
@@ -122,7 +122,7 @@ class TableDate extends TableAccess
      * @param string $text
      * @return string
      */
-    private function escapeIcalText($text): string
+    private function escapeIcalText(string $text): string
     {
         $replaces = array(
             '\\' => '\\\\',
@@ -141,7 +141,7 @@ class TableDate extends TableAccess
      * @param string $domain
      * @return string
      */
-    public function getIcal($domain): string
+    public function getIcal(string $domain): string
     {
         $iCal = $this->getIcalHeader().
                 $this->getIcalVEvent($domain).
@@ -202,7 +202,7 @@ class TableDate extends TableAccess
      * @param string $domain
      * @return string
      */
-    public function getIcalVEvent($domain): string
+    public function getIcalVEvent(string $domain): string
     {
         $dateTimeFormat = 'Ymd\THis';
 
@@ -255,7 +255,7 @@ class TableDate extends TableAccess
      * @return int|string|bool Returns the value of the database column.
      *                         If the value was manipulated before with **setValue** than the manipulated value is returned.
      */
-    public function getValue($columnName, $format = '')
+    public function getValue(string $columnName, string $format = '')
     {
         global $gL10n;
 
@@ -382,7 +382,7 @@ class TableDate extends TableAccess
      * @param bool   $checkValue The value will be checked if it's valid. If set to **false** than the value will not be checked.
      * @return bool Returns **true** if the value is stored in the current object and **false** if a check failed
      */
-    public function setValue($columnName, $newValue, $checkValue = true): bool
+    public function setValue(string $columnName, $newValue, bool $checkValue = true): bool
     {
         if ($columnName === 'dat_description')
         {

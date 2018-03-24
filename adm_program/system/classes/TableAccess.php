@@ -78,7 +78,7 @@ class TableAccess
      * @param string     $columnPrefix The prefix of each column of that table. E.g. for table **adm_roles** this is **rol**
      * @param string|int $id           The id of the recordset that should be loaded. If id isn't set than an empty object of the table is created.
      */
-    public function __construct(Database $database, $tableName, $columnPrefix, $id = '')
+    public function __construct(Database $database, string $tableName, string $columnPrefix, $id = '')
     {
         $this->db          =& $database;
         $this->tableName    = $tableName;
@@ -175,7 +175,7 @@ class TableAccess
      * }
      * ```
      */
-    protected function connectAdditionalTable($table, $columnNameAdditionalTable, $columnNameClassTable)
+    protected function connectAdditionalTable(string $table, string $columnNameAdditionalTable, string $columnNameClassTable)
     {
         $this->additionalTables[] = array(
             'table'                     => $table,
@@ -223,7 +223,7 @@ class TableAccess
      *               If the value was manipulated before with **setValue** than the manipulated value is returned.
      * @see TableAccess#setValue
      */
-    public function getValue($columnName, $format = '')
+    public function getValue(string $columnName, string $format = '')
     {
         global $gSettingsManager;
 
@@ -333,7 +333,7 @@ class TableAccess
      * @see TableAccess#readDataById
      * @see TableAccess#readDataByColumns
      */
-    protected function readData($sqlWhereCondition, array $queryParams = array()): bool
+    protected function readData(string $sqlWhereCondition, array $queryParams = array()): bool
     {
         $sqlAdditionalTables = '';
 
@@ -396,7 +396,7 @@ class TableAccess
      * @see TableAccess#readData
      * @see TableAccess#readDataByColumns
      */
-    public function readDataById($id): bool
+    public function readDataById(int $id): bool
     {
         // initialize the object, so that all fields are empty
         $this->clear();
@@ -470,7 +470,7 @@ class TableAccess
      *                                if table has columns like **usr_id_create** or **usr_id_changed**
      * @return bool If an update or insert into the database was done then return true, otherwise false.
      */
-    public function save($updateFingerPrint = true): bool
+    public function save(bool $updateFingerPrint = true): bool
     {
         global $gCurrentUser;
 
@@ -616,7 +616,7 @@ class TableAccess
      * @return bool Returns **true** if the value is stored in the current object and **false** if a check failed
      * @see TableAccess#getValue
      */
-    public function setValue($columnName, $newValue, $checkValue = true): bool
+    public function setValue(string $columnName, $newValue, bool $checkValue = true): bool
     {
         if (!array_key_exists($columnName, $this->dbColumns))
         {

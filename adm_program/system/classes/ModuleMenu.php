@@ -62,7 +62,7 @@ class ModuleMenu
      * @param string $id              Html id of the module menu
      * @param int    $maxMenuLinkItem
      */
-    public function __construct($id, $maxMenuLinkItem = 6)
+    public function __construct(string $id, int $maxMenuLinkItem = 6)
     {
         $this->id = $id;
         $this->maxMenuLinkItem = $maxMenuLinkItem;
@@ -78,7 +78,7 @@ class ModuleMenu
      * @param string $js   Javascript to be executed
      * @return array<string,string|array>
      */
-    private function buildItem($id, $type, $link, $text, $icon, $js = ''): array
+    private function buildItem(string $id, string $type, string $link, string $text, string $icon, string $js = ''): array
     {
         if(strlen($link) > 1)
         {
@@ -148,7 +148,7 @@ class ModuleMenu
      * @param array<string,string|bool|array> $menuEntry menu entry element which was added with addItem
      * @param bool                            $selected  determines if drop down element should be pre selected
      */
-    private function addDropDownItem(array &$menuEntry, $selected = false)
+    private function addDropDownItem(array &$menuEntry, bool $selected = false)
     {
         if ($this->ddJS !== '')
         {
@@ -181,7 +181,7 @@ class ModuleMenu
      * @param bool   $admin           Set to **true** if user has admin rights in this category, than a link to
      *                                administrate the categories is shown.
      */
-    public function addCategoryItem($id, $categoryType, $defaultCategory, $link, $text, $admin = false)
+    public function addCategoryItem(string $id, string $categoryType, string $defaultCategory, string $link, string $text, bool $admin = false)
     {
         $this->items[$id] = array(
             'id'              => $id,
@@ -199,7 +199,7 @@ class ModuleMenu
      * This method adds an additional css class to the main nav tag of the menu.
      * @param string $className The name of a css class that should be add to the main nav tag of the manu
      */
-    public function addCssClass($className)
+    public function addCssClass(string $className)
     {
         $this->customCssClass = ' ' . $className;
     }
@@ -209,7 +209,7 @@ class ModuleMenu
      * @param string $id       Html id of the element
      * @param string $formHtml A html code that will be added to the menu
      */
-    public function addForm($id, $formHtml)
+    public function addForm(string $id, string $formHtml)
     {
         $this->items[$id] = array('id' => $id, 'type' => 'form', 'content' => $formHtml);
     }
@@ -219,7 +219,7 @@ class ModuleMenu
      * @param string $id   Html id of the element
      * @param string $html A html code that will be added to the menu
      */
-    public function addHtml($id, $html)
+    public function addHtml(string $id, string $html)
     {
         $this->items[$id] = array('id' => $id, 'type' => 'html', 'content' => $html);
     }
@@ -232,7 +232,7 @@ class ModuleMenu
      * @param string $icon Icon of the menu item, that will also be linked
      * @param string $js   Javascript to be executed
      */
-    public function addItem($id, $link, $text, $icon, $js = '')
+    public function addItem(string $id, string $link, string $text, string $icon, string $js = '')
     {
         $this->items[$id] = $this->buildItem($id, 'link', $link, $text, $icon, $js);
     }
@@ -251,7 +251,7 @@ class ModuleMenu
      * @param string $id
      * @return int|false Position of the element; Returns false of no element is found
      */
-    public function getPosition($id)
+    public function getPosition(string $id)
     {
         $keys = array_keys($this->items);
         return array_search($id, $keys, true);
@@ -266,7 +266,7 @@ class ModuleMenu
      * @param string $icon
      * @param string $desc
      */
-    public function insertItem($position, $id, $link, $text, $icon, $desc = '')
+    public function insertItem(int $position, string $id, string $link, string $text, string $icon, string $desc = '')
     {
         $head = array_slice($this->items, 0, $position);
         $insert = array($id => $this->buildItem($id, $link, $text, $icon, $desc));

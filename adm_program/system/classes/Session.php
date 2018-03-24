@@ -54,7 +54,7 @@ class Session extends TableAccess
      *                                 If id isn't set than an empty object of the table is created.
      * @param string     $cookiePrefix The prefix that is used for cookies
      */
-    public function __construct(Database $database, $session = 0, $cookiePrefix = '')
+    public function __construct(Database $database, $session = 0, string $cookiePrefix = '')
     {
         parent::__construct($database, TBL_SESSIONS, 'ses');
 
@@ -87,7 +87,7 @@ class Session extends TableAccess
      * @param object $object     The object that should be stored in this class.
      * @return bool Return false if object isn't type object or objectName already exists
      */
-    public function addObject($objectName, &$object): bool
+    public function addObject(string $objectName, &$object): bool
     {
         if (is_object($object) && !array_key_exists($objectName, $this->mObjectArray))
         {
@@ -151,7 +151,7 @@ class Session extends TableAccess
      * @param string $objectName Internal unique name of the object. The name was set with the method **addObject**
      * @return bool Returns **true** if the object exits otherwise **false**
      */
-    public function hasObject($objectName): bool
+    public function hasObject(string $objectName): bool
     {
         return array_key_exists($objectName, $this->mObjectArray);
     }
@@ -162,7 +162,7 @@ class Session extends TableAccess
      * @param int $userId The user id must be stored in this session and will be checked if valid.
      * @return bool Returns **true** if the user has a valid session login otherwise **false**;
      */
-    public function isValidLogin($userId): bool
+    public function isValidLogin(int $userId): bool
     {
         global $gSettingsManager;
 
@@ -337,7 +337,7 @@ class Session extends TableAccess
      * user perform the next action.
      * @param int $userId (optional) if a user id is set then only user objects of this user id will be renewed
      */
-    public function renewUserObject($userId = 0)
+    public function renewUserObject(int $userId = 0)
     {
         $sqlCondition = '';
         $queryParams = array();
@@ -362,7 +362,7 @@ class Session extends TableAccess
      * @param bool $updateFingerPrint Default **true**. Will update the creator or editor of the recordset if table has columns like **usr_id_create** or **usr_id_changed**
      * @return bool If an update or insert into the database was done then return true, otherwise false.
      */
-    public function save($updateFingerPrint = true): bool
+    public function save(bool $updateFingerPrint = true): bool
     {
         global $gCurrentOrganization;
 
@@ -525,7 +525,7 @@ class Session extends TableAccess
      * Deletes all sessions in table admSessions that are inactive since **$maxInactiveTime** minutes..
      * @param int $maxInactiveMinutes Time in Minutes after that a session will be deleted.
      */
-    public function tableCleanup($maxInactiveMinutes = 30)
+    public function tableCleanup(int $maxInactiveMinutes = 30)
     {
         $now = new \DateTime();
         $minutesBack = new \DateInterval('PT' . $maxInactiveMinutes . 'M');

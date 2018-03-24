@@ -16,7 +16,7 @@
  * @param string $title
  * @return string
  */
-function getMessageIcon($msgId, $icon, $title): string
+function getMessageIcon(int $msgId, string $icon, string $title): string
 {
     return '
         <a class="admidio-icon-link" href="' . safeUrl(ADMIDIO_URL . FOLDER_MODULES . '/messages/messages_write.php', array('msg_id' => $msgId)) . '">
@@ -29,7 +29,7 @@ function getMessageIcon($msgId, $icon, $title): string
  * @param string $msgSubject
  * @return string
  */
-function getMessageLink($msgId, $msgSubject): string
+function getMessageLink(int $msgId, string $msgSubject): string
 {
     return '<a href="' . safeUrl(ADMIDIO_URL . FOLDER_MODULES . '/messages/messages_write.php', array('msg_id' => $msgId)) . '">' . $msgSubject . '</a>';
 }
@@ -38,7 +38,7 @@ function getMessageLink($msgId, $msgSubject): string
  * @param string $receiversString
  * @return string
  */
-function prepareReceivers($receiversString): string
+function prepareReceivers(string $receiversString): string
 {
     global $gDb, $gProfileFields;
 
@@ -70,7 +70,7 @@ function prepareReceivers($receiversString): string
  * @param int                 $usrId
  * @return string
  */
-function getReceiverName(array $row, $usrId): string
+function getReceiverName(array $row, int $usrId): string
 {
     global $gDb, $gProfileFields;
 
@@ -92,7 +92,7 @@ function getReceiverName(array $row, $usrId): string
  * @param string $msgSubject
  * @return string
  */
-function getAdministrationLink($rowIndex, $msgId, $msgSubject): string
+function getAdministrationLink(int $rowIndex, int $msgId, string $msgSubject): string
 {
     global $gL10n;
 

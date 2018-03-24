@@ -14,7 +14,7 @@
  * @param bool $sub  If true the days are subtracted
  * @return string
  */
-function addDaysToDate($days, $sub = false): string
+function addDaysToDate(int $days, bool $sub = false): string
 {
     $now = new \DateTime();
     $daysOffset = new \DateInterval('P'.$days.'D');

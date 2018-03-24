@@ -55,7 +55,7 @@ class TableCategory extends TableAccess
      * @param Database $database Object of the class Database. This should be the default global object **$gDb**.
      * @param int      $catId    The recordset of the category with this id will be loaded. If id isn't set than an empty object of the table is created.
      */
-    public function __construct(Database $database, $catId = 0)
+    public function __construct(Database $database, int $catId = 0)
     {
         parent::__construct($database, TBL_CATEGORIES, 'cat', $catId);
     }
@@ -138,7 +138,7 @@ class TableCategory extends TableAccess
      * @param int    $index
      * @return string
      */
-    private function getNewNameIntern($name, $index): string
+    private function getNewNameIntern(string $name, int $index): string
     {
         $newNameIntern = strtoupper(str_replace(' ', '_', $name));
 
@@ -184,7 +184,7 @@ class TableCategory extends TableAccess
      * @return int|string|bool Returns the value of the database column.
      *                         If the value was manipulated before with **setValue** than the manipulated value is returned.
      */
-    public function getValue($columnName, $format = '')
+    public function getValue(string $columnName, string $format = '')
     {
         global $gL10n;
 
@@ -278,7 +278,7 @@ class TableCategory extends TableAccess
      * Change the internal sequence of this category. It can be moved one place up or down
      * @param string $mode This could be **UP** or **DOWN**.
      */
-    public function moveSequence($mode)
+    public function moveSequence(string $mode)
     {
         global $gCurrentOrganization;
 
@@ -335,7 +335,7 @@ class TableCategory extends TableAccess
      * @param int $catId Unique cat_id
      * @return bool Returns **true** if one record is found
      */
-    public function readDataById($catId): bool
+    public function readDataById(int $catId): bool
     {
         $returnValue = parent::readDataById($catId);
 
@@ -377,7 +377,7 @@ class TableCategory extends TableAccess
      * @param bool $updateFingerPrint Default **true**. Will update the creator or editor of the recordset if table has columns like **usr_id_create** or **usr_id_changed**
      * @return bool If an update or insert into the database was done then return true, otherwise false.
      */
-    public function save($updateFingerPrint = true): bool
+    public function save(bool $updateFingerPrint = true): bool
     {
         global $gCurrentOrganization, $gCurrentSession;
 
@@ -481,7 +481,7 @@ class TableCategory extends TableAccess
      * @param bool   $checkValue The value will be checked if it's valid. If set to **false** than the value will not be checked.
      * @return bool Returns **true** if the value is stored in the current object and **false** if a check failed
      */
-    public function setValue($columnName, $newValue, $checkValue = true): bool
+    public function setValue(string $columnName, $newValue, bool $checkValue = true): bool
     {
         global $gCurrentOrganization;
 

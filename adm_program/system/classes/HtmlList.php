@@ -87,7 +87,7 @@ class HtmlList extends HtmlElement
      * @param string $term        term as string for datalist
      * @param string $description description as string for data description
      */
-    public function addDataList($id = null, $term = null, $description = null)
+    public function addDataList(string $id = null, string $term = null, string $description = null)
     {
         // First check whether open list item tag  must be closed before setting new item
         if (in_array('dl', $this->arrParentElements, true))
@@ -112,7 +112,7 @@ class HtmlList extends HtmlElement
      * @param string $term        Term as string for datalist
      * @param string $description Description as string for data
      */
-    public function addDataListItems($term, $description)
+    public function addDataListItems(string $term, string $description)
     {
         $this->addElement('dt', '', '', $term);
         $this->addElement('dd', '', '', $description);
@@ -124,7 +124,7 @@ class HtmlList extends HtmlElement
      * @param string $data element data
      * @param string $term optional term as string for nested datalist
      */
-    public function addListItem($id = null, $data = null, $term = null)
+    public function addListItem(string $id = null, string $data = null, string $term = null)
     {
         if ($data !== null)
         {

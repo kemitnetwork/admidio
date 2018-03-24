@@ -33,7 +33,7 @@ class TableRoles extends TableAccess
      * @param int      $rolId    The recordset of the role with this id will be loaded.
      *                           If id isn't set than an empty object of the table is created.
      */
-    public function __construct(Database $database, $rolId = 0)
+    public function __construct(Database $database, int $rolId = 0)
     {
         // read also data of assigned category
         $this->connectAdditionalTable(TBL_CATEGORIES, 'cat_id', 'rol_cat_id');
@@ -141,7 +141,7 @@ class TableRoles extends TableAccess
      * @param int $exceptUserId UserId witch shouldn't be counted
      * @return int Returns the number of members of this role
      */
-    public function countMembers($exceptUserId = null): int
+    public function countMembers(int $exceptUserId = null): int
     {
         if ($this->countMembers === -1)
         {
@@ -169,7 +169,7 @@ class TableRoles extends TableAccess
      * @param bool $countLeaders
      * @return int|float
      */
-    public function countVacancies($countLeaders = false)
+    public function countVacancies(bool $countLeaders = false)
     {
         $rolMaxMembers = $this->getValue('rol_max_members');
 
@@ -273,7 +273,7 @@ class TableRoles extends TableAccess
      *                        (-1 = unique, 1 = annually, 2 = semiyearly, 4 = quarterly, 12 = monthly)
      * @return array<int,string>|string Array with all cost or if param costPeriod is set than the full name of that cost period
      */
-    public static function getCostPeriods($costPeriod = null)
+    public static function getCostPeriods(int $costPeriod = null)
     {
         global $gL10n;
 
@@ -331,7 +331,7 @@ class TableRoles extends TableAccess
      * @return int|float|string|bool Returns the value of the database column.
      *                               If the value was manipulated before with **setValue** than the manipulated value is returned.
      */
-    public function getValue($columnName, $format = '')
+    public function getValue(string $columnName, string $format = '')
     {
         global $gL10n;
 
@@ -407,7 +407,7 @@ class TableRoles extends TableAccess
      * @param bool $updateFingerPrint Default **true**. Will update the creator or editor of the recordset if table has columns like **usr_id_create** or **usr_id_changed**
      * @return bool If an update or insert into the database was done then return true, otherwise false.
      */
-    public function save($updateFingerPrint = true): bool
+    public function save(bool $updateFingerPrint = true): bool
     {
         global $gCurrentSession;
 
@@ -453,7 +453,7 @@ class TableRoles extends TableAccess
      * @throws AdmException
      * @return bool Returns **true** if the value is stored in the current object and **false** if a check failed
      */
-    public function setValue($columnName, $newValue, $checkValue = true): bool
+    public function setValue(string $columnName, $newValue, bool $checkValue = true): bool
     {
         global $gCurrentOrganization, $gL10n;
 
@@ -493,7 +493,7 @@ class TableRoles extends TableAccess
      * @param bool $status
      * @return bool
      */
-    private function toggleValid($status): bool
+    private function toggleValid(bool $status): bool
     {
         global $gCurrentSession;
 

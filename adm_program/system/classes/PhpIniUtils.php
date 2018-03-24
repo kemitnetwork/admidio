@@ -31,7 +31,7 @@ final class PhpIniUtils
      * @param int    $multi Factor to multiply. Default: 1024
      * @return int Returns the bytes of the data string.
      */
-    private static function getBytesFromSize($data, $multi = self::BYTES_UNIT_FACTOR_1024): int
+    private static function getBytesFromSize(string $data, int $multi = self::BYTES_UNIT_FACTOR_1024): int
     {
         if ($data === '' || $data === '-1')
         {
@@ -151,7 +151,7 @@ final class PhpIniUtils
      * @param string $directoryPath The directory path to check
      * @return bool
      */
-    private static function isInBaseDirs($directoryPath): bool
+    private static function isInBaseDirs(string $directoryPath): bool
     {
         $baseDirs = self::getBaseDirs();
 
@@ -177,7 +177,7 @@ final class PhpIniUtils
      * @throws \UnexpectedValueException Throws if a given directory does not exist
      * @throws \RuntimeException         Throws if a given directory is not in the base-directories
      */
-    private static function checkIsValidDir(&$directoryPath)
+    private static function checkIsValidDir(string &$directoryPath)
     {
         $directoryPath = FileSystemUtils::getNormalizedPath($directoryPath);
 
@@ -218,7 +218,7 @@ final class PhpIniUtils
      * @return bool|string
      * @see https://secure.php.net/manual/en/ini.core.php#ini.upload-tmp-dir
      */
-    public static function setUploadTmpDir($directoryPath)
+    public static function setUploadTmpDir(string $directoryPath)
     {
         self::checkIsValidDir($directoryPath);
 
@@ -232,7 +232,7 @@ final class PhpIniUtils
      * @see https://secure.php.net/manual/en/function.set-time-limit.php
      * @see https://secure.php.net/manual/en/info.configuration.php#ini.max-execution-time
      */
-    public static function startNewExecutionTimeLimit($seconds)
+    public static function startNewExecutionTimeLimit(int $seconds)
     {
         // @ prevents error output in safe-mode
         $result = @set_time_limit($seconds);

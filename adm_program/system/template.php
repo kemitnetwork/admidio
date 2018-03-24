@@ -19,7 +19,7 @@ if (basename($_SERVER['SCRIPT_FILENAME']) === 'template.php')
  * @param string $filename
  * @return string
  */
-function admReadTemplateFile($filename): string
+function admReadTemplateFile(string $filename): string
 {
     global $gLogger;
 

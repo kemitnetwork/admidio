@@ -35,7 +35,7 @@ class TableMenu extends TableAccess
      * @param \Database $database Object of the class Database. This should be the default global object **$gDb**.
      * @param int       $menId    The recordset of the category with this id will be loaded. If id isn't set than an empty object of the table is created.
      */
-    public function __construct($database, $menId = 0)
+    public function __construct($database, int $menId = 0)
     {
         parent::__construct($database, TBL_MENU, 'men', $menId);
     }
@@ -48,7 +48,7 @@ class TableMenu extends TableAccess
      * @param int    $index The index of the name. Should be startet with 1
      * @return string Returns the unique name with capital letters and number
      */
-    private function getNewNameIntern($name, $index): string
+    private function getNewNameIntern(string $name, int $index): string
     {
         $newNameIntern = strtoupper(str_replace(' ', '_', $name));
 
@@ -80,7 +80,7 @@ class TableMenu extends TableAccess
      * @return int|string|bool Returns the value of the database column.
      *                         If the value was manipulated before with **setValue** than the manipulated value is returned.
      */
-    public function getValue($columnName, $format = '')
+    public function getValue(string $columnName, string $format = '')
     {
         global $gL10n;
 
@@ -99,7 +99,7 @@ class TableMenu extends TableAccess
      * Change the internal sequence of this category. It can be moved one place up or down
      * @param string $mode This could be **UP** or **DOWN**.
      */
-    public function moveSequence($mode)
+    public function moveSequence(string $mode)
     {
         $menIdParent = (int) $this->getValue('men_men_id_parent');
 
@@ -147,7 +147,7 @@ class TableMenu extends TableAccess
      * @param int $menId Unique men_id
      * @return bool Returns **true** if one record is found
      */
-    public function readDataById($menId): bool
+    public function readDataById(int $menId): bool
     {
         $returnValue = parent::readDataById($menId);
 
@@ -191,7 +191,7 @@ class TableMenu extends TableAccess
      * @param bool $updateFingerPrint Default **true**. Will update the creator or editor of the recordset if table has columns like **usr_id_create** or **usr_id_changed**
      * @return bool If an update or insert into the database was done then return true, otherwise false.
      */
-    public function save($updateFingerPrint = true): bool
+    public function save(bool $updateFingerPrint = true): bool
     {
         $this->db->startTransaction();
 

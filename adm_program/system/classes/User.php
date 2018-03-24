@@ -82,7 +82,7 @@ class User extends TableAccess
      * @param int           $userId     The id of the user who should be loaded. If id isn't set than an empty
      *                                  object with no specific user is created.
      */
-    public function __construct(Database $database, ProfileFields $userFields = null, $userId = 0)
+    public function __construct(Database $database, ProfileFields $userFields = null, int $userId = 0)
     {
         global $gCurrentOrganization;
 
@@ -105,7 +105,7 @@ class User extends TableAccess
      * @param string $fieldNameIntern Expects the **usf_name_intern** of the field that should be checked.
      * @return bool Return true if the current user is allowed to view this profile field of **$user**.
      */
-    public function allowedViewProfileField(User $user, $fieldNameIntern): bool
+    public function allowedViewProfileField(User $user, string $fieldNameIntern): bool
     {
         return $user->mProfileFieldsData->isVisible($fieldNameIntern, $this->hasRightEditProfile($user));
     }
@@ -155,7 +155,7 @@ class User extends TableAccess
      *                          might get more rights for this role.
      * @return bool Return **true** if the membership was successfully added/edited.
      */
-    private function changeRoleMembership($mode, $id, $startDate, $endDate, $leader): bool
+    private function changeRoleMembership(string $mode, int $id, string $startDate, string $endDate, bool $leader): bool
     {
         if ($startDate === '' || $endDate === '')
         {
@@ -364,7 +364,7 @@ class User extends TableAccess
      *                      is not set then only the arrays are filled.
      * @return bool Return true if a special right should be checked and the user has this right.
      */
-    public function checkRolesRight($right = null): bool
+    public function checkRolesRight(string $right = null): bool
     {
         if ((int) $this->getValue('usr_id') === 0)
         {
@@ -534,7 +534,7 @@ class User extends TableAccess
      *                                       SYS_LOGIN_USERNAME_PASSWORD_INCORRECT
      * @return true Return true if login was successful
      */
-    public function checkLogin($password, $setAutoLogin = false, $updateSessionCookies = true, $updateHash = true, $isAdministrator = false): bool
+    public function checkLogin(string $password, bool $setAutoLogin = false, bool $updateSessionCookies = true, bool $updateHash = true, bool $isAdministrator = false): bool
     {
         global $gLogger, $gSettingsManager, $gCurrentSession, $gSessionId, $installedDbVersion, $gL10n;
 
@@ -819,7 +819,7 @@ class User extends TableAccess
      *                          might get more rights for this role.
      * @return bool Return **true** if the membership was successfully edited.
      */
-    public function editRoleMembership($memberId, $startDate = DATE_NOW, $endDate = DATE_MAX, $leader = null): bool
+    public function editRoleMembership(int $memberId, string $startDate = DATE_NOW, string $endDate = DATE_MAX, bool $leader = null): bool
     {
         return $this->changeRoleMembership('edit', $memberId, $startDate, $endDate, $leader);
     }
@@ -829,7 +829,7 @@ class User extends TableAccess
      * @param string $categoryType The type of the category that should be checked e.g. ANN, USF or DAT
      * @return array<int,int> Array with categories ids where user has the right to edit them
      */
-    public function getAllEditableCategories($categoryType): array
+    public function getAllEditableCategories(string $categoryType): array
     {
         $queryParams = array($categoryType, $this->organizationId);
 
@@ -908,7 +908,7 @@ class User extends TableAccess
      * @param string $categoryType The type of the category that should be checked e.g. ANN, USF or DAT
      * @return array<int,int> Array with categories ids where user has the right to view them
      */
-    public function getAllVisibleCategories($categoryType): array
+    public function getAllVisibleCategories(string $categoryType): array
     {
         $queryParams = array($categoryType, $this->organizationId);
 
@@ -1021,7 +1021,7 @@ class User extends TableAccess
              * @param string $value
              * @return bool
              */
-            function filterEmptyStrings($value): bool
+            function filterEmptyStrings(string $value): bool
             {
                 return $value !== '';
             }
@@ -1070,7 +1070,7 @@ class User extends TableAccess
      * $email = $gCurrentUser->getValue('EMAIL');
      * ```
      */
-    public function getValue($columnName, $format = '')
+    public function getValue(string $columnName, string $format = '')
     {
         global $gSettingsManager;
 
@@ -1247,7 +1247,7 @@ class User extends TableAccess
      * @param bool  $checkOwnProfile If set to **false** than this method don't check the role right to edit the own profile.
      * @return bool Return **true** if the current user is allowed to edit the profile of the user from **$user**.
      */
-    public function hasRightEditProfile(User $user, $checkOwnProfile = true): bool
+    public function hasRightEditProfile(User $user, bool $checkOwnProfile = true): bool
     {
         if (!$user instanceof self)
         {
@@ -1328,7 +1328,7 @@ class User extends TableAccess
      * @param int             $roleId
      * @return bool
      */
-    private function hasRightRole(array $rightsList, $rightName, $roleId): bool
+    private function hasRightRole(array $rightsList, string $rightName, int $roleId): bool
     {
         // if user has right to view all lists then he could also view this role
         if ($this->checkRolesRight($rightName))
@@ -1345,7 +1345,7 @@ class User extends TableAccess
      * @param int $roleId Id of the role that should be checked.
      * @return bool Return **true** if the user has the right to send an email to the role.
      */
-    public function hasRightSendMailToRole($roleId): bool
+    public function hasRightSendMailToRole(int $roleId): bool
     {
         return $this->hasRightRole($this->listMailRights, 'rol_mail_to_all', $roleId);
     }
@@ -1356,7 +1356,7 @@ class User extends TableAccess
      * @param int $roleId Id of the role that should be checked.
      * @return bool Return **true** if the user has the right to view former roles members
      */
-    public function hasRightViewFormerRolesMembers($roleId): bool
+    public function hasRightViewFormerRolesMembers(int $roleId): bool
     {
         global $gSettingsManager;
 
@@ -1449,7 +1449,7 @@ class User extends TableAccess
      * @param int $roleId The id of the role that should be checked.
      * @return bool Return **true** if the user has the right to view the role otherwise **false**.
      */
-    public function hasRightViewRole($roleId): bool
+    public function hasRightViewRole(int $roleId): bool
     {
         return $this->hasRightRole($this->listViewRights, 'rol_all_lists_view', $roleId);
     }
@@ -1514,7 +1514,7 @@ class User extends TableAccess
      * @param string $orgLongname The longname of this organization.
      * @return bool Return true if user is admin of this organization.
      */
-    private function isAdminOfOrganization($orgLongname): bool
+    private function isAdminOfOrganization(string $orgLongname): bool
     {
         global $gLogger, $installedDbVersion;
 
@@ -1564,7 +1564,7 @@ class User extends TableAccess
      * @param int $roleId
      * @return bool
      */
-    public function isLeaderOfRole($roleId): bool
+    public function isLeaderOfRole(int $roleId): bool
     {
         return array_key_exists($roleId, $this->rolesMembershipLeader);
     }
@@ -1574,7 +1574,7 @@ class User extends TableAccess
      * @param string $orgLongname The longname of this organization.
      * @return bool Return true if user is member of this organization.
      */
-    private function isMemberOfOrganization($orgLongname): bool
+    private function isMemberOfOrganization(string $orgLongname): bool
     {
         global $gLogger;
 
@@ -1613,7 +1613,7 @@ class User extends TableAccess
      * @param int $roleId
      * @return bool
      */
-    public function isMemberOfRole($roleId): bool
+    public function isMemberOfRole(int $roleId): bool
     {
         return in_array($roleId, $this->rolesMembership, true);
     }
@@ -1634,7 +1634,7 @@ class User extends TableAccess
      * @param int $userId Unique id of the user that should be read
      * @return bool Returns **true** if one record is found
      */
-    public function readDataById($userId): bool
+    public function readDataById(int $userId): bool
     {
         if (parent::readDataById($userId))
         {
@@ -1651,7 +1651,7 @@ class User extends TableAccess
      * @param string $password The password for the current user. This should not be encoded.
      * @return bool Returns true if password was rehashed.
      */
-    private function rehashIfNecessary($password): bool
+    private function rehashIfNecessary(string $password): bool
     {
         global $gLogger;
 
@@ -1696,7 +1696,7 @@ class User extends TableAccess
      * @throws AdmException
      * @return bool
      */
-    public function save($updateFingerPrint = true): bool
+    public function save(bool $updateFingerPrint = true): bool
     {
         global $gCurrentSession, $gCurrentUser;
 
@@ -1767,7 +1767,7 @@ class User extends TableAccess
      * @param int $organizationId Id of the organization
      * @return void
      */
-    public function setOrganization($organizationId)
+    public function setOrganization(int $organizationId)
     {
         $this->organizationId = $organizationId;
         $this->rolesRights    = array();
@@ -1781,7 +1781,7 @@ class User extends TableAccess
      * @param bool   $doHashing     Should the password get hashed before inserted. Default is true
      * @return bool Returns **true** if the value is stored in the current object and **false** if a check failed
      */
-    public function setPassword($newPassword, $isNewPassword = false, $doHashing = true): bool
+    public function setPassword(string $newPassword, bool $isNewPassword = false, bool $doHashing = true): bool
     {
         global $gSettingsManager, $gPasswordHashAlgorithm;
 
@@ -1825,7 +1825,7 @@ class User extends TableAccess
      *                          might get more rights for this role.
      * @return bool Return **true** if the membership was successfully added.
      */
-    public function setRoleMembership($roleId, $startDate = DATE_NOW, $endDate = DATE_MAX, $leader = null): bool
+    public function setRoleMembership(int $roleId, string $startDate = DATE_NOW, string $endDate = DATE_MAX, bool $leader = null): bool
     {
         return $this->changeRoleMembership('set', $roleId, $startDate, $endDate, $leader);
     }
@@ -1850,7 +1850,7 @@ class User extends TableAccess
      * $gCurrentUser->getValue('EMAIL', 'webmaster@admidio.org');
      * ```
      */
-    public function setValue($columnName, $newValue, $checkValue = true): bool
+    public function setValue(string $columnName, $newValue, bool $checkValue = true): bool
     {
         global $gCurrentUser, $gSettingsManager;
 
@@ -1932,7 +1932,7 @@ class User extends TableAccess
      * @param mixed  $fieldValue
      * @return bool
      */
-    public function setProfileFieldsValue($fieldNameIntern, $fieldValue): bool
+    public function setProfileFieldsValue(string $fieldNameIntern, $fieldValue): bool
     {
         return $this->mProfileFieldsData->setValue($fieldNameIntern, $fieldValue);
     }

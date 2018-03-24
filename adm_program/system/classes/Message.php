@@ -102,7 +102,7 @@ class Message
      * @param string $url   The full url to which the user should be directed.
      * @param int    $timer Optional a timer in millisecond after the user will be automatically redirected to the $url.
      */
-    public function setForwardUrl($url, $timer = 0)
+    public function setForwardUrl(string $url, int $timer = 0)
     {
         $this->forwardUrl = $url;
         $this->timer      = $timer;
@@ -113,7 +113,7 @@ class Message
      * he will be redirected to the $url. If he chooses no he will be directed back to the previous page.
      * @param string $url The full url to which the user should be directed if he chooses **yes**.
      */
-    public function setForwardYesNo($url)
+    public function setForwardYesNo(string $url)
     {
         $this->forwardUrl       = $url;
         $this->showYesNoButtons = true;
@@ -124,7 +124,7 @@ class Message
      * @param string $content  The message text that should be shown. The content could have html.
      * @param string $headline Optional a headline for the message. Default will be SYS_NOTE.
      */
-    public function show($content, $headline = '')
+    public function show(string $content, string $headline = '')
     {
         // noetig, da dies bei den includes benoetigt wird
         global $gDb, $gL10n, $page;
@@ -269,7 +269,7 @@ class Message
      * If this message contains html elements then these will also be shown in the output.
      * @param bool $showText If set to true than only the message text with their html elements will be shown.
      */
-    public function showHtmlTextOnly($showText)
+    public function showHtmlTextOnly(bool $showText)
     {
         $this->showHtmlTextOnly = $showText;
     }
@@ -279,7 +279,7 @@ class Message
      * This setting is useful if the message should be loaded in a small window.
      * @param bool $showTheme If set to true than theme body and header will be shown. Otherwise this will be hidden.
      */
-    public function showThemeBody($showTheme)
+    public function showThemeBody(bool $showTheme)
     {
         $this->includeThemeBody = $showTheme;
     }
@@ -289,7 +289,7 @@ class Message
      * only pure text. This is useful if you have a script that is used in ajax mode.
      * @param bool $showText If set to true than only the message text without any html will be shown.
      */
-    public function showTextOnly($showText)
+    public function showTextOnly(bool $showText)
     {
         $this->showTextOnly = $showText;
     }
