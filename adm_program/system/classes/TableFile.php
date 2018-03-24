@@ -42,7 +42,7 @@ class TableFile extends TableAccess
      * After that the class will be initialize.
      * @return bool **true** if no error occurred
      */
-    public function delete()
+    public function delete(): bool
     {
         try
         {
@@ -60,7 +60,7 @@ class TableFile extends TableAccess
      * Gets the absolute path of the folder (with folder-name)
      * @return string
      */
-    public function getFullFolderPath()
+    public function getFullFolderPath(): string
     {
         return ADMIDIO_PATH . $this->getValue('fol_path') . '/' . $this->getValue('fol_name');
     }
@@ -69,7 +69,7 @@ class TableFile extends TableAccess
      * Gets the absolute path of the file
      * @return string
      */
-    public function getFullFilePath()
+    public function getFullFilePath(): string
     {
         return $this->getFullFolderPath() . '/' . $this->getValue('fil_name');
     }
@@ -82,7 +82,7 @@ class TableFile extends TableAccess
      *                      SYS_INVALID_PAGE_VIEW
      * @return true Returns **true** if everything is ok otherwise an AdmException is thrown.
      */
-    public function getFileForDownload($fileId)
+    public function getFileForDownload($fileId): bool
     {
         global $gCurrentUser;
 
@@ -154,7 +154,7 @@ class TableFile extends TableAccess
      * @param bool $updateFingerPrint Default **true**. Will update the creator or editor of the recordset if table has columns like **usr_id_create** or **usr_id_changed**
      * @return bool If an update or insert into the database was done then return true, otherwise false.
      */
-    public function save($updateFingerPrint = true)
+    public function save($updateFingerPrint = true): bool
     {
         global $gCurrentUser;
 
@@ -172,7 +172,7 @@ class TableFile extends TableAccess
      * @deprecated 3.3.0:4.0.0 Use Method getFullFilePath() instead.
      * @return string Complete filepath
      */
-    public function getCompletePathOfFile()
+    public function getCompletePathOfFile(): string
     {
         global $gLogger;
 

@@ -48,7 +48,7 @@ class DateTimeExtended extends DateTime
      * @deprecated 3.2.0:4.0.0 Switched to native DateTime method. Use \DateTime::createFromFormat() === false
      * @return bool
      */
-    public function isValid()
+    public function isValid(): bool
     {
         global $gLogger;
 
@@ -63,7 +63,7 @@ class DateTimeExtended extends DateTime
      *             Use \DateTime::createFromFormat()->diff(new \DateTime('now'))->y
      * @return int
      */
-    public function getAge()
+    public function getAge(): int
     {
         global $gLogger;
 
@@ -109,7 +109,7 @@ class DateTimeExtended extends DateTime
      *                       If no format is set then the format of the class constructor will be used.
      * @return string Return the transformed format that is valid for the datepicker.
      */
-    public static function getDateFormatForDatepicker($format = 'Y-m-d')
+    public static function getDateFormatForDatepicker($format = 'Y-m-d'): string
     {
         $destFormat  = '';
         $formatArray = str_split($format);

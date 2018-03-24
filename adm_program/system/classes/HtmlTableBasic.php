@@ -348,7 +348,7 @@ class HtmlTableBasic extends HtmlElement
      * @param string       $col
      * @return bool Returns **false** if tfoot element is already set
      */
-    public function addTableFooter($attribute = null, $value = null, $data = '', $col = 'td')
+    public function addTableFooter($attribute = null, $value = null, $data = '', $col = 'td'): bool
     {
         if ($this->thead && in_array('thead', $this->arrParentElements, true))
         {
@@ -377,7 +377,7 @@ class HtmlTableBasic extends HtmlElement
      * @param string       $col
      * @return bool Returns **false** if thead element is already set
      */
-    public function addTableHeader($attribute = null, $value = null, $data = '', $col = 'td')
+    public function addTableHeader($attribute = null, $value = null, $data = '', $col = 'td'): bool
     {
         // Check if table head already exists
         if ($this->thead)
@@ -394,7 +394,7 @@ class HtmlTableBasic extends HtmlElement
      * Get the parsed html table
      * @return string Returns the validated html table as string
      */
-    public function getHtmlTable()
+    public function getHtmlTable(): string
     {
         $this->closeParentElement('tr');
         $this->closeParentElement('tbody');

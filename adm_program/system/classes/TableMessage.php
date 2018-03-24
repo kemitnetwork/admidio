@@ -40,7 +40,7 @@ class TableMessage extends TableAccess
      * @param int $usrId
      * @return int Number of unread messages of this table
      */
-    public function countUnreadMessageRecords($usrId)
+    public function countUnreadMessageRecords($usrId): int
     {
         $sql = 'SELECT COUNT(*) AS count
                   FROM '.$this->tableName.'
@@ -55,7 +55,7 @@ class TableMessage extends TableAccess
      * Reads the number of all conversations in this table
      * @return int Number of conversations in this table
      */
-    public function countMessageConversations()
+    public function countMessageConversations(): int
     {
         $sql = 'SELECT COUNT(*) AS count FROM ' . TBL_MESSAGES;
         $countStatement = $this->db->queryPrepared($sql);
@@ -67,7 +67,7 @@ class TableMessage extends TableAccess
      * Reads the number of all messages in actual conversation
      * @return int Number of all messages in actual conversation
      */
-    public function countMessageParts()
+    public function countMessageParts(): int
     {
         $sql = 'SELECT COUNT(*) AS count
                   FROM '.TBL_MESSAGES_CONTENT.'
@@ -113,7 +113,7 @@ class TableMessage extends TableAccess
      * @param int $usrId
      * @return int Returns **ID** of the user that is partner in the actual conversation
      */
-    public function getConversationPartner($usrId)
+    public function getConversationPartner($usrId): int
     {
         $sql = 'SELECT
                   CASE
@@ -135,7 +135,7 @@ class TableMessage extends TableAccess
      * @return bool **true** if message is deleted or message with additional information if it is marked
      *         for other user to delete. On error it is false
      */
-    public function delete()
+    public function delete(): bool
     {
         global $gCurrentUser;
 

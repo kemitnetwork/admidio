@@ -55,7 +55,7 @@ class Menu
      * @throws AdmException
      * @return array<string,string|array>
      */
-    private function buildItem($id, $link, $text, $icon, $desc = '')
+    private function buildItem($id, $link, $text, $icon, $desc = ''): array
     {
         // add root path to link unless the full URL is given
         if (preg_match('/^http(s?):\/\//', $link) === 0)
@@ -146,7 +146,7 @@ class Menu
      *                      then you will create a menu with submenus and description
      * @return string Return the html code of the form.
      */
-    public function show($complex = false)
+    public function show($complex = false): string
     {
         $html = '';
 

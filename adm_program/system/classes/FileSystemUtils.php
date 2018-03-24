@@ -37,7 +37,7 @@ final class FileSystemUtils
      * Checks if file-system is UNIX
      * @return bool Returns true if file-system is UNIX
      */
-    public static function isUnix()
+    public static function isUnix(): bool
     {
         return DIRECTORY_SEPARATOR === '/';
     }
@@ -49,7 +49,7 @@ final class FileSystemUtils
      * @return string Returns the generated filename
      * @example "IMG_123456.JPG" => "20180131-123456_abcdef0123456798.JPG"
      */
-    public static function getGeneratedFilename($filename)
+    public static function getGeneratedFilename($filename): string
     {
         $extension = pathinfo($filename, PATHINFO_EXTENSION);
         $now = new \DateTime();
@@ -64,7 +64,7 @@ final class FileSystemUtils
      * @return string Returns the special-characters cleaned path-entry
      * @example "image-12#34+ß.jpg" => "image-12_34__.jpg"
      */
-    public static function getSanitizedPathEntry($pathname, $replacer = '_')
+    public static function getSanitizedPathEntry($pathname, $replacer = '_'): string
     {
         return preg_replace('/[^A-Za-z0-9._-]/u', $replacer, $pathname);
     }
@@ -77,7 +77,7 @@ final class FileSystemUtils
      * @see https://secure.php.net/manual/en/function.realpath.php
      * @example "/path/to/test/.././..//..///..///../one/two/../three/filename" => "../../one/three/filename"
      */
-    public static function getNormalizedPath($path)
+    public static function getNormalizedPath($path): string
     {
         $path = str_replace('\\', '/', $path); // Replace back-slashes with forward-slashes
         $path = preg_replace('/\/+/', '/', $path); // Combine multiple slashes into a single slash
@@ -135,7 +135,7 @@ final class FileSystemUtils
      * @return string Returns human readable bytes with unit.
      * @example "[value] [unit]" (e.g: 34.5 MiB)
      */
-    public static function getHumanReadableBytes($bytes, $si = false)
+    public static function getHumanReadableBytes($bytes, $si = false): string
     {
         $divider = 1024;
         $units = array('B', 'KiB', 'MiB', 'GiB', 'TiB', 'PiB', 'EiB', 'YiB');
@@ -213,7 +213,7 @@ final class FileSystemUtils
      * @see https://secure.php.net/manual/en/function.disk-free-space.php
      * @example array("total" => 10737418240, "free" => 2147483648, "used" => 8589934592)
      */
-    public static function getDiskSpace($path = self::ROOT_FOLDER)
+    public static function getDiskSpace($path = self::ROOT_FOLDER): array
     {
         self::checkIsInAllowedDirectories($path);
 
@@ -246,7 +246,7 @@ final class FileSystemUtils
      *     "gecos" => "max,,,", "dir" => "/home/max", "shell" => "/bin/bash"
      * )
      */
-    public static function getProcessOwnerInfo()
+    public static function getProcessOwnerInfo(): array
     {
         if (!self::isUnix())
         {
@@ -264,7 +264,7 @@ final class FileSystemUtils
      * @see https://secure.php.net/manual/en/function.posix-getgrgid.php
      * @example array("name" => "max", "passwd" => "x", "members" => array(), "gid" => 1000)
      */
-    public static function getProcessGroupInfo()
+    public static function getProcessGroupInfo(): array
     {
         if (!self::isUnix())
         {
@@ -301,7 +301,7 @@ final class FileSystemUtils
      * @return array<string,string|int> Returns info about the path owner
      * @see https://secure.php.net/manual/en/function.fileowner.php
      */
-    public static function getPathOwnerInfo($path)
+    public static function getPathOwnerInfo($path): array
     {
         if (!self::isUnix())
         {
@@ -329,7 +329,7 @@ final class FileSystemUtils
      * @return array<string,string|int|array> Returns info about the path group
      * @see https://secure.php.net/manual/en/function.filegroup.php
      */
-    public static function getPathGroupInfo($path)
+    public static function getPathGroupInfo($path): array
     {
         if (!self::isUnix())
         {
@@ -359,7 +359,7 @@ final class FileSystemUtils
      * @see https://secure.php.net/manual/en/function.posix-getpwuid.php
      * @see https://secure.php.net/manual/en/function.fileowner.php
      */
-    public static function hasPathOwnerRight($path)
+    public static function hasPathOwnerRight($path): bool
     {
         if (!self::isUnix())
         {
@@ -384,7 +384,7 @@ final class FileSystemUtils
      * @see https://secure.php.net/manual/en/function.fileperms.php
      * @example "drwxrwxr-x" or "0775"
      */
-    public static function getPathMode($path, $octal = false)
+    public static function getPathMode($path, $octal = false): string
     {
         self::checkIsInAllowedDirectories($path);
 
@@ -410,7 +410,7 @@ final class FileSystemUtils
      * @return string Returns file permissions in string representation
      * @see https://secure.php.net/manual/en/function.fileperms.php
      */
-    private static function convertPermsToString($perms)
+    private static function convertPermsToString($perms): string
     {
         switch ($perms & 0xF000)
         {
@@ -474,7 +474,7 @@ final class FileSystemUtils
      * @see https://secure.php.net/manual/en/function.fileperms.php
      * @example array("owner" => "www-data", "group" => "www", "mode" => "drwxrwxr-x")
      */
-    public static function getPathPermissions($path)
+    public static function getPathPermissions($path): array
     {
         self::checkIsInAllowedDirectories($path);
 
@@ -510,7 +510,7 @@ final class FileSystemUtils
      * @return bool Returns true if directory was successfully created or false if directory did already exist
      * @see https://secure.php.net/manual/en/function.mkdir.php
      */
-    public static function createDirectoryIfNotExists($directoryPath, array $options = array())
+    public static function createDirectoryIfNotExists($directoryPath, array $options = array()): bool
     {
         self::checkIsInAllowedDirectories($directoryPath);
 
@@ -577,7 +577,7 @@ final class FileSystemUtils
      * @see https://secure.php.net/manual/en/function.opendir.php
      * @see https://secure.php.net/manual/en/function.readdir.php
      */
-    public static function isDirectoryEmpty($directoryPath)
+    public static function isDirectoryEmpty($directoryPath): bool
     {
         self::checkIsInAllowedDirectories($directoryPath);
 
@@ -622,7 +622,7 @@ final class FileSystemUtils
      * @see https://secure.php.net/manual/en/function.opendir.php
      * @see https://secure.php.net/manual/en/function.readdir.php
      */
-    public static function getDirectoryContent($directoryPath, $recursive = false, $fullPath = true, array $includedContentTypes = array(self::CONTENT_TYPE_DIRECTORY, self::CONTENT_TYPE_FILE, self::CONTENT_TYPE_LINK))
+    public static function getDirectoryContent($directoryPath, $recursive = false, $fullPath = true, array $includedContentTypes = array(self::CONTENT_TYPE_DIRECTORY, self::CONTENT_TYPE_FILE, self::CONTENT_TYPE_LINK)): array
     {
         self::checkIsInAllowedDirectories($directoryPath);
 
@@ -687,7 +687,7 @@ final class FileSystemUtils
      * @see https://secure.php.net/manual/en/function.opendir.php
      * @see https://secure.php.net/manual/en/function.readdir.php
      */
-    public static function deleteDirectoryContentIfExists($directoryPath)
+    public static function deleteDirectoryContentIfExists($directoryPath): bool
     {
         self::checkIsInAllowedDirectories($directoryPath);
 
@@ -748,7 +748,7 @@ final class FileSystemUtils
      * @return bool Returns true if directory was successfully deleted or false if directory already did not exist
      * @see https://secure.php.net/manual/en/function.rmdir.php
      */
-    public static function deleteDirectoryIfExists($directoryPath, $deleteWithContent = false)
+    public static function deleteDirectoryIfExists($directoryPath, $deleteWithContent = false): bool
     {
         self::checkIsInAllowedDirectories($directoryPath);
 
@@ -802,7 +802,7 @@ final class FileSystemUtils
      * @throws \RuntimeException         Throws if the mkdir or opendir process fails
      * @return bool Returns true if content will get overwritten
      */
-    private static function checkDirectoryPreconditions($oldDirectoryPath, $newDirectoryPath, array $options = array())
+    private static function checkDirectoryPreconditions($oldDirectoryPath, $newDirectoryPath, array $options = array()): bool
     {
         self::checkIsInAllowedDirectories($oldDirectoryPath);
         self::checkIsInAllowedDirectories($newDirectoryPath);
@@ -862,7 +862,7 @@ final class FileSystemUtils
      * @param bool                       $considerDirectoryCollisions If true, also directory collisions are checked
      * @return bool Returns true if both directories has same files or directories
      */
-    private static function checkDirectoryContentTreeCollisions(array $directoryContentTree1, array $directoryContentTree2, $considerDirectoryCollisions = false)
+    private static function checkDirectoryContentTreeCollisions(array $directoryContentTree1, array $directoryContentTree2, $considerDirectoryCollisions = false): bool
     {
         foreach ($directoryContentTree1 as $directoryContentName => $directoryContentType1)
         {
@@ -932,7 +932,7 @@ final class FileSystemUtils
      * @throws \RuntimeException         Throws if the mkdir, copy or opendir process fails
      * @return bool Returns true if content was overwritten
      */
-    public static function copyDirectory($oldDirectoryPath, $newDirectoryPath, array $options = array())
+    public static function copyDirectory($oldDirectoryPath, $newDirectoryPath, array $options = array()): bool
     {
         $returnValue = self::checkDirectoryPreconditions($oldDirectoryPath, $newDirectoryPath, $options);
 
@@ -950,7 +950,7 @@ final class FileSystemUtils
      * @throws \RuntimeException         Throws if the mkdir, copy, rmdir, unlink or opendir process fails
      * @return bool Returns true if content was overwritten
      */
-    public static function moveDirectory($oldDirectoryPath, $newDirectoryPath, array $options = array())
+    public static function moveDirectory($oldDirectoryPath, $newDirectoryPath, array $options = array()): bool
     {
         $returnValue = self::checkDirectoryPreconditions($oldDirectoryPath, $newDirectoryPath, $options);
 
@@ -1024,7 +1024,7 @@ final class FileSystemUtils
      * @return bool Returns true if file was successfully deleted or false if file already did not exist
      * @see https://secure.php.net/manual/en/function.unlink.php
      */
-    public static function deleteFileIfExists($filePath)
+    public static function deleteFileIfExists($filePath): bool
     {
         self::checkIsInAllowedDirectories($filePath);
 
@@ -1062,7 +1062,7 @@ final class FileSystemUtils
      * @throws \RuntimeException         Throws if the destination folder could not be created
      * @return bool Returns true if the destination path will be overwritten
      */
-    private static function checkFilePreconditions($mode, $oldFilePath, $newFilePath, array $options = array())
+    private static function checkFilePreconditions($mode, $oldFilePath, $newFilePath, array $options = array()): bool
     {
         $defaultOptions = array('createDirectoryStructure' => true, 'overwrite' => false);
         $options = array_merge($defaultOptions, $options);
@@ -1132,7 +1132,7 @@ final class FileSystemUtils
      * @return bool Returns true if the destination path was overwritten
      * @see https://secure.php.net/manual/en/function.copy.php
      */
-    public static function copyFile($oldFilePath, $newFilePath, array $options = array())
+    public static function copyFile($oldFilePath, $newFilePath, array $options = array()): bool
     {
         $returnValue = self::checkFilePreconditions('copy', $oldFilePath, $newFilePath, $options);
 
@@ -1155,7 +1155,7 @@ final class FileSystemUtils
      * @return bool Returns true if the destination path was overwritten
      * @see https://secure.php.net/manual/en/function.rename.php
      */
-    public static function moveFile($oldFilePath, $newFilePath, array $options = array())
+    public static function moveFile($oldFilePath, $newFilePath, array $options = array()): bool
     {
         $returnValue = self::checkFilePreconditions('move', $oldFilePath, $newFilePath, $options);
 
@@ -1213,7 +1213,7 @@ final class FileSystemUtils
      * @return string Returns the file content
      * @see https://secure.php.net/manual/en/function.file-get-contents.php
      */
-    public static function readFile($filePath)
+    public static function readFile($filePath): string
     {
         self::checkIsInAllowedDirectories($filePath);
 
@@ -1251,7 +1251,7 @@ final class FileSystemUtils
      * @return int Returns the written bytes
      * @see https://secure.php.net/manual/en/function.file-put-contents.php
      */
-    public static function writeFile($filePath, $data, $append = false)
+    public static function writeFile($filePath, $data, $append = false): int
     {
         self::checkIsInAllowedDirectories($filePath);
 

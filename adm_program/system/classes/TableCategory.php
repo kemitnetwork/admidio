@@ -69,7 +69,7 @@ class TableCategory extends TableAccess
      *                      CAT_DONT_DELETE_CATEGORY
      * @return bool **true** if no error occurred
      */
-    public function delete()
+    public function delete(): bool
     {
         global $gCurrentSession;
 
@@ -138,7 +138,7 @@ class TableCategory extends TableAccess
      * @param int    $index
      * @return string
      */
-    private function getNewNameIntern($name, $index)
+    private function getNewNameIntern($name, $index): string
     {
         $newNameIntern = strtoupper(str_replace(' ', '_', $name));
 
@@ -165,7 +165,7 @@ class TableCategory extends TableAccess
      * Read number of child recordsets of this category.
      * @return int Returns the number of child elements of this category
      */
-    public function getNumberElements()
+    public function getNumberElements(): int
     {
         $sql = 'SELECT COUNT(*) AS count
                   FROM '.$this->elementTable.'
@@ -213,7 +213,7 @@ class TableCategory extends TableAccess
      * If this is a global category than the current organization must be the parent organization.
      * @return bool Return true if the current user is allowed to edit this category
      */
-    public function isEditable()
+    public function isEditable(): bool
     {
         global $gCurrentOrganization, $gCurrentUser;
 
@@ -260,7 +260,7 @@ class TableCategory extends TableAccess
      * the visibility of the category is checked.
      * @return bool Return true if the current user is allowed to view this category
      */
-    public function isVisible()
+    public function isVisible(): bool
     {
         global $gCurrentUser;
 
@@ -335,7 +335,7 @@ class TableCategory extends TableAccess
      * @param int $catId Unique cat_id
      * @return bool Returns **true** if one record is found
      */
-    public function readDataById($catId)
+    public function readDataById($catId): bool
     {
         $returnValue = parent::readDataById($catId);
 
@@ -356,7 +356,7 @@ class TableCategory extends TableAccess
      * @param array<string,mixed> $columnArray An array where every element index is the column name and the value is the column value
      * @return bool Returns **true** if one record is found
      */
-    public function readDataByColumns(array $columnArray)
+    public function readDataByColumns(array $columnArray): bool
     {
         $returnValue = parent::readDataByColumns($columnArray);
 
@@ -377,7 +377,7 @@ class TableCategory extends TableAccess
      * @param bool $updateFingerPrint Default **true**. Will update the creator or editor of the recordset if table has columns like **usr_id_create** or **usr_id_changed**
      * @return bool If an update or insert into the database was done then return true, otherwise false.
      */
-    public function save($updateFingerPrint = true)
+    public function save($updateFingerPrint = true): bool
     {
         global $gCurrentOrganization, $gCurrentSession;
 
@@ -481,7 +481,7 @@ class TableCategory extends TableAccess
      * @param bool   $checkValue The value will be checked if it's valid. If set to **false** than the value will not be checked.
      * @return bool Returns **true** if the value is stored in the current object and **false** if a check failed
      */
-    public function setValue($columnName, $newValue, $checkValue = true)
+    public function setValue($columnName, $newValue, $checkValue = true): bool
     {
         global $gCurrentOrganization;
 

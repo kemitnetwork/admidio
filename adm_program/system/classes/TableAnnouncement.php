@@ -101,7 +101,7 @@ class TableAnnouncement extends TableAccess
      * Global announcements could be only edited by the parent organization.
      * @return bool Return true if the current user is allowed to edit this announcement
      */
-    public function isEditable()
+    public function isEditable(): bool
     {
         global $gCurrentOrganization, $gCurrentUser;
 
@@ -131,7 +131,7 @@ class TableAnnouncement extends TableAccess
      * the visibility of the category is checked.
      * @return bool Return true if the current user is allowed to view this announcement
      */
-    public function isVisible()
+    public function isVisible(): bool
     {
         global $gCurrentUser;
 
@@ -147,7 +147,7 @@ class TableAnnouncement extends TableAccess
      * @param bool   $checkValue The value will be checked if it's valid. If set to **false** than the value will not be checked.
      * @return bool Returns **true** if the value is stored in the current object and **false** if a check failed
      */
-    public function setValue($columnName, $newValue, $checkValue = true)
+    public function setValue($columnName, $newValue, $checkValue = true): bool
     {
         if ($columnName === 'ann_description')
         {

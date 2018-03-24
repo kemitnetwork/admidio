@@ -46,7 +46,7 @@ class TableRoles extends TableAccess
      * @param User $user UserObject of user who should be checked
      * @return bool
      */
-    public function allowedToAssignMembers(User $user)
+    public function allowedToAssignMembers(User $user): bool
     {
         // you aren't allowed to change membership of not active roles
         if ((int) $this->getValue('rol_valid') === 0)
@@ -82,7 +82,7 @@ class TableRoles extends TableAccess
      * @param User $user UserObject of user who should be checked
      * @return bool
      */
-    public function allowedToEditMembers(User $user)
+    public function allowedToEditMembers(User $user): bool
     {
         // you aren't allowed to edit users of not active roles
         if ((int) $this->getValue('rol_valid') === 0)
@@ -118,7 +118,7 @@ class TableRoles extends TableAccess
      * Method determines the number of active leaders of this role
      * @return int Returns the number of leaders of this role
      */
-    public function countLeaders()
+    public function countLeaders(): int
     {
         if ($this->countLeaders === -1)
         {
@@ -141,7 +141,7 @@ class TableRoles extends TableAccess
      * @param int $exceptUserId UserId witch shouldn't be counted
      * @return int Returns the number of members of this role
      */
-    public function countMembers($exceptUserId = null)
+    public function countMembers($exceptUserId = null): int
     {
         if ($this->countMembers === -1)
         {
@@ -199,7 +199,7 @@ class TableRoles extends TableAccess
      * @throws AdmException
      * @return bool **true** if no error occurred
      */
-    public function delete()
+    public function delete(): bool
     {
         global $gCurrentSession, $gL10n, $gCurrentOrganization;
 
@@ -298,7 +298,7 @@ class TableRoles extends TableAccess
      * If there is no list stored then the system default list will be returned
      * @return int Returns the default list id of this role
      */
-    public function getDefaultList()
+    public function getDefaultList(): int
     {
         global $gSettingsManager;
 
@@ -350,7 +350,7 @@ class TableRoles extends TableAccess
      * Checks if this role has former members
      * @return bool Returns **true** if the role has former memberships
      */
-    public function hasFormerMembers()
+    public function hasFormerMembers(): bool
     {
         $sql = 'SELECT COUNT(*) AS count
                   FROM '.TBL_MEMBERS.'
@@ -368,7 +368,7 @@ class TableRoles extends TableAccess
      * we also check if the user is a member of the roles that could participate to the event.
      * @return bool Return true if the current user is allowed to view this role
      */
-    public function isVisible()
+    public function isVisible(): bool
     {
         global $gCurrentUser, $gValidLogin;
 
@@ -407,7 +407,7 @@ class TableRoles extends TableAccess
      * @param bool $updateFingerPrint Default **true**. Will update the creator or editor of the recordset if table has columns like **usr_id_create** or **usr_id_changed**
      * @return bool If an update or insert into the database was done then return true, otherwise false.
      */
-    public function save($updateFingerPrint = true)
+    public function save($updateFingerPrint = true): bool
     {
         global $gCurrentSession;
 
@@ -430,7 +430,7 @@ class TableRoles extends TableAccess
      * aktuelle Rolle wird auf aktiv gesetzt
      * @return bool
      */
-    public function setActive()
+    public function setActive(): bool
     {
         return $this->toggleValid(true);
     }
@@ -439,7 +439,7 @@ class TableRoles extends TableAccess
      * aktuelle Rolle wird auf inaktiv gesetzt
      * @return bool
      */
-    public function setInactive()
+    public function setInactive(): bool
     {
         return $this->toggleValid(false);
     }
@@ -453,7 +453,7 @@ class TableRoles extends TableAccess
      * @throws AdmException
      * @return bool Returns **true** if the value is stored in the current object and **false** if a check failed
      */
-    public function setValue($columnName, $newValue, $checkValue = true)
+    public function setValue($columnName, $newValue, $checkValue = true): bool
     {
         global $gCurrentOrganization, $gL10n;
 
@@ -493,7 +493,7 @@ class TableRoles extends TableAccess
      * @param bool $status
      * @return bool
      */
-    private function toggleValid($status)
+    private function toggleValid($status): bool
     {
         global $gCurrentSession;
 

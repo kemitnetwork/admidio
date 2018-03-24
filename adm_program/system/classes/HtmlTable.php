@@ -223,7 +223,7 @@ class HtmlTable extends HtmlTableBasic
      * Return the number of the column which should be grouped when using the jQuery plugin DataTables.
      * @return int Return the number of the column.
      */
-    public function getDatatablesGroupColumn()
+    public function getDatatablesGroupColumn(): int
     {
         return $this->groupedColumn;
     }
@@ -394,7 +394,7 @@ class HtmlTable extends HtmlTableBasic
              * @param int $item
              * @return int decremented item
              */
-            function decrement($item)
+            function decrement($item): int
             {
                 return --$item;
             }
@@ -528,7 +528,7 @@ class HtmlTable extends HtmlTableBasic
      * have finished your form layout. If table has no rows then a message will be shown.
      * @return string Return the html code of the table.
      */
-    public function show()
+    public function show(): string
     {
         if ($this->rowCount === 0 && !$this->serverSideProcessing)
         {

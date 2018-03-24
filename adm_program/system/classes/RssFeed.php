@@ -92,7 +92,7 @@ class RssFeed
     }
 
     /**
-     * @return string Returns the RSS header
+     * @return string Returns the RSS header: string
      */
     private function getRssHeader()
     {
@@ -102,7 +102,7 @@ class RssFeed
     /**
      * @return string Returns the open channel
      */
-    private function getChannelOpener()
+    private function getChannelOpener(): string
     {
         return '<channel>'.chr(10);
     }
@@ -110,7 +110,7 @@ class RssFeed
     /**
      * @return string Returns channel infos
      */
-    private function getChannelInfo()
+    private function getChannelInfo(): string
     {
         global $gL10n;
 
@@ -132,7 +132,7 @@ class RssFeed
     /**
      * @return string Returns the items
      */
-    private function getItems()
+    private function getItems(): string
     {
         $itemString = '';
         foreach ($this->items as $item)
@@ -156,7 +156,7 @@ class RssFeed
     /**
      * @return string Returns the channel close
      */
-    private function getChannelCloser()
+    private function getChannelCloser(): string
     {
         return '</channel>'.chr(10);
     }
@@ -164,7 +164,7 @@ class RssFeed
     /**
      * @return string Returns the RSS footer
      */
-    private function getRssFooter()
+    private function getRssFooter(): string
     {
         return '</rss>'.chr(10);
     }

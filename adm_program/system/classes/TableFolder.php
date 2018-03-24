@@ -43,7 +43,7 @@ class TableFolder extends TableAccess
      * @param array<string,array<int,array<string,mixed>>> $completeFolder
      * @return array<string,array<int,array<string,mixed>>>
      */
-    private function addAdditionalToFolderContents(array $completeFolder)
+    private function addAdditionalToFolderContents(array $completeFolder): array
     {
         global $gCurrentUser;
 
@@ -166,7 +166,7 @@ class TableFolder extends TableAccess
      * @param int $folderId
      * @return bool **true** if no error occurred
      */
-    public function delete($folderId = 0)
+    public function delete($folderId = 0): bool
     {
         $folId = (int) $this->getValue('fol_id');
         $folderPath = '';
@@ -360,7 +360,7 @@ class TableFolder extends TableAccess
      * Gets the path of the folder (with folder-name)
      * @return string
      */
-    public function getFolderPath()
+    public function getFolderPath(): string
     {
         return $this->getValue('fol_path') . '/' . $this->getValue('fol_name');
     }
@@ -369,7 +369,7 @@ class TableFolder extends TableAccess
      * Gets the absolute path of the folder (with folder-name)
      * @return string
      */
-    public function getFullFolderPath()
+    public function getFullFolderPath(): string
     {
         return ADMIDIO_PATH . $this->getFolderPath();
     }
@@ -377,7 +377,7 @@ class TableFolder extends TableAccess
     /**
      * @return array<int,array<string,mixed>> All files with their properties
      */
-    private function getFilesWithProperties()
+    private function getFilesWithProperties(): array
     {
         global $gCurrentUser;
 
@@ -432,7 +432,7 @@ class TableFolder extends TableAccess
      * Inhalt des aktuellen Ordners, abhaengig von den Benutzerrechten, als Array zurueckliefern...
      * @return array<string,array<int,array<string,mixed>>>
      */
-    public function getFolderContentsForDownload()
+    public function getFolderContentsForDownload(): array
     {
         $completeFolder = array(
             'folders' => $this->getSubfoldersWithProperties(),
@@ -510,7 +510,7 @@ class TableFolder extends TableAccess
      * the shortname of the current organization
      * @return string Returns the root foldername for the download module.
      */
-    public static function getRootFolderName()
+    public static function getRootFolderName(): string
     {
         global $gCurrentOrganization;
 
@@ -525,7 +525,7 @@ class TableFolder extends TableAccess
      * @param string $currentNavigation
      * @return string
      */
-    public function getNavigationForDownload($folderId = 0, $currentNavigation = '')
+    public function getNavigationForDownload($folderId = 0, $currentNavigation = ''): string
     {
         global $gCurrentOrganization, $gL10n;
 
@@ -586,7 +586,7 @@ class TableFolder extends TableAccess
      * Returns an array with all roles ids that have the right to view the folder.
      * @return array<int,int> Returns an array with all role ids that have the right to view the folder.
      */
-    public function getRoleViewArrayOfFolder()
+    public function getRoleViewArrayOfFolder(): array
     {
         return $this->folderViewRolesObject->getRolesIds();
     }
@@ -595,7 +595,7 @@ class TableFolder extends TableAccess
      * Returns an array with all roles ids that have the right to upload files to the folder.
      * @return array<int,int> Returns an array with all role ids that have the right to upload files to the folder.
      */
-    public function getRoleUploadArrayOfFolder()
+    public function getRoleUploadArrayOfFolder(): array
     {
         return $this->folderUploadRolesObject->getRolesIds();
     }
@@ -619,7 +619,7 @@ class TableFolder extends TableAccess
     /**
      * @return array<int,array<string,mixed>> All sub-folders with their properties
      */
-    private function getSubfoldersWithProperties()
+    private function getSubfoldersWithProperties(): array
     {
         global $gCurrentOrganization, $gCurrentUser, $gValidLogin;
 
@@ -709,7 +709,7 @@ class TableFolder extends TableAccess
      * Checks if the current user has the right to upload files to the current folder.
      * @return bool Return **true** if the user has the right to upload files
      */
-    public function hasUploadRight()
+    public function hasUploadRight(): bool
     {
         global $gCurrentUser;
 
@@ -720,7 +720,7 @@ class TableFolder extends TableAccess
      * Checks if the current user has the right to view files of the current folder.
      * @return bool Return **true** if the user has the right to view files
      */
-    public function hasViewRight()
+    public function hasViewRight(): bool
     {
         global $gCurrentUser;
 
@@ -737,7 +737,7 @@ class TableFolder extends TableAccess
      * @see TableAccess#readDataById
      * @see TableAccess#readDataByColumns
      */
-    protected function readData($sqlWhereCondition, array $queryParams = array())
+    protected function readData($sqlWhereCondition, array $queryParams = array()): bool
     {
         if (parent::readData($sqlWhereCondition, $queryParams))
         {
@@ -806,7 +806,7 @@ class TableFolder extends TableAccess
      * @param bool $updateFingerPrint Default **true**. Will update the creator or editor of the recordset if table has columns like **usr_id_create** or **usr_id_changed**
      * @return bool If an update or insert into the database was done then return true, otherwise false.
      */
-    public function save($updateFingerPrint = true)
+    public function save($updateFingerPrint = true): bool
     {
         global $gCurrentOrganization, $gCurrentUser;
 
@@ -825,7 +825,7 @@ class TableFolder extends TableAccess
      * @deprecated 3.3.0:4.0.0 Use Method getFullFolderPath() instead.
      * @return string
      */
-    public function getCompletePathOfFolder()
+    public function getCompletePathOfFolder(): string
     {
         global $gLogger;
 

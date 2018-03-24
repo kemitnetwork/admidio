@@ -363,7 +363,7 @@ class HtmlPage
      * @param string $filepath Filename of the NOT minified file.
      * @return string Returns the filename in dependence of the debug mode.
      */
-    private function getDebugOrMinFilepath($filepath)
+    private function getDebugOrMinFilepath($filepath): string
     {
         global $gDebug;
 
@@ -385,7 +385,7 @@ class HtmlPage
      * Returns the headline of the current Admidio page. This is the text of the <h1> tag of the page.
      * @return string Returns the headline of the current Admidio page.
      */
-    public function getHeadline()
+    public function getHeadline(): string
     {
         return $this->headline;
     }
@@ -395,7 +395,7 @@ class HtmlPage
      * @param string $filename Filename to load out of the theme directory
      * @return string
      */
-    private function getFileContent($filename)
+    private function getFileContent($filename): string
     {
         global $gLogger, $gL10n, $gDb, $gCurrentSession, $gCurrentOrganization, $gCurrentUser;
         global $gValidLogin, $gProfileFields, $gHomepage, $gDbType, $gSettingsManager;
@@ -421,7 +421,7 @@ class HtmlPage
      * Builds the HTML-Header content
      * @return string
      */
-    private function getHtmlHeader()
+    private function getHtmlHeader(): string
     {
         $headerContent = '';
         $htmlMyHeader  = '';
@@ -507,7 +507,7 @@ class HtmlPage
      * Builds the HTML-Body content
      * @return string
      */
-    private function getHtmlBody()
+    private function getHtmlBody(): string
     {
         $htmlMyBodyTop    = '';
         $htmlMyBodyBottom = '';
@@ -591,7 +591,7 @@ class HtmlPage
      * Returns the menu object of this html page.
      * @return \HtmlNavbar Returns the menu object of this html page.
      */
-    public function getMenu()
+    public function getMenu(): \HtmlNavbar
     {
         return $this->menu;
     }
@@ -600,7 +600,7 @@ class HtmlPage
      * Returns the title of the html page.
      * @return string Returns the title of the html page.
      */
-    public function getTitle()
+    public function getTitle(): string
     {
         return $this->title;
     }
@@ -609,7 +609,7 @@ class HtmlPage
      * Get a badge with the unread messages count
      * @return string
      */
-    private static function getUnreadMessagesBadge()
+    private static function getUnreadMessagesBadge(): string
     {
         global $gDb, $gCurrentUser;
 
@@ -735,7 +735,7 @@ class HtmlPage
      * @param bool $details indicator to set if there should be details in the menu.
      * @return string HTML of the Menu
      */
-    public function showMainMenu($details = true)
+    public function showMainMenu($details = true): string
     {
         global $gL10n, $gValidLogin, $gSettingsManager, $gDb, $gCurrentUser;
 

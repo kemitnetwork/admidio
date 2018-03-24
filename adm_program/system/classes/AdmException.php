@@ -88,7 +88,7 @@ class AdmException extends Exception
      * Simply return the plain translated error text without any markup.
      * @return string Returns only a string with the exception text
      */
-    public function getText()
+    public function getText(): string
     {
         global $gL10n;
 

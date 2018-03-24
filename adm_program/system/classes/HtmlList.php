@@ -178,7 +178,7 @@ class HtmlList extends HtmlElement
      *
      * @return string Returns the validated html list as string
      */
-    public function getHtmlList()
+    public function getHtmlList(): string
     {
         $this->closeParentElement('.$this->currentElement().');
 

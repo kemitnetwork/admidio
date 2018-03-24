@@ -108,7 +108,7 @@ class RolesRights extends TableAccess
      * After that the class will be initialize.
      * @return bool **true** if no error occurred
      */
-    public function delete()
+    public function delete(): bool
     {
         if(count($this->rolesRightsDataObjects) > 0)
         {
@@ -129,7 +129,7 @@ class RolesRights extends TableAccess
      * Get all roles ids that where assigned to the current roles right and the selected object.
      * @return array<int,int> Returns an array with all role ids
      */
-    public function getRolesIds()
+    public function getRolesIds(): array
     {
         return $this->rolesIds;
     }
@@ -138,7 +138,7 @@ class RolesRights extends TableAccess
      * Get all names of the roles that where assigned to the current roles right and the selected object.
      * @return array<int,string> Returns an array with all roles names
      */
-    public function getRolesNames()
+    public function getRolesNames(): array
     {
         $arrRolesNames = array();
 
@@ -164,7 +164,7 @@ class RolesRights extends TableAccess
      * @param array<int,int> $assignedRoles Array with all assigned roles of the user whose rights should be checked
      * @return bool Return **true** if at least one role of the assigned roles exists at the current object.
      */
-    public function hasRight(array $assignedRoles)
+    public function hasRight(array $assignedRoles): bool
     {
         return count($assignedRoles) > 0 && count(array_intersect($this->rolesIds, $assignedRoles)) > 0;
     }
@@ -179,7 +179,7 @@ class RolesRights extends TableAccess
      * @see TableAccess#readDataById
      * @see TableAccess#readDataByColumns
      */
-    protected function readData($sqlWhereCondition, array $queryParams = array())
+    protected function readData($sqlWhereCondition, array $queryParams = array()): bool
     {
         if(parent::readData($sqlWhereCondition, $queryParams))
         {

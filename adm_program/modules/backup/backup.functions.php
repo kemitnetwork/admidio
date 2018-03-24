@@ -36,7 +36,7 @@ if (!function_exists('getmicrotime'))
  * @param string $function
  * @return bool
  */
-function FunctionIsDisabled($function)
+function FunctionIsDisabled($function): bool
 {
     global $gLogger;
 
@@ -172,7 +172,7 @@ function bzip2Version()
  * @param int   $precision
  * @return string
  */
-function FormattedTimeRemaining($seconds, $precision = 1)
+function FormattedTimeRemaining($seconds, $precision = 1): string
 {
     global $gL10n;
 
@@ -197,7 +197,7 @@ function FormattedTimeRemaining($seconds, $precision = 1)
  * @param int $precision
  * @return string
  */
-function FileSizeNiceDisplay($filesize, $precision = 2)
+function FileSizeNiceDisplay($filesize, $precision = 2): string
 {
     if ($filesize < 1000)
     {
@@ -271,7 +271,7 @@ function OutputInformation($id, $dhtml, $text = '')
  * @param string $attachmentfilename
  * @return bool
  */
-function EmailAttachment($from, $to, $subject, $textbody, &$attachmentdata, $attachmentfilename)
+function EmailAttachment($from, $to, $subject, $textbody, &$attachmentdata, $attachmentfilename): bool
 {
     $boundary = '_NextPart_'.time().'_'.md5($attachmentdata).'_';
 

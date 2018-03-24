@@ -140,7 +140,7 @@ class HtmlDiv extends HtmlElement
      * @param string $parentElement Parent element to be closed
      * @return bool
      */
-    public function closeParentElement($parentElement)
+    public function closeParentElement($parentElement): bool
     {
         // count entries in array
         $totalCount = count($this->arrParentElements);
@@ -186,7 +186,7 @@ class HtmlDiv extends HtmlElement
      *
      * @return string Returns the validated html div as string
      */
-    public function getHtmlDiv()
+    public function getHtmlDiv(): string
     {
         // first check if open div elements exists and set all endtags if needed
         for ($this->level; $this->level > 2; --$this->level)

@@ -67,7 +67,7 @@ class SystemMail extends Email
      * @param User   $user         Benutzerobjekt, zu dem die Daten dann ausgelesen und in die entsprechenden Platzhalter gesetzt werden
      * @return string
      */
-    public function getMailText($systemMailId, User $user)
+    public function getMailText($systemMailId, User $user): string
     {
         global $gSettingsManager;
 
@@ -150,7 +150,7 @@ class SystemMail extends Email
      * @throws AdmException SYS_EMAIL_NOT_SEND
      * @return true
      */
-    public function sendSystemMail($systemMailId, User $user)
+    public function sendSystemMail($systemMailId, User $user): bool
     {
         global $gSettingsManager;
 

@@ -55,7 +55,7 @@ class ListConfiguration extends TableLists
      * @param string     $filter
      * @return bool
      */
-    public function addColumn($number, $field, $sort = '', $filter = '')
+    public function addColumn($number, $field, $sort = '', $filter = ''): bool
     {
         // can join max. 61 tables
         // Passed parameters must be set carefully
@@ -101,7 +101,7 @@ class ListConfiguration extends TableLists
      * Return count of columns
      * @return int
      */
-    public function countColumns()
+    public function countColumns(): int
     {
         return count($this->columns);
     }
@@ -112,7 +112,7 @@ class ListConfiguration extends TableLists
      * @param bool $all    Define all columns to be deleted
      * @return bool
      */
-    public function deleteColumn($number, $all = false)
+    public function deleteColumn($number, $all = false): bool
     {
         if($number > $this->countColumns())
         {
@@ -183,7 +183,7 @@ class ListConfiguration extends TableLists
      * @param array<int,int> $relationtypeIds
      * @return string
      */
-    public function getSQL(array $roleIds, $showFormerMembers = false, $startDate = null, $endDate = null, array $relationtypeIds = array())
+    public function getSQL(array $roleIds, $showFormerMembers = false, $startDate = null, $endDate = null, array $relationtypeIds = array()): string
     {
         global $gL10n, $gProfileFields, $gCurrentOrganization;
 
@@ -440,7 +440,7 @@ class ListConfiguration extends TableLists
      * @param bool $updateFingerPrint
      * @return bool
      */
-    public function save($updateFingerPrint = true)
+    public function save($updateFingerPrint = true): bool
     {
         $this->db->startTransaction();
 

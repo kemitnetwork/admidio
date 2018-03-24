@@ -188,7 +188,7 @@ class TableAccess
      * Reads the number of all records of this table
      * @return int Number of records of this table
      */
-    public function countAllRecords()
+    public function countAllRecords(): int
     {
         $sql = 'SELECT COUNT(*) AS count FROM '.$this->tableName;
         $countStatement = $this->db->queryPrepared($sql);
@@ -308,7 +308,7 @@ class TableAccess
      * @return bool Returns **true** if at least one value of one column has changed
      *              after the recordset was loaded otherwise **false**
      */
-    public function hasColumnsValueChanged()
+    public function hasColumnsValueChanged(): bool
     {
         return $this->columnsValueChanged;
     }
@@ -318,7 +318,7 @@ class TableAccess
      * then this method will return true otherwise false
      * @return bool Returns **true** if record is not stored in database
      */
-    public function isNewRecord()
+    public function isNewRecord(): bool
     {
         return $this->newRecord;
     }
@@ -333,7 +333,7 @@ class TableAccess
      * @see TableAccess#readDataById
      * @see TableAccess#readDataByColumns
      */
-    protected function readData($sqlWhereCondition, array $queryParams = array())
+    protected function readData($sqlWhereCondition, array $queryParams = array()): bool
     {
         $sqlAdditionalTables = '';
 
@@ -396,7 +396,7 @@ class TableAccess
      * @see TableAccess#readData
      * @see TableAccess#readDataByColumns
      */
-    public function readDataById($id)
+    public function readDataById($id): bool
     {
         // initialize the object, so that all fields are empty
         $this->clear();
@@ -429,7 +429,7 @@ class TableAccess
      * @see TableAccess#readData
      * @see TableAccess#readDataById
      */
-    public function readDataByColumns(array $columnArray)
+    public function readDataByColumns(array $columnArray): bool
     {
         // initialize the object, so that all fields are empty
         $this->clear();
@@ -470,7 +470,7 @@ class TableAccess
      *                                if table has columns like **usr_id_create** or **usr_id_changed**
      * @return bool If an update or insert into the database was done then return true, otherwise false.
      */
-    public function save($updateFingerPrint = true)
+    public function save($updateFingerPrint = true): bool
     {
         global $gCurrentUser;
 
@@ -616,7 +616,7 @@ class TableAccess
      * @return bool Returns **true** if the value is stored in the current object and **false** if a check failed
      * @see TableAccess#getValue
      */
-    public function setValue($columnName, $newValue, $checkValue = true)
+    public function setValue($columnName, $newValue, $checkValue = true): bool
     {
         if (!array_key_exists($columnName, $this->dbColumns))
         {

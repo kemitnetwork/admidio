@@ -101,7 +101,7 @@ class ProfileFields
     /**
      * @return array<string,TableUserField>
      */
-    public function getProfileFields()
+    public function getProfileFields(): array
     {
         return $this->mProfileFields;
     }
@@ -135,7 +135,7 @@ class ProfileFields
      * @param string $format  Optional the format (is necessary for timestamps)
      * @return string
      */
-    public function getPropertyById($fieldId, $column, $format = '')
+    public function getPropertyById($fieldId, $column, $format = ''): string
     {
         foreach ($this->mProfileFields as $field)
         {
@@ -156,7 +156,7 @@ class ProfileFields
      * @param int        $value2          An optional parameter that is necessary for some special fields like email to commit the user id
      * @return string Returns an html formated string that considered the profile field settings
      */
-    public function getHtmlValue($fieldNameIntern, $value, $value2 = null)
+    public function getHtmlValue($fieldNameIntern, $value, $value2 = null): string
     {
         global $gSettingsManager;
 
@@ -438,7 +438,7 @@ class ProfileFields
      * returns true if a column of user table or profile fields has changed
      * @return bool
      */
-    public function hasColumnsValueChanged()
+    public function hasColumnsValueChanged(): bool
     {
         return $this->columnsValueChanged;
     }
@@ -453,7 +453,7 @@ class ProfileFields
      *                                    set if you are not in a user context.
      * @return bool Return true if the current user is allowed to view this profile field
      */
-    public function isVisible($fieldNameIntern, $allowedToEditProfile = false)
+    public function isVisible($fieldNameIntern, $allowedToEditProfile = false): bool
     {
         global $gCurrentUser;
 
@@ -583,7 +583,7 @@ class ProfileFields
      * @param mixed  $fieldValue
      * @return bool
      */
-    public function setValue($fieldNameIntern, $fieldValue)
+    public function setValue($fieldNameIntern, $fieldValue): bool
     {
         global $gSettingsManager;
 

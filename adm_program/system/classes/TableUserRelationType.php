@@ -32,7 +32,7 @@ class TableUserRelationType extends TableAccess
     /**
      * @return string
      */
-    public function getRelationTypeString()
+    public function getRelationTypeString(): string
     {
         if (!$this->isNewRecord())
         {
@@ -53,7 +53,7 @@ class TableUserRelationType extends TableAccess
     /**
      * @return bool
      */
-    public function isUnidirectional()
+    public function isUnidirectional(): bool
     {
         return $this->getRelationTypeString() === self::USER_RELATION_TYPE_UNIDIRECTIONAL;
     }
@@ -61,7 +61,7 @@ class TableUserRelationType extends TableAccess
     /**
      * @return bool
      */
-    public function isSymmetrical()
+    public function isSymmetrical(): bool
     {
         return $this->getRelationTypeString() === self::USER_RELATION_TYPE_SYMMETRICAL;
     }
@@ -69,7 +69,7 @@ class TableUserRelationType extends TableAccess
     /**
      * @return bool
      */
-    public function isAsymmetrical()
+    public function isAsymmetrical(): bool
     {
         return $this->getRelationTypeString() === self::USER_RELATION_TYPE_ASYMMETRICAL;
     }

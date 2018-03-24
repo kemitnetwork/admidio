@@ -46,7 +46,7 @@ class ComponentUpdate extends Component
      * @param string $versionString A version string
      * @return array<int,int> Returns an array with the version parts
      */
-    private static function getVersionArrayFromVersion($versionString)
+    private static function getVersionArrayFromVersion($versionString): array
     {
         return array_map('intval', explode('.', $versionString));
     }
@@ -59,7 +59,7 @@ class ComponentUpdate extends Component
      * @throws \UnexpectedValueException
      * @return \SimpleXMLElement
      */
-    private function getXmlObject($mainVersion, $minorVersion)
+    private function getXmlObject($mainVersion, $minorVersion): \SimpleXMLElement
     {
         global $gLogger;
 
@@ -87,7 +87,7 @@ class ComponentUpdate extends Component
      * If the last step is found than the id of this step will be returned.
      * @return int Return the number of the last update step that was found in xml file of the current version.
      */
-    public function getMaxUpdateStep()
+    public function getMaxUpdateStep(): int
     {
         $maxUpdateStep = 0;
         $currentVersionArray = self::getVersionArrayFromVersion($this->getValue('com_version'));

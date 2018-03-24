@@ -105,7 +105,7 @@ class Organization extends TableAccess
      * this method will cache the value and will return the cached value on multiple calls.
      * @return int Number of all organizations in database.
      */
-    public function countAllRecords()
+    public function countAllRecords(): int
     {
         if($this->countOrganizations === 0)
         {
@@ -364,7 +364,7 @@ class Organization extends TableAccess
      * @return string Returns a string with a comma separated list of all organization
      *                ids that are parents or children and the own id
      */
-    public function getFamilySQL($shortname = false)
+    public function getFamilySQL($shortname = false): string
     {
         $organizations = $this->getOrganizationsInRelationship();
 
@@ -374,7 +374,7 @@ class Organization extends TableAccess
              * @param string $value
              * @return string
              */
-            function addQuotationMarks($value)
+            function addQuotationMarks($value): string
             {
                 return '\''.$value.'\'';
             }
@@ -398,7 +398,7 @@ class Organization extends TableAccess
      *                       otherwise it will be **org_shortname**
      * @return array<int,string> Returns an array with all child and parent organizations e.g. array('org_id' => 'org_shortname')
      */
-    public function getOrganizationsInRelationship($child = true, $parent = true, $longname = false)
+    public function getOrganizationsInRelationship($child = true, $parent = true, $longname = false): array
     {
         $sqlWhere = array();
         $queryParams = array();
@@ -439,7 +439,7 @@ class Organization extends TableAccess
     /**
      * @return array<int,string> Returns an array with all child organizations
      */
-    protected function getChildOrganizations()
+    protected function getChildOrganizations(): array
     {
         if(!$this->bCheckChildOrganizations)
         {
@@ -455,7 +455,7 @@ class Organization extends TableAccess
      * Method checks if the organization is configured as a child organization in the recordset.
      * @return bool Return **true** if the organization is a child of another organization
      */
-    public function isChildOrganization()
+    public function isChildOrganization(): bool
     {
         return $this->getValue('org_org_id_parent') > 0;
     }
@@ -464,7 +464,7 @@ class Organization extends TableAccess
      * Method checks if the organization is configured as a parent organization in the recordset.
      * @return bool Return **true** if the organization is the parent of a least one other organization
      */
-    public function isParentOrganization()
+    public function isParentOrganization(): bool
     {
         return count($this->getChildOrganizations()) > 0;
     }
@@ -477,7 +477,7 @@ class Organization extends TableAccess
      * @param bool   $checkValue The value will be checked if it's valid. If set to **false** than the value will not be checked.
      * @return bool Returns **true** if the value is stored in the current object and **false** if a check failed
      */
-    public function setValue($columnName, $newValue, $checkValue = true)
+    public function setValue($columnName, $newValue, $checkValue = true): bool
     {
         // org_shortname shouldn't be edited
         if($columnName === 'org_shortname' && !$this->newRecord)
@@ -500,7 +500,7 @@ class Organization extends TableAccess
     /**
      * @return array<string,mixed>
      */
-    public function getDbColumns()
+    public function getDbColumns(): array
     {
         return $this->dbColumns;
     }
@@ -513,7 +513,7 @@ class Organization extends TableAccess
      * @return array<string,string> Returns an array with all preferences of this organization.
      *                              Array key is the column **prf_name** and array value is the column **prf_value**.
      */
-    public function getPreferences($update = false)
+    public function getPreferences($update = false): array
     {
         return $this->settingsManager->getAll($update);
     }

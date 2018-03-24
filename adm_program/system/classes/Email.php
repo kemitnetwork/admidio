@@ -195,7 +195,7 @@ class Email extends PHPMailer
      * @param string $name
      * @return bool
      */
-    public function addBlindCopy($address, $name = '')
+    public function addBlindCopy($address, $name = ''): bool
     {
         $address = admStrToLower($address);
         // Blindcopy must be Ascii-US formated, so encode in MimeHeader
@@ -277,7 +277,7 @@ class Email extends PHPMailer
      * @param int    $precision The number of decimal digits to round to
      * @return float The maximum attachment size in the given size-unit
      */
-    public static function getMaxAttachmentSize($sizeUnit = self::SIZE_UNIT_BYTE, $precision = 1)
+    public static function getMaxAttachmentSize($sizeUnit = self::SIZE_UNIT_BYTE, $precision = 1): float
     {
         global $gSettingsManager;
 
@@ -353,7 +353,7 @@ class Email extends PHPMailer
      * @param string $subject A text that should be the subject of the email
      * @return bool Returns **false** if the parameter has no text
      */
-    public function setSubject($subject)
+    public function setSubject($subject): bool
     {
         if ($subject !== '')
         {
@@ -591,7 +591,7 @@ class Email extends PHPMailer
      * @param string $sizeUnit 'b' = byte, 'kib' = kilobyte, 'mib' = megabyte, 'gib' = gigabyte, 'tib' = terabyte
      * @return float The maximum attachment size in the given size-unit
      */
-    public static function getMaxAttachementSize($sizeUnit = self::SIZE_UNIT_MEBIBYTE)
+    public static function getMaxAttachementSize($sizeUnit = self::SIZE_UNIT_MEBIBYTE): float
     {
         global $gLogger;
 

@@ -107,7 +107,7 @@ class HtmlFormInstallation extends HtmlForm
      * @param bool $directOutput This is only used for compatibility to show method of parent class HtmlForm
      * @return string Return the html code of the form.
      */
-    public function show($directOutput = true)
+    public function show($directOutput = true): string
     {
         // if no modus set then set installation modus
         if ($this->title === '')

@@ -43,7 +43,7 @@ class ModuleMessages
      * @param string $roleIdsString A string with several role ids. (e.g: "groupID: 4-2")
      * @return string Returns the rolename and the status if former members were selected.
      */
-    public function msgGroupNameSplit($roleIdsString)
+    public function msgGroupNameSplit($roleIdsString): string
     {
         global $gCurrentOrganization, $gL10n, $gDb;
 
@@ -77,7 +77,7 @@ class ModuleMessages
      * @param string $groupString (e.g: "groupID: 4-2")
      * @return array<string,string|int> Returns the groupId and status
      */
-    public function msgGroupSplit($groupString)
+    public function msgGroupSplit($groupString): array
     {
         $groupSplit = explode(':', $groupString);
         $groupIdAndStatus = explode('-', trim($groupSplit[1]));
@@ -110,7 +110,7 @@ class ModuleMessages
      * @param int $userId
      * @return \PDOStatement
      */
-    public function msgGetUserEmails($userId)
+    public function msgGetUserEmails($userId): \PDOStatement
     {
         global $gDb;
 
@@ -128,7 +128,7 @@ class ModuleMessages
      * @param int $userId
      * @return \PDOStatement
      */
-    public function msgGetUserUnread($userId)
+    public function msgGetUserUnread($userId): \PDOStatement
     {
         global $gDb;
 
@@ -147,7 +147,7 @@ class ModuleMessages
      * @param int $userId
      * @return \PDOStatement
      */
-    public function msgGetUser($userId)
+    public function msgGetUser($userId): \PDOStatement
     {
         global $gDb;
 
@@ -165,7 +165,7 @@ class ModuleMessages
      * return the message ID of the admidio chat.
      * @return int
      */
-    public function msgGetChatId()
+    public function msgGetChatId(): int
     {
         global $gDb;
 

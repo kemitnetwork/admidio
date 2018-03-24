@@ -26,7 +26,7 @@ if (!function_exists('hash_equals'))
      * @param string $userInput
      * @return bool
      */
-    function hash_equals($knownString, $userInput)
+    function hash_equals($knownString, $userInput): bool
     {
         if (!is_string($knownString))
         {
@@ -59,7 +59,7 @@ if (!function_exists('http_response_code')) {
      * @param int|null $code
      * @return int
      */
-    function http_response_code($code = null)
+    function http_response_code($code = null): int
     {
         static $defaultCode = 200;
 

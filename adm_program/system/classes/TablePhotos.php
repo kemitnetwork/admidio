@@ -49,7 +49,7 @@ class TablePhotos extends TableAccess
      * @param int $phoId
      * @return int
      */
-    public function countImages($phoId = 0)
+    public function countImages($phoId = 0): int
     {
         $totalImages = 0;
 
@@ -103,7 +103,7 @@ class TablePhotos extends TableAccess
      * After that the class will be initialize.
      * @return bool **true** if no error occurred
      */
-    public function delete()
+    public function delete(): bool
     {
         if ($this->deleteInDatabase((int) $this->getValue('pho_id')))
         {
@@ -118,7 +118,7 @@ class TablePhotos extends TableAccess
      * @param int $photoId
      * @return bool
      */
-    public function deleteInDatabase($photoId)
+    public function deleteInDatabase($photoId): bool
     {
         $returnValue = true;
 
@@ -171,7 +171,7 @@ class TablePhotos extends TableAccess
      * Check if this album has one or more child albums.
      * @return bool Return **true** if child albums exists.
      */
-    public function hasChildAlbums()
+    public function hasChildAlbums(): bool
     {
         if ($this->hasChildAlbums === null)
         {
@@ -192,7 +192,7 @@ class TablePhotos extends TableAccess
      * The user must be a member of at least one role that have the right to manage photo albums.
      * @return bool Return true if the current user is allowed to edit this photo album
      */
-    public function isEditable()
+    public function isEditable(): bool
     {
         global $gCurrentUser;
 
@@ -205,7 +205,7 @@ class TablePhotos extends TableAccess
      * is a module administrator.
      * @return bool Return true if the current user is allowed to view this photo album
      */
-    public function isVisible()
+    public function isVisible(): bool
     {
         global $gCurrentOrganization, $gCurrentUser;
 
@@ -232,7 +232,7 @@ class TablePhotos extends TableAccess
      * @param bool $updateFingerPrint Default **true**. Will update the creator or editor of the recordset if table has columns like **usr_id_create** or **usr_id_changed**
      * @return bool If an update or insert into the database was done then return true, otherwise false.
      */
-    public function save($updateFingerPrint = true)
+    public function save($updateFingerPrint = true): bool
     {
         global $gCurrentOrganization;
 
@@ -250,7 +250,7 @@ class TablePhotos extends TableAccess
      * @param int $phoId
      * @return array
      */
-    public function shuffleImage($phoId = 0)
+    public function shuffleImage($phoId = 0): array
     {
         $shuffleImage = array('shuffle_pho_id' => 0, 'shuffle_img_nr' => 0, 'shuffle_img_begin' => '');
 

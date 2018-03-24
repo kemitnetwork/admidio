@@ -57,7 +57,7 @@ class TableDate extends TableAccess
      * the right event_participation.
      * @return bool Return true if the current user is allowed to participate to the event.
      */
-    public function allowedToParticipate()
+    public function allowedToParticipate(): bool
     {
         global $gCurrentUser;
 
@@ -79,7 +79,7 @@ class TableDate extends TableAccess
      * if the deadline is in the past than return true.
      * @return bool Return true if the deadline is exceeded.
      */
-    public function deadlineExceeded()
+    public function deadlineExceeded(): bool
     {
         return $this->getValidDeadline() < DATETIME_NOW;
     }
@@ -89,7 +89,7 @@ class TableDate extends TableAccess
      * After that the class will be initialize.
      * @return bool **true** if no error occurred
      */
-    public function delete()
+    public function delete(): bool
     {
         $datId     = (int) $this->getValue('dat_id');
         $datRoleId = (int) $this->getValue('dat_rol_id');
@@ -122,7 +122,7 @@ class TableDate extends TableAccess
      * @param string $text
      * @return string
      */
-    private function escapeIcalText($text)
+    private function escapeIcalText($text): string
     {
         $replaces = array(
             '\\' => '\\\\',
@@ -141,7 +141,7 @@ class TableDate extends TableAccess
      * @param string $domain
      * @return string
      */
-    public function getIcal($domain)
+    public function getIcal($domain): string
     {
         $iCal = $this->getIcalHeader().
                 $this->getIcalVEvent($domain).
@@ -154,7 +154,7 @@ class TableDate extends TableAccess
      * gibt den Kopf eines iCalCalenders aus
      * @return string
      */
-    public function getIcalHeader()
+    public function getIcalHeader(): string
     {
         $defaultTimezone = date_default_timezone_get();
 
@@ -192,7 +192,7 @@ class TableDate extends TableAccess
      * gibt den Fuß eines iCalCalenders aus
      * @return string
      */
-    public function getIcalFooter()
+    public function getIcalFooter(): string
     {
         return 'END:VCALENDAR';
     }
@@ -202,7 +202,7 @@ class TableDate extends TableAccess
      * @param string $domain
      * @return string
      */
-    public function getIcalVEvent($domain)
+    public function getIcalVEvent($domain): string
     {
         $dateTimeFormat = 'Ymd\THis';
 
@@ -337,7 +337,7 @@ class TableDate extends TableAccess
      * Global events could be only edited by the parent organization.
      * @return bool Return true if the current user is allowed to edit this event
      */
-    public function isEditable()
+    public function isEditable(): bool
     {
         global $gCurrentOrganization, $gCurrentUser;
 
@@ -366,7 +366,7 @@ class TableDate extends TableAccess
      * the visibility of the category is checked.
      * @return bool Return true if the current user is allowed to view this event
      */
-    public function isVisible()
+    public function isVisible(): bool
     {
         global $gCurrentUser;
 
@@ -382,7 +382,7 @@ class TableDate extends TableAccess
      * @param bool   $checkValue The value will be checked if it's valid. If set to **false** than the value will not be checked.
      * @return bool Returns **true** if the value is stored in the current object and **false** if a check failed
      */
-    public function setValue($columnName, $newValue, $checkValue = true)
+    public function setValue($columnName, $newValue, $checkValue = true): bool
     {
         if ($columnName === 'dat_description')
         {

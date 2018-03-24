@@ -43,7 +43,7 @@ class SettingsManager
      * Only safe db and orgId on serialization
      * @return array<int,string> Returns the properties that should be serialized
      */
-    public function __sleep()
+    public function __sleep(): array
     {
         return array('orgId');
     }
@@ -106,7 +106,7 @@ class SettingsManager
      * @param bool $update Set true to make a force reload of all settings from the database
      * @return array<string,string> Returns all settings
      */
-    public function getAll($update = false)
+    public function getAll($update = false): array
     {
         if ($update || !$this->initFullLoad)
         {
@@ -123,7 +123,7 @@ class SettingsManager
      * @throws \UnexpectedValueException Throws if the setting name is invalid or does not exist
      * @return string Returns the chosen setting value
      */
-    public function get($name, $update = false)
+    public function get($name, $update = false): string
     {
         if (!self::isValidName($name))
         {
@@ -145,7 +145,7 @@ class SettingsManager
      * @throws \InvalidArgumentException Throws if the chosen setting value is not of type bool
      * @return bool Returns the chosen boolean setting value
      */
-    public function getBool($name, $update = false)
+    public function getBool($name, $update = false): bool
     {
         $value = $this->get($name, $update);
         $value = filter_var($value, FILTER_VALIDATE_BOOLEAN, FILTER_NULL_ON_FAILURE);
@@ -166,7 +166,7 @@ class SettingsManager
      * @throws \InvalidArgumentException Throws if the chosen setting value is not of type int
      * @return int Returns the chosen integer setting value
      */
-    public function getInt($name, $update = false)
+    public function getInt($name, $update = false): int
     {
         $value = $this->get($name, $update);
         $value = filter_var($value, FILTER_VALIDATE_INT);
@@ -187,7 +187,7 @@ class SettingsManager
      * @throws \InvalidArgumentException Throws if the chosen setting value is not of type float
      * @return float Returns the chosen float setting value
      */
-    public function getFloat($name, $update = false)
+    public function getFloat($name, $update = false): float
     {
         $value = $this->get($name, $update);
         $value = filter_var($value, FILTER_VALIDATE_FLOAT);
@@ -207,7 +207,7 @@ class SettingsManager
      * @throws \UnexpectedValueException Throws if the setting name is invalid or does not exist
      * @return string Returns the chosen string setting value
      */
-    public function getString($name, $update = false)
+    public function getString($name, $update = false): string
     {
         return $this->get($name, $update);
     }
@@ -219,7 +219,7 @@ class SettingsManager
      * @throws \UnexpectedValueException Throws if the settings name is invalid
      * @return bool Returns true if the setting exists
      */
-    public function has($name, $update = false)
+    public function has($name, $update = false): bool
     {
         if (!self::isValidName($name))
         {
@@ -248,7 +248,7 @@ class SettingsManager
      * @param string $name The settings name
      * @return bool Returns true if the settings name is valid
      */
-    private static function isValidName($name)
+    private static function isValidName($name): bool
     {
         return (bool) preg_match('/^[a-z0-9](_?[a-z0-9])*$/', $name);
     }
@@ -258,7 +258,7 @@ class SettingsManager
      * @param mixed $value The settings value
      * @return bool Returns true if the settings value is true
      */
-    private static function isValidValue($value)
+    private static function isValidValue($value): bool
     {
         return is_scalar($value);
     }
@@ -267,7 +267,7 @@ class SettingsManager
      * Loads all settings from the database
      * @return array<string,string> An array with all settings from the database
      */
-    private function loadAll()
+    private function loadAll(): array
     {
         $sql = 'SELECT prf_name, prf_value
                   FROM '.TBL_PREFERENCES.'
@@ -290,7 +290,7 @@ class SettingsManager
      * @throws \UnexpectedValueException Throws if there is no setting to the given name found
      * @return string Returns the setting value
      */
-    private function load($name)
+    private function load($name): string
     {
         $sql = 'SELECT prf_value
                   FROM '.TBL_PREFERENCES.'

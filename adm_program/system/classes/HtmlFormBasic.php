@@ -377,7 +377,7 @@ class HtmlFormBasic extends HtmlElement
      * Get the full parsed html form
      * @return string Returns the validated html form as string
      */
-    public function getHtmlForm()
+    public function getHtmlForm(): string
     {
         return $this->getHtmlElement();
     }

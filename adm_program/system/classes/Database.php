@@ -126,7 +126,7 @@ class Database
      * @throws AdmException
      * @return self Returns a Database instance
      */
-    public static function createDatabaseInstance()
+    public static function createDatabaseInstance(): self
     {
         global $gLogger;
 
@@ -189,7 +189,7 @@ class Database
      * which will lead to an exception.
      * @return array<int,string>
      */
-    public function __sleep()
+    public function __sleep(): array
     {
         global $gLogger;
 
@@ -242,7 +242,7 @@ class Database
      * @see Database#startTransaction
      * @see Database#rollback
      */
-    public function endTransaction()
+    public function endTransaction(): bool
     {
         global $gLogger;
 
@@ -284,7 +284,7 @@ class Database
      * @return string Returns a quoted string that is theoretically safe to pass into an SQL statement.
      * @see <a href="https://secure.php.net/manual/en/pdo.quote.php">PDO::quote</a>
      */
-    public function escapeString($string)
+    public function escapeString($string): string
     {
         return $this->pdo->quote($string);
     }
@@ -295,7 +295,7 @@ class Database
      * @return array<int,string> Returns an array with all available PDO database drivers of the server.
      * @see <a href="https://secure.php.net/manual/en/pdo.getavailabledrivers.php">PDO::getAvailableDrivers</a>
      */
-    public static function getAvailableDBs()
+    public static function getAvailableDBs(): array
     {
         global $gLogger;
 
@@ -309,7 +309,7 @@ class Database
      * scripts were called than each script with their position will be listed in the backtrace.
      * @return string Returns a string with the backtrace of all called scripts.
      */
-    protected function getBacktrace()
+    protected function getBacktrace(): string
     {
         $output = '<div style="font-family: monospace;">';
         $backtrace = debug_backtrace();
@@ -370,7 +370,7 @@ class Database
      * Get the name of the database that is running Admidio.
      * @return string Returns a string with the name of the database e.g. 'MySQL' or 'PostgreSQL'
      */
-    public function getName()
+    public function getName(): string
     {
         if ($this->databaseName === '')
         {
@@ -384,7 +384,7 @@ class Database
      * Get the minimum required version of the database that is necessary to run Admidio.
      * @return string Returns a string with the minimum required database version e.g. '5.0.1'
      */
-    public function getMinimumRequiredVersion()
+    public function getMinimumRequiredVersion(): string
     {
         if ($this->minRequiredVersion === '')
         {
@@ -398,7 +398,7 @@ class Database
      * @param string $property Property name of the in use database config
      * @return string Returns the value of the chosen property
      */
-    protected function getPropertyFromDatabaseConfig($property)
+    protected function getPropertyFromDatabaseConfig($property): string
     {
         $xmlDatabases = new \SimpleXMLElement(ADMIDIO_PATH . '/adm_program/system/databases.xml', 0, true);
         $node = $xmlDatabases->xpath('/databases/database[@id="' . $this->engine . '"]/' . $property);
@@ -411,7 +411,7 @@ class Database
      * @param string $table Name of the database table for which the columns-properties should be shown.
      * @return array<string,array<string,mixed>> Returns an array with column-names.
      */
-    public function getTableColumnsProperties($table)
+    public function getTableColumnsProperties($table): array
     {
         if (!array_key_exists($table, $this->dbStructure))
         {
@@ -426,7 +426,7 @@ class Database
      * @param string $table Name of the database table for which the columns should be shown.
      * @return array<int,string> Returns an array with each column and their properties.
      */
-    public function getTableColumns($table)
+    public function getTableColumns($table): array
     {
         if (!array_key_exists($table, $this->dbStructure))
         {
@@ -440,7 +440,7 @@ class Database
      * Get the version of the connected database.
      * @return string Returns a string with the database version e.g. '5.5.8'
      */
-    public function getVersion()
+    public function getVersion(): string
     {
         $versionStatement = $this->queryPrepared('SELECT version()');
         $version = $versionStatement->fetchColumn();
@@ -566,7 +566,7 @@ class Database
      * @return string Return ID value of the last INSERT operation.
      * @see Database#insert_id
      */
-    public function lastInsertId()
+    public function lastInsertId(): string
     {
         if ($this->engine === self::PDO_ENGINE_PGSQL)
         {
@@ -582,7 +582,7 @@ class Database
      * @param string $sql
      * @return string
      */
-    private function preparePgSqlQuery($sql)
+    private function preparePgSqlQuery($sql): string
     {
         $sqlCompare = strtolower($sql);
 
@@ -621,7 +621,7 @@ class Database
      * @param string $sql
      * @return string
      */
-    public static function prepareSqlTablePrefix($sql)
+    public static function prepareSqlTablePrefix($sql): string
     {
         return str_replace('%PREFIX%', TABLE_PREFIX, $sql);
     }
@@ -631,7 +631,7 @@ class Database
      * @param string $sql
      * @return string
      */
-    private static function prepareSqlForLog($sql)
+    private static function prepareSqlForLog($sql): string
     {
         $sql = preg_replace('/\/\*.+\*\//sU', '', $sql); // Removes /* ... */ (multi-line) comments
         $sql = preg_replace('/--.+$/m', '', $sql); // Removes -- (single-line) comments
@@ -767,7 +767,7 @@ class Database
      * @see Database#startTransaction
      * @see Database#endTransaction
      */
-    public function rollback()
+    public function rollback(): bool
     {
         global $gLogger;
 
@@ -934,7 +934,7 @@ class Database
      * @see Database#endTransaction
      * @see Database#rollback
      */
-    public function startTransaction()
+    public function startTransaction(): bool
     {
         global $gLogger;
 
@@ -969,7 +969,7 @@ class Database
      * @throws \RuntimeException         Throws if the read process fails
      * @return array<int,string> Returns an array with all prepared SQL statements
      */
-    public static function getSqlStatementsFromSqlFile($sqlFilePath)
+    public static function getSqlStatementsFromSqlFile($sqlFilePath): array
     {
         $sqlFileContent = FileSystemUtils::readFile($sqlFilePath);
 
@@ -1059,7 +1059,7 @@ class Database
      * @return string Return ID value of the last INSERT operation.
      * @see Database#lastInsertId
      */
-    public function insert_id()
+    public function insert_id(): string
     {
         global $gLogger;
 
@@ -1105,7 +1105,7 @@ class Database
      * @param bool   $showColumnProperties If this is set to **false** only the column names were returned.
      * @return array<string,array<string,mixed>>|array<int,string> Returns an array with each column and their properties if $showColumnProperties is set to **true**.
      */
-    public function showColumns($table, $showColumnProperties = true)
+    public function showColumns($table, $showColumnProperties = true): array
     {
         global $gLogger;
 

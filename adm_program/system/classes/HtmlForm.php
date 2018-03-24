@@ -1928,7 +1928,7 @@ class HtmlForm extends HtmlFormBasic
      * @param string          $parameter If you need an additional parameter for the text you can set this parameter.
      * @return string Return a html snippet that contains a help icon with a link to a popup box that shows the message.
      */
-    public static function getHelpTextIcon($textId, $parameter = null)
+    public static function getHelpTextIcon($textId, $parameter = null): string
     {
         global $gL10n, $gProfileFields;
 

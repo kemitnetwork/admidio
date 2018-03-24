@@ -21,7 +21,7 @@ if (basename($_SERVER['SCRIPT_FILENAME']) === 'function.php')
  *                         If @userId is not set than this will be checked for the current user
  * @return bool Returns **true** if the user is a member of the role
  */
-function hasRole($roleName, $userId = 0)
+function hasRole($roleName, $userId = 0): bool
 {
     global $gDb, $gCurrentUser, $gCurrentOrganization;
 
@@ -53,7 +53,7 @@ function hasRole($roleName, $userId = 0)
  * @param int $userId The id of the user who should be checked if he is a member of the current organization
  * @return bool Returns **true** if the user is a member
  */
-function isMember($userId)
+function isMember($userId): bool
 {
     global $gDb, $gCurrentOrganization;
 
@@ -87,7 +87,7 @@ function isMember($userId)
  *                    otherwise it checks if the user is group leader in one role of the current organization
  * @return bool Returns **true** if the user is a group leader
  */
-function isGroupLeader($userId, $roleId = 0)
+function isGroupLeader($userId, $roleId = 0): bool
 {
     global $gDb, $gCurrentOrganization;
 
@@ -136,7 +136,7 @@ function isGroupLeader($userId, $roleId = 0)
  * @param string $queryParamName (optional) You can set a new name for the parameter that should be used as start parameter.
  * @return string
  */
-function admFuncGeneratePagination($baseUrl, $itemsCount, $itemsPerPage, $pageStartItem, $addPrevNextText = true, $queryParamName = 'start')
+function admFuncGeneratePagination($baseUrl, $itemsCount, $itemsPerPage, $pageStartItem, $addPrevNextText = true, $queryParamName = 'start'): string
 {
     global $gL10n;
 
@@ -161,7 +161,7 @@ function admFuncGeneratePagination($baseUrl, $itemsCount, $itemsPerPage, $pageSt
      * @param int    $itemsPerPage
      * @return string
      */
-    function getListElementsFromTo($start, $end, $page, $url, $paramName, $itemsPerPage)
+    function getListElementsFromTo($start, $end, $page, $url, $paramName, $itemsPerPage): string
     {
         $pageNavString = '';
 
@@ -188,7 +188,7 @@ function admFuncGeneratePagination($baseUrl, $itemsCount, $itemsPerPage, $pageSt
      * @param string $paramValue
      * @return string
      */
-    function getListElementString($linkText, $className = '', $url = '', $paramName = '', $paramValue = '')
+    function getListElementString($linkText, $className = '', $url = '', $paramName = '', $paramValue = ''): string
     {
         $classString = '';
         if ($className !== '')
@@ -507,7 +507,7 @@ function admFuncVariableIsValid(array $array, $variableName, $datatype, array $o
  * @param string $timestampEdited Date and time of the moment when the user last changed the recordset
  * @return string Returns a html string with usernames who creates item and edit item the last time
  */
-function admFuncShowCreateChangeInfoById($userIdCreated, $timestampCreate, $userIdEdited = 0, $timestampEdited = '')
+function admFuncShowCreateChangeInfoById($userIdCreated, $timestampCreate, $userIdEdited = 0, $timestampEdited = ''): string
 {
     global $gDb, $gProfileFields, $gL10n, $gSettingsManager;
 
@@ -590,7 +590,7 @@ function admFuncShowCreateChangeInfoById($userIdCreated, $timestampCreate, $user
  *                                If id is set than a link to the user profile will be created
  * @return string Returns a html string with usernames who creates item and edit item the last time
  */
-function admFuncShowCreateChangeInfoByName($userNameCreated, $timestampCreate, $userNameEdited, $timestampEdited, $userIdCreated = 0, $userIdEdited = 0)
+function admFuncShowCreateChangeInfoByName($userNameCreated, $timestampCreate, $userNameEdited, $timestampEdited, $userIdCreated = 0, $userIdEdited = 0): string
 {
     global $gL10n, $gValidLogin, $gSettingsManager;
 
@@ -726,7 +726,7 @@ function admFuncCheckUrl($url)
  * @param string $encoding Define character encoding tue use
  * @return string Escaped string
  */
-function noHTML($input, $encoding = 'UTF-8')
+function noHTML($input, $encoding = 'UTF-8'): string
 {
     // backwards compatibility for PHP-Version < 5.4
     if (!defined('ENT_HTML5'))
@@ -744,7 +744,7 @@ function noHTML($input, $encoding = 'UTF-8')
  * @param bool                $escape
  * @return string
  */
-function safeUrl($path, array $params = array(), $anchor = '', $escape = false)
+function safeUrl($path, array $params = array(), $anchor = '', $escape = false): string
 {
     $paramsText = '';
     if (count($params) > 0)
@@ -834,7 +834,7 @@ function admRedirect($url, $statusCode = 303)
  * @param array<int,mixed> $valuesArray An array with the values that should be replaced with question marks
  * @return string Question marks string
  */
-function replaceValuesArrWithQM(array $valuesArray)
+function replaceValuesArrWithQM(array $valuesArray): string
 {
     return implode(',', array_fill(0, count($valuesArray), '?'));
 }
@@ -844,7 +844,7 @@ function replaceValuesArrWithQM(array $valuesArray)
  * @param float $startTime The start time
  * @return string Returns the formated execution time
  */
-function getExecutionTime($startTime)
+function getExecutionTime($startTime): string
 {
     $stopTime = microtime(true);
 
@@ -871,7 +871,7 @@ function admFuncMaxUploadSize()
  * @param bool   $decimalMulti
  * @return int
  */
-function admFuncGetBytesFromSize($data, $decimalMulti = false)
+function admFuncGetBytesFromSize($data, $decimalMulti = false): int
 {
     global $gLogger;
 

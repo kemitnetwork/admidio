@@ -87,7 +87,7 @@ class Session extends TableAccess
      * @param object $object     The object that should be stored in this class.
      * @return bool Return false if object isn't type object or objectName already exists
      */
-    public function addObject($objectName, &$object)
+    public function addObject($objectName, &$object): bool
     {
         if (is_object($object) && !array_key_exists($objectName, $this->mObjectArray))
         {
@@ -136,7 +136,7 @@ class Session extends TableAccess
      * user had set the AutoLogin to a different organization.
      * @return int Returns the organization id of this session
      */
-    public function getOrganizationId()
+    public function getOrganizationId(): int
     {
         if ($this->mAutoLogin instanceof AutoLogin)
         {
@@ -151,7 +151,7 @@ class Session extends TableAccess
      * @param string $objectName Internal unique name of the object. The name was set with the method **addObject**
      * @return bool Returns **true** if the object exits otherwise **false**
      */
-    public function hasObject($objectName)
+    public function hasObject($objectName): bool
     {
         return array_key_exists($objectName, $this->mObjectArray);
     }
@@ -162,7 +162,7 @@ class Session extends TableAccess
      * @param int $userId The user id must be stored in this session and will be checked if valid.
      * @return bool Returns **true** if the user has a valid session login otherwise **false**;
      */
-    public function isValidLogin($userId)
+    public function isValidLogin($userId): bool
     {
         global $gSettingsManager;
 
@@ -362,7 +362,7 @@ class Session extends TableAccess
      * @param bool $updateFingerPrint Default **true**. Will update the creator or editor of the recordset if table has columns like **usr_id_create** or **usr_id_changed**
      * @return bool If an update or insert into the database was done then return true, otherwise false.
      */
-    public function save($updateFingerPrint = true)
+    public function save($updateFingerPrint = true): bool
     {
         global $gCurrentOrganization;
 
@@ -419,7 +419,7 @@ class Session extends TableAccess
      *                         Set to "false" to allow access for JavaScript. (Possible XSS security leak)
      * @return bool Returns "true" if the cookie is successfully set.
      */
-    public static function setCookie($name, $value = '', $expire = 0, $path = '', $domain = '', $secure = null, $httpOnly = true)
+    public static function setCookie($name, $value = '', $expire = 0, $path = '', $domain = '', $secure = null, $httpOnly = true): bool
     {
         global $gLogger, $gSetCookieForDomain;
 

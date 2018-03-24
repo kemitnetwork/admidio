@@ -18,7 +18,7 @@ final class PhpIniUtils
      * Checks if the size limits have valid values because they depend on each other
      * @return bool
      */
-    public static function checkSizeLimits()
+    public static function checkSizeLimits(): bool
     {
         return (self::getMemoryLimit() === -1 || self::getMemoryLimit() >= self::getPostMaxSize())
             && (self::getPostMaxSize() === -1 || self::getPostMaxSize() >= self::getFileUploadMaxFileSize());
@@ -31,7 +31,7 @@ final class PhpIniUtils
      * @param int    $multi Factor to multiply. Default: 1024
      * @return int Returns the bytes of the data string.
      */
-    private static function getBytesFromSize($data, $multi = self::BYTES_UNIT_FACTOR_1024)
+    private static function getBytesFromSize($data, $multi = self::BYTES_UNIT_FACTOR_1024): int
     {
         if ($data === '' || $data === '-1')
         {
@@ -61,7 +61,7 @@ final class PhpIniUtils
      * @return array<string,string>
      * @see https://secure.php.net/manual/en/ini.core.php#ini.open-basedir
      */
-    public static function getBaseDirs()
+    public static function getBaseDirs(): array
     {
         return explode(PATH_SEPARATOR, ini_get('open_basedir'));
     }
@@ -71,7 +71,7 @@ final class PhpIniUtils
      * @return int
      * @see https://secure.php.net/manual/en/ini.core.php#ini.memory-limit
      */
-    public static function getMemoryLimit()
+    public static function getMemoryLimit(): int
     {
         return self::getBytesFromSize(ini_get('memory_limit'));
     }
@@ -81,7 +81,7 @@ final class PhpIniUtils
      * @return int
      * @see https://secure.php.net/manual/en/ini.core.php#ini.post-max-size
      */
-    public static function getPostMaxSize()
+    public static function getPostMaxSize(): int
     {
         return self::getBytesFromSize(ini_get('post_max_size'));
     }
@@ -91,7 +91,7 @@ final class PhpIniUtils
      * @return string
      * @see https://secure.php.net/manual/en/ini.core.php#ini.upload-tmp-dir
      */
-    public static function getFileUploadTmpDir()
+    public static function getFileUploadTmpDir(): string
     {
         return ini_get('upload_tmp_dir');
     }
@@ -101,7 +101,7 @@ final class PhpIniUtils
      * @return int
      * @see https://secure.php.net/manual/en/ini.core.php#ini.upload-max-filesize
      */
-    public static function getFileUploadMaxFileSize()
+    public static function getFileUploadMaxFileSize(): int
     {
         return self::getBytesFromSize(ini_get('upload_max_filesize'));
     }
@@ -111,7 +111,7 @@ final class PhpIniUtils
      * @return int
      * @see https://secure.php.net/manual/en/ini.core.php#ini.max-file-uploads
      */
-    public static function getFileUploadMaxFileCount()
+    public static function getFileUploadMaxFileCount(): int
     {
         return (int) ini_get('max_file_uploads');
     }
@@ -120,7 +120,7 @@ final class PhpIniUtils
      * Returns the maximum upload size out of memory-limit, max-post-size and max-file-size
      * @return int
      */
-    public static function getUploadMaxSize()
+    public static function getUploadMaxSize(): int
     {
         return min(self::getMemoryLimit(), self::getPostMaxSize(), self::getFileUploadMaxFileSize());
     }
@@ -130,7 +130,7 @@ final class PhpIniUtils
      * @return bool
      * @see https://secure.php.net/manual/en/ini.core.php#ini.file-uploads
      */
-    public static function isFileUploadEnabled()
+    public static function isFileUploadEnabled(): bool
     {
         return (bool) ini_get('file_uploads');
     }
@@ -141,7 +141,7 @@ final class PhpIniUtils
      * @return bool
      * @see https://secure.php.net/manual/en/features.safe-mode.php
      */
-    public static function isSafeModeEnabled()
+    public static function isSafeModeEnabled(): bool
     {
         return (bool) ini_get('safe_mode');
     }
@@ -151,7 +151,7 @@ final class PhpIniUtils
      * @param string $directoryPath The directory path to check
      * @return bool
      */
-    private static function isInBaseDirs($directoryPath)
+    private static function isInBaseDirs($directoryPath): bool
     {
         $baseDirs = self::getBaseDirs();
 

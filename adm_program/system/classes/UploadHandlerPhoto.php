@@ -40,7 +40,7 @@ class UploadHandlerPhoto extends UploadHandler
      * @param        $contentRange
      * @return \stdClass
      */
-    protected function handle_file_upload($uploadedFile, $name, $size, $type, $error, $index = null, $contentRange = null)
+    protected function handle_file_upload($uploadedFile, $name, $size, $type, $error, $index = null, $contentRange = null): \stdClass
     {
         global $photoAlbum, $gSettingsManager, $gL10n;
 

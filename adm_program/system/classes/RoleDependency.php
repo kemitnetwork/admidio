@@ -91,7 +91,7 @@ class RoleDependency
      * @param int $parentRoleId
      * @return bool
      */
-    public function get($childRoleId, $parentRoleId)
+    public function get($childRoleId, $parentRoleId): bool
     {
         $this->clear();
 
@@ -128,7 +128,7 @@ class RoleDependency
      * @param int      $childId
      * @return array<int,int>
      */
-    public static function getParentRoles(Database $database, $childId)
+    public static function getParentRoles(Database $database, $childId): array
     {
         $allParentIds = array();
 
@@ -156,7 +156,7 @@ class RoleDependency
      * @param int      $parentId
      * @return array<int,int>
      */
-    public static function getChildRoles(Database $database, $parentId)
+    public static function getChildRoles(Database $database, $parentId): array
     {
         $allChildIds = array();
 
@@ -183,7 +183,7 @@ class RoleDependency
      * Check if roleIdParent and roleIdChild is 0
      * @return bool Returns true if roleIdParent and roleIdChild is 0
      */
-    public function isEmpty()
+    public function isEmpty(): bool
     {
         return $this->roleIdParent === 0 && $this->roleIdChild === 0;
     }
@@ -192,7 +192,7 @@ class RoleDependency
      * @param int $loginUserId
      * @return bool
      */
-    public function insert($loginUserId)
+    public function insert($loginUserId): bool
     {
         if ($loginUserId > 0 && !$this->isEmpty())
         {
@@ -214,7 +214,7 @@ class RoleDependency
      * @param int      $parentId
      * @return bool
      */
-    public static function removeChildRoles(Database $database, $parentId)
+    public static function removeChildRoles(Database $database, $parentId): bool
     {
         if ($parentId > 0)
         {
@@ -232,7 +232,7 @@ class RoleDependency
      * @param int $parentId
      * @return bool
      */
-    public function setParent($parentId)
+    public function setParent($parentId): bool
     {
         if ($parentId > 0)
         {
@@ -249,7 +249,7 @@ class RoleDependency
      * @param int $childId
      * @return bool
      */
-    public function setChild($childId)
+    public function setChild($childId): bool
     {
         if ($childId > 0)
         {
@@ -267,7 +267,7 @@ class RoleDependency
      * @param int $loginUserId
      * @return bool
      */
-    public function update($loginUserId)
+    public function update($loginUserId): bool
     {
         if ($loginUserId > 0 && !$this->isEmpty())
         {
@@ -303,7 +303,7 @@ class RoleDependency
      * the end date will be set to 31.12.9999.
      * @return bool Returns false if no parent or child row exists
      */
-    public function updateMembership()
+    public function updateMembership(): bool
     {
         if ($this->roleIdParent === 0 || $this->roleIdChild === 0)
         {

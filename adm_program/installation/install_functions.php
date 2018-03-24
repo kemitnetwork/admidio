@@ -48,7 +48,7 @@ function showNotice($message, $url, $buttonText, $buttonIcon, $update = false)
  * @param Database $database
  * @return string
  */
-function checkDatabaseVersion(Database $database)
+function checkDatabaseVersion(Database $database): string
 {
     global $gL10n;
 
@@ -140,7 +140,7 @@ function disableSoundexSearchIfPgSql(Database $db)
  * @param string $message
  * @return string
  */
-function getErrorMessage($message)
+function getErrorMessage($message): string
 {
     return '
         <div class="alert alert-danger alert-small" role="alert">

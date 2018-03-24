@@ -186,7 +186,7 @@ class HtmlNavbar
      * @param array<string,string> $data An array with all data if the item. This will be **id**, **url**, **text** and **icon**.
      * @return string Returns the html for the menu entry
      */
-    protected function createHtmlLink(array $data)
+    protected function createHtmlLink(array $data): string
     {
         $icon = '';
 
@@ -208,7 +208,7 @@ class HtmlNavbar
      * @param string                                                                $class
      * @return string
      */
-    private function getNavHtml(array $items, $class = '')
+    private function getNavHtml(array $items, $class = ''): string
     {
         $html = '<ul class="nav navbar-nav ' . $class . '">';
 
@@ -264,7 +264,7 @@ class HtmlNavbar
      * If one item has several subitems than a dropdown button will be created.
      * @return string Returns the html output for the complete menu
      */
-    public function show()
+    public function show(): string
     {
         $showNavbar = false;
         $navHtml = '';

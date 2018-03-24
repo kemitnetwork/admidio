@@ -78,7 +78,7 @@ class ModuleMenu
      * @param string $js   Javascript to be executed
      * @return array<string,string|array>
      */
-    private function buildItem($id, $type, $link, $text, $icon, $js = '')
+    private function buildItem($id, $type, $link, $text, $icon, $js = ''): array
     {
         if(strlen($link) > 1)
         {
@@ -115,7 +115,7 @@ class ModuleMenu
      * @param array<string,string|bool|array> $menuEntry menu entry element which was added with addItem
      * @return string HTML of created item
      */
-    private function createIconTextLink(array &$menuEntry)
+    private function createIconTextLink(array &$menuEntry): string
     {
         $html = '';
 
@@ -241,7 +241,7 @@ class ModuleMenu
      * Count the number of menu items.
      * @return int Returns the number of menu items.
      */
-    public function countItems()
+    public function countItems(): int
     {
         return count($this->items);
     }

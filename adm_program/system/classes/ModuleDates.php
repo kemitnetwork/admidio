@@ -151,7 +151,7 @@ class ModuleDates extends Modules
      * @param int $limit        Limit of query rows (default: 0)
      * @return array<string,mixed> Array with all results, dates and parameters.
      */
-    public function getDataSet($startElement = 0, $limit = null)
+    public function getDataSet($startElement = 0, $limit = null): array
     {
         global $gDb, $gSettingsManager, $gCurrentUser;
 
@@ -216,7 +216,7 @@ class ModuleDates extends Modules
      * @param string $headline The initial headline of the module.
      * @return string Returns the full headline of the module
      */
-    public function getHeadline($headline)
+    public function getHeadline($headline): string
     {
         global $gDb, $gL10n, $gCurrentOrganization;
 
@@ -248,7 +248,7 @@ class ModuleDates extends Modules
      * Get number of available dates.
      * @return int
      */
-    public function getDataSetCount()
+    public function getDataSetCount(): int
     {
         global $gDb, $gCurrentUser;
 
@@ -282,7 +282,7 @@ class ModuleDates extends Modules
      * @throws AdmException SYS_DATE_END_BEFORE_BEGIN
      * @return bool Returns false if invalid date format is submitted
      */
-    public function setDateRange($dateRangeStart = '', $dateRangeEnd = '')
+    public function setDateRange($dateRangeStart = '', $dateRangeEnd = ''): bool
     {
         global $gSettingsManager;
 
@@ -361,7 +361,7 @@ class ModuleDates extends Modules
      * Get additional tables for sql statement
      * @return array<string,string|array<int,int>> Returns an array of a SQL string with the necessary joins and it's query params.
      */
-    private function sqlGetAdditional()
+    private function sqlGetAdditional(): array
     {
         global $gSettingsManager, $gProfileFields;
 
@@ -414,7 +414,7 @@ class ModuleDates extends Modules
      * Add several conditions to an SQL string that could later be used as additional conditions in other SQL queries.
      * @return array<string,string|array<int,mixed>> Returns an array of a SQL string with additional conditions and it's query params.
      */
-    private function getSqlConditions()
+    private function getSqlConditions(): array
     {
         global $gCurrentUser;
 
@@ -550,7 +550,7 @@ class ModuleDates extends Modules
      * @param string $reference
      * @return string
      */
-    private function setFormValue($date, $reference)
+    private function setFormValue($date, $reference): string
     {
         global $gLogger;
 

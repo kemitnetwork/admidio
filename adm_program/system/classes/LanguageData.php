@@ -88,7 +88,7 @@ class LanguageData
      * @throws \UnexpectedValueException
      * @return bool Returns true if language path is added.
      */
-    public function addLanguageFolderPath($languageFolderPath)
+    public function addLanguageFolderPath($languageFolderPath): bool
     {
         if ($languageFolderPath === '' || !is_dir($languageFolderPath))
         {
@@ -110,7 +110,7 @@ class LanguageData
      * @param string $defaultLanguage This language will be set if no browser language could be determined
      * @return string Return the preferred language code of the client browser
      */
-    public static function determineBrowserLanguage($defaultLanguage)
+    public static function determineBrowserLanguage($defaultLanguage): string
     {
         if (!isset($_SERVER['HTTP_ACCEPT_LANGUAGE']) || empty($_SERVER['HTTP_ACCEPT_LANGUAGE']))
         {
@@ -150,7 +150,7 @@ class LanguageData
      * Returns an array with all language paths that were set.
      * @return array<int,string> with all language paths that were set.
      */
-    public function getLanguageFolderPaths()
+    public function getLanguageFolderPaths(): array
     {
         return $this->languageFolderPaths;
     }
@@ -159,7 +159,7 @@ class LanguageData
      * Returns an array with all countries and their ISO codes
      * @return array<string,string> Array with all countries and their ISO codes e.g.: array('DEU' => 'Germany' ...)
      */
-    public function getCountries()
+    public function getCountries(): array
     {
         return $this->countries;
     }
@@ -170,7 +170,7 @@ class LanguageData
      * @param bool $referenceLanguage If set to **true** than the language code of the reference language will returned.
      * @return string Returns the language code of the language of this object or the reference language.
      */
-    public function getLanguage($referenceLanguage = false)
+    public function getLanguage($referenceLanguage = false): string
     {
         global $gLogger;
 
@@ -189,7 +189,7 @@ class LanguageData
      * @throws \OutOfBoundsException
      * @return string Returns the cached text or empty string if text id isn't found
      */
-    public function getTextCache($textId)
+    public function getTextCache($textId): string
     {
         if (!array_key_exists($textId, $this->textCache))
         {
@@ -213,7 +213,7 @@ class LanguageData
      * @param string $language ISO code of the language that should be set to this object.
      * @return bool Returns true if language changed.
      */
-    public function setLanguage($language)
+    public function setLanguage($language): bool
     {
         if ($language === $this->language)
         {
@@ -246,7 +246,7 @@ class LanguageData
      * @param string $languageFolderPath Server path where Admidio should search for language files.
      * @return bool Returns true if language path is added.
      */
-    public function addLanguagePath($languageFolderPath)
+    public function addLanguagePath($languageFolderPath): bool
     {
         global $gLogger;
 
@@ -267,7 +267,7 @@ class LanguageData
      * @deprecated 3.3.0:4.0.0 "getLanguagePaths()" is deprecated. Use "getLanguageFolderPaths()" instead.
      * @return array<int,string> with all language paths that were set.
      */
-    public function getLanguagePaths()
+    public function getLanguagePaths(): array
     {
         global $gLogger;
 
@@ -281,7 +281,7 @@ class LanguageData
      * @deprecated 3.3.0:4.0.0 "getCountriesArray()" is deprecated. Use "getCountries()" instead.
      * @return array<string,string> Array with all countries and their ISO codes e.g.: array('DEU' => 'Germany' ...)
      */
-    public function getCountriesArray()
+    public function getCountriesArray(): array
     {
         global $gLogger;
 

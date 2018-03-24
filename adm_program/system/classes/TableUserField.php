@@ -119,7 +119,7 @@ class TableUserField extends TableAccess
      * @param int    $index The index of the name. Should be startet with 1
      * @return string Returns the unique name with capital letters and number
      */
-    private function getNewNameIntern($name, $index)
+    private function getNewNameIntern($name, $index): string
     {
         $newNameIntern = strtoupper(str_replace(' ', '_', $name));
 
@@ -310,7 +310,7 @@ class TableUserField extends TableAccess
      * the user is allowed to view the field because he has the right to edit the profile.
      * @return bool Return true if the current user is allowed to view this profile field
      */
-    public function isVisible()
+    public function isVisible(): bool
     {
         global $gCurrentUser;
 
@@ -368,7 +368,7 @@ class TableUserField extends TableAccess
      * @throws AdmException
      * @return bool If an update or insert into the database was done then return true, otherwise false.
      */
-    public function save($updateFingerPrint = true)
+    public function save($updateFingerPrint = true): bool
     {
         global $gCurrentSession;
 
@@ -400,7 +400,7 @@ class TableUserField extends TableAccess
      * @throws AdmException
      * @return bool Returns **true** if the value is stored in the current object and **false** if a check failed
      */
-    public function setValue($columnName, $newValue, $checkValue = true)
+    public function setValue($columnName, $newValue, $checkValue = true): bool
     {
         global $gL10n;
 

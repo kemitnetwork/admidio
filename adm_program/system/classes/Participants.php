@@ -63,7 +63,7 @@ class Participants
      * @param int $roleId
      * @return bool
      */
-    private function checkId($roleId)
+    private function checkId($roleId): bool
     {
         // check passed parameter and compare to current object
         if($this->rolId === -1 || ($this->rolId === 0 && $this->rolId !== $roleId))
@@ -92,7 +92,7 @@ class Participants
      * @param int $rolId
      * @return int Returns the result of count participants as numeric value in current object. Leaders are not counted!
      */
-    public function getCount($rolId = 0)
+    public function getCount($rolId = 0): int
     {
         if ($rolId !== 0)
         {
@@ -149,7 +149,7 @@ class Participants
      * @param int $rolId
      * @return int Returns the limit of participants as numeric value of the current object. Leaders are not counted!
      */
-    public function getLimit($rolId = 0)
+    public function getLimit($rolId = 0): int
     {
         // check if class variables $count and $leader are set to default flag.
         if($this->count === -1 && $this->leader === -1)
@@ -166,7 +166,7 @@ class Participants
      * @param int $rolId
      * @return int Returns the number of leaders as numeric value of the current object.
      */
-    public function getNumLeaders($rolId = 0)
+    public function getNumLeaders($rolId = 0): int
     {
         // check if class variables $count and $leader are set to default flag.
         if($this->count === -1 && $this->leader === -1)
@@ -236,7 +236,7 @@ class Participants
      * @param int    $userId
      * @return bool Returns true if userID is found and approval state is not set to disagreement (value: 3)
      */
-    public function isMemberOfEvent($userId)
+    public function isMemberOfEvent($userId): bool
     {
         // Read participants of current event role
         $eventMember = $this->getParticipantsArray($this->rolId);

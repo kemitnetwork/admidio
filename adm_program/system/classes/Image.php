@@ -53,7 +53,7 @@ class Image
      * @param int           $quality       die Qualitaet kann fuer jpeg-Dateien veraendert werden
      * @return bool
      */
-    public function copyToBrowser($imageResource = null, $quality = 95)
+    public function copyToBrowser($imageResource = null, $quality = 95): bool
     {
         if ($imageResource === null)
         {
@@ -84,7 +84,7 @@ class Image
      * @param int           $quality         die Qualitaet kann fuer jpeg-Dateien veraendert werden
      * @return bool true, falls erfolgreich
      */
-    public function copyToFile($imageResource = null, $pathAndFilename = '', $quality = 95)
+    public function copyToFile($imageResource = null, $pathAndFilename = '', $quality = 95): bool
     {
         if ($imageResource === null)
         {
@@ -113,7 +113,7 @@ class Image
      * @param string $pathAndFilename
      * @return bool
      */
-    private function createResource($pathAndFilename)
+    private function createResource($pathAndFilename): bool
     {
         switch ($this->imageType)
         {
@@ -159,7 +159,7 @@ class Image
     /**
      * @return array<int,int> Returns an array of the image width and height
      */
-    public function getImageSize()
+    public function getImageSize(): array
     {
         return array($this->imageWidth, $this->imageHeight);
     }
@@ -168,7 +168,7 @@ class Image
      * gibt den Mime-Type (image/png) des Bildes zurueck
      * @return string
      */
-    public function getMimeType()
+    public function getMimeType(): string
     {
         return image_type_to_mime_type($this->imageType);
     }
@@ -178,7 +178,7 @@ class Image
      * @param string $direction 'right' o. 'left' Richtung, in die gedreht wird
      * @return bool
      */
-    public function rotate($direction = self::ROTATE_DIRECTION_RIGHT)
+    public function rotate($direction = self::ROTATE_DIRECTION_RIGHT): bool
     {
         switch ($direction)
         {
@@ -215,7 +215,7 @@ class Image
      *                                  but maybe one side will be smaller than set with the parameters.
      * @return bool Return true if the image was scaled otherwise false.
      */
-    public function scale($newXSize, $newYSize, $maintainAspectRatio = true)
+    public function scale($newXSize, $newYSize, $maintainAspectRatio = true): bool
     {
         if ($maintainAspectRatio)
         {
@@ -280,7 +280,7 @@ class Image
      * @param int $newMaxSize New maximum size in pixel to which the image should be scaled.
      * @return bool Return true if the image was scaled otherwise false.
      */
-    public function scaleLargerSide($newMaxSize)
+    public function scaleLargerSide($newMaxSize): bool
     {
         if($newMaxSize < $this->imageWidth || $newMaxSize < $this->imageHeight)
         {
@@ -311,7 +311,7 @@ class Image
      * @param string $imageData String with binary image data
      * @return bool
      */
-    public function setImageFromData($imageData)
+    public function setImageFromData($imageData): bool
     {
         $imageResource = imagecreatefromstring($imageData);
 
@@ -334,7 +334,7 @@ class Image
      * @param string $pathAndFilename
      * @return bool
      */
-    public function setImageFromPath($pathAndFilename)
+    public function setImageFromPath($pathAndFilename): bool
     {
         if (!is_file($pathAndFilename))
         {
@@ -361,7 +361,7 @@ class Image
      * @param string $imageType
      * @return bool
      */
-    public function setImageType($imageType)
+    public function setImageType($imageType): bool
     {
         switch ($imageType)
         {

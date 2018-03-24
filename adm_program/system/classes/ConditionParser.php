@@ -76,7 +76,7 @@ class ConditionParser
      * @param string $operator The actual operator for the **date** parameter
      * @return string String with a SQL valid date format **YYYY-MM-DD** or empty string
      */
-    private function getFormatDate($date, $operator)
+    private function getFormatDate($date, $operator): string
     {
         global $gSettingsManager;
 
@@ -152,7 +152,7 @@ class ConditionParser
      * @param string $sourceCondition
      * @return bool Returns true if date search and false if age search
      */
-    private static function isDateSearch($columnType, $sourceCondition)
+    private static function isDateSearch($columnType, $sourceCondition): bool
     {
         $sourceCondition = admStrToUpper($sourceCondition);
 
@@ -182,7 +182,7 @@ class ConditionParser
      *                      LST_NOT_NUMERIC
      * @return string Returns a valid SQL string with the condition for that column
      */
-    public function makeSqlStatement($sourceCondition, $columnName, $columnType, $fieldName)
+    public function makeSqlStatement($sourceCondition, $columnName, $columnType, $fieldName): string
     {
         $conditionComplete = $this->startDestCond($columnType, $columnName, $sourceCondition);
         if ($conditionComplete)
@@ -443,7 +443,7 @@ class ConditionParser
      * @param string $sourceCondition The user condition string
      * @return string String with the predefined chars for conditions
      */
-    public function makeStandardCondition($sourceCondition)
+    public function makeStandardCondition($sourceCondition): string
     {
         global $gL10n;
 
@@ -493,7 +493,7 @@ class ConditionParser
      * @param string $sourceCondition The user condition string
      * @return bool Returns true if "mDestCondition" is complete
      */
-    private function startDestCond($columnType, $columnName, $sourceCondition)
+    private function startDestCond($columnType, $columnName, $sourceCondition): bool
     {
         $this->destCond = ' AND ';  // Bedingungen fuer das Feld immer mit UND starten
 

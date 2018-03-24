@@ -195,7 +195,7 @@ class ModuleLists extends Modules
      * Evaluates memberStatus an returns appropriate SQL conditions
      * @return string SQL for member status
      */
-    private function getMemberStatusSql()
+    private function getMemberStatusSql(): string
     {
         switch ($this->memberStatus)
         {
@@ -214,7 +214,7 @@ class ModuleLists extends Modules
      * returns SQL condition
      * @return string SQL condition for category id
      */
-    private function getCategorySql()
+    private function getCategorySql(): string
     {
         if($this->catId > 0)
         {
@@ -227,7 +227,7 @@ class ModuleLists extends Modules
      * assembles SQL roles visible for current user
      * @return string SQL condition visible for current user
      */
-    private function getVisibleRolesSql()
+    private function getVisibleRolesSql(): string
     {
         global $gCurrentUser;
 
@@ -253,7 +253,7 @@ class ModuleLists extends Modules
      * @param int $limit        Number of elements returned max. Default NULL will take number from preferences.
      * @return array<string,mixed> with list and corresponding information
      */
-    public function getDataSet($startElement = 0, $limit = null)
+    public function getDataSet($startElement = 0, $limit = null): array
     {
         global $gCurrentOrganization, $gSettingsManager, $gDb;
 
@@ -316,7 +316,7 @@ class ModuleLists extends Modules
      * Function to get total number of lists limited by current conditions.
      * @return int Number of lists.
      */
-    public function getDataSetCount()
+    public function getDataSetCount(): int
     {
         global $gCurrentOrganization, $gDb;
 
@@ -341,7 +341,7 @@ class ModuleLists extends Modules
      * Function to get list configurations accessible by current user
      * @return array<int,array<int,int|string|bool>> with accessible list configurations
      */
-    public function getListConfigurations()
+    public function getListConfigurations(): array
     {
         global $gCurrentOrganization, $gCurrentUser, $gDb;
 

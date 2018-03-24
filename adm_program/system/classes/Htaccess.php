@@ -43,7 +43,7 @@ class Htaccess
      * Protect the passed folder
      * @return bool Returns true if protection is enabled
      */
-    public function protectFolder()
+    public function protectFolder(): bool
     {
         if (is_file($this->folderPath . '/.htaccess'))
         {
@@ -73,7 +73,7 @@ class Htaccess
      * Entfernt den Ordnerschutz (loeschen der htaccessDatei)
      * @return bool Returns true if protection is disabled
      */
-    public function unprotectFolder()
+    public function unprotectFolder(): bool
     {
         try
         {
