@@ -99,7 +99,7 @@ class HtmlForm extends HtmlFormBasic
      *                           - **class** : An additional css classname. The class **form-horizontal**
      *                             is set as default and need not set with this parameter.
      */
-    public function __construct(string $id, string $action, HtmlPage $htmlPage = null, array $options = array())
+    public function __construct(string $id, string $action = null, HtmlPage $htmlPage = null, array $options = array())
     {
         // create array with all options
         $optionsDefault = array(
@@ -1368,11 +1368,11 @@ class HtmlForm extends HtmlFormBasic
 
                 if(is_array($optionsAll['valueAttributes']))
                 {
-                    $this->addOption($value[0], $value[1], null, $defaultEntry, false, $optionsAll['valueAttributes'][$value[0]]);
+                    $this->addOption((string) $value[0], $value[1], null, $defaultEntry, false, $optionsAll['valueAttributes'][$value[0]]);
                 }
                 else
                 {
-                    $this->addOption($value[0], $value[1], null, $defaultEntry);
+                    $this->addOption((string) $value[0], $value[1], null, $defaultEntry);
                 }
             }
             else
@@ -1388,11 +1388,11 @@ class HtmlForm extends HtmlFormBasic
 
                 if(is_array($optionsAll['valueAttributes']))
                 {
-                    $this->addOption($key, $value, null, $defaultEntry, false, $optionsAll['valueAttributes'][$key]);
-            }
+                    $this->addOption((string) $key, $value, null, $defaultEntry, false, $optionsAll['valueAttributes'][$key]);
+                }
                 else
                 {
-                    $this->addOption($key, $value, null, $defaultEntry);
+                    $this->addOption((string) $key, $value, null, $defaultEntry);
                 }
             }
         }

@@ -580,17 +580,17 @@ function admFuncShowCreateChangeInfoById(int $userIdCreated, string $timestampCr
  * Creates a html fragment with information about user and time when the recordset was created
  * and when it was at last edited. Therefore all necessary data must be set in the function
  * parameters. If user name is not set then the function will show **deleted user**.
- * @param string $userNameCreated Id of the user who create the recordset.
- * @param string $timestampCreate Date and time of the moment when the user create the recordset.
- * @param string $userNameEdited  Id of the user last changed the recordset.
- * @param string $timestampEdited Date and time of the moment when the user last changed the recordset
- * @param int    $userIdCreated   (optional) The id of the user who create the recordset.
- *                                If id is set than a link to the user profile will be created
- * @param int    $userIdEdited    (optional) The id of the user last changed the recordset.
- *                                If id is set than a link to the user profile will be created
+ * @param string      $userNameCreated Id of the user who create the recordset.
+ * @param string      $timestampCreate Date and time of the moment when the user create the recordset.
+ * @param string|null $userNameEdited  Id of the user last changed the recordset.
+ * @param string|null $timestampEdited Date and time of the moment when the user last changed the recordset
+ * @param int         $userIdCreated   (optional) The id of the user who create the recordset.
+ *                                     If id is set than a link to the user profile will be created
+ * @param int         $userIdEdited    (optional) The id of the user last changed the recordset.
+ *                                     If id is set than a link to the user profile will be created
  * @return string Returns a html string with usernames who creates item and edit item the last time
  */
-function admFuncShowCreateChangeInfoByName(string $userNameCreated, string $timestampCreate, string $userNameEdited, string $timestampEdited, int $userIdCreated = 0, int $userIdEdited = 0): string
+function admFuncShowCreateChangeInfoByName(string $userNameCreated, string $timestampCreate, string $userNameEdited = null, string $timestampEdited = null, int $userIdCreated = 0, int $userIdEdited = 0): string
 {
     global $gL10n, $gValidLogin, $gSettingsManager;
 
