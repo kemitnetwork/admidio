@@ -170,11 +170,11 @@ function admFuncGeneratePagination(string $baseUrl, int $itemsCount, int $itemsP
         {
             if ($i === $page)
             {
-                $pageNavString .= getListElementString($i, 'active');
+                $pageNavString .= getListElementString((string) $i, 'active');
             }
             else
             {
-                $pageNavString .= getListElementString($i, '', $url, $paramName, ($i - 1) * $itemsPerPage);
+                $pageNavString .= getListElementString((string) $i, '', $url, $paramName, ($i - 1) * $itemsPerPage);
             }
         }
 
@@ -186,10 +186,10 @@ function admFuncGeneratePagination(string $baseUrl, int $itemsCount, int $itemsP
      * @param string $className
      * @param string $url
      * @param string $paramName
-     * @param string $paramValue
+     * @param int    $paramValue
      * @return string
      */
-    function getListElementString(string $linkText, string $className = '', string $url = '', string $paramName = '', string $paramValue = ''): string
+    function getListElementString(string $linkText, string $className = '', string $url = '', string $paramName = '', int $paramValue = null): string
     {
         $classString = '';
         if ($className !== '')
