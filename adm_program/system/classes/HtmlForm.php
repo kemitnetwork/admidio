@@ -1851,7 +1851,7 @@ class HtmlForm extends HtmlFormBasic
      * @param string|array $helpTextId A unique text id from the translation xml files that should be shown e.g. SYS_DATA_CATEGORY_GLOBAL.
      *                                 If set the complete text will be shown after the form element.
      */
-    protected function closeControlStructure(string $helpTextId = '')
+    protected function closeControlStructure($helpTextId = '')
     {
         global $gL10n, $gLogger;
 
