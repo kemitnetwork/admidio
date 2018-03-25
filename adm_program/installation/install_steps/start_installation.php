@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  ***********************************************************************************************
  * Installation step: start_installation

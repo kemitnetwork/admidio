@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  ***********************************************************************************************
  * Basic script for all other Admidio scripts with all the necessary data und

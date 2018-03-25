@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  ***********************************************************************************************
  * Validate login data, create cookie and sign in the user to Admidio

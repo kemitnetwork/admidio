@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  ***********************************************************************************************
  * Show an image of a module from adm_my_files folder

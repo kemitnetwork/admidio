@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  ***********************************************************************************************
  * Dieses Script muss mit require() eingefuegt werden, wenn der User zum Aufruf
