@@ -17,20 +17,11 @@ declare(strict_types=1);
  ***********************************************************************************************
  */
 
-// create path to plugin
-$pluginFolderPos = strpos(__FILE__, 'adm_plugins') + 11;
-$pluginFilePos   = strpos(__FILE__, 'sidebar_dates.php');
-$pluginFolder    = substr(__FILE__, $pluginFolderPos + 1, $pluginFilePos - $pluginFolderPos - 2);
+$rootPath = dirname(dirname(__DIR__));
+$pluginFolder = basename(__DIR__);
 
-if(!defined('PLUGIN_PATH'))
-{
-    define('PLUGIN_PATH', substr(__FILE__, 0, $pluginFolderPos));
-}
-require_once(PLUGIN_PATH. '/../adm_program/system/common.php');
-require_once(PLUGIN_PATH. '/'.$pluginFolder.'/config.php');
-
-// integrate language file of plugin to Admidio language object
-$gL10n->addLanguageFolderPath(PLUGIN_PATH. '/'.$pluginFolder.'/languages');
+require_once($rootPath . '/adm_program/system/common.php');
+require_once(__DIR__ . '/config.php');
 
 // pruefen, ob alle Einstellungen in config.php gesetzt wurden
 // falls nicht, hier noch mal die Default-Werte setzen
@@ -173,7 +164,7 @@ if($plgDatesResult['numResults'] > 0)
         // show preview text
         if($plgShowFullDescription === 1)
         {
-            echo '<div>'.$plg_date->getValue('dat_description').'</div>';
+            echo '<div>'.$plgDate->getValue('dat_description').'</div>';
         }
         elseif($plg_dates_show_preview > 0)
         {
@@ -194,7 +185,7 @@ if($plgDatesResult['numResults'] > 0)
         echo '<hr />';
     }
 
-    // forward to $plg_link_url without any addional parameters
+    // forward to $plg_link_url without any additional parameters
     echo '<a class="'. $plg_link_class. '" href="'. $plg_link_url. '" target="'. $plg_link_target. '">'.$gL10n->get('PLG_DATES_ALL_EVENTS').'</a>';
 }
 else
@@ -212,24 +203,24 @@ echo '</div>';
 function pluginDatesCloseTags(string $html): string
 {
     preg_match_all('#<(?!meta|img|br|hr|input\b)\b([a-z]+)(?: .*)?(?<![/|/ ])>#iU', $html, $result);
-    $openedtags = $result[1];
+    $openedTags = $result[1];
     preg_match_all('#</([a-z]+)>#iU', $html, $result);
-    $closedtags = $result[1];
-    $lenOpened = count($openedtags);
-    if (count($closedtags) === $lenOpened)
+    $closedTags = $result[1];
+    $lenOpened = count($openedTags);
+    if (count($closedTags) === $lenOpened)
     {
         return $html;
     }
-    $openedtags = array_reverse($openedtags);
+    $openedTags = array_reverse($openedTags);
     for ($i = 0; $i < $lenOpened; ++$i)
     {
-        if (!in_array($openedtags[$i], $closedtags, true))
+        if (!in_array($openedTags[$i], $closedTags, true))
         {
-            $html .= '</'.$openedtags[$i].'>';
+            $html .= '</'.$openedTags[$i].'>';
         }
         else
         {
-            unset($closedtags[array_search($openedtags[$i], $closedtags, true)]);
+            unset($closedTags[array_search($openedTags[$i], $closedTags, true)]);
         }
     }
     return $html;

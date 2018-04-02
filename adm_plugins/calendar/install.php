@@ -10,20 +10,9 @@ declare(strict_types=1);
  ***********************************************************************************************
  */
 
-/******************************************************************************
- * Parameters:
- *
- *
- ****************************************************************************/
+$rootPath = dirname(dirname(__DIR__));
 
- // create path to plugin
-$pluginFolderPos = strpos(__FILE__, 'adm_plugins') + 11;
-
-if(!defined('PLUGIN_PATH'))
-{
-    define('PLUGIN_PATH', substr(__FILE__, 0, $pluginFolderPos));
-}
-require_once(PLUGIN_PATH. '/../adm_program/system/common.php');
+require_once($rootPath . '/adm_program/system/common.php');
 
 // Rechte pruefen
 if(!$gCurrentUser->isAdministrator())
@@ -62,10 +51,10 @@ else
                ORDER BY rol_name';
     $rolesViewStatement = $gDb->queryPrepared($sqlRoles);
 
-    while($rowViewRoles = $rolesViewStatement->fetchObject())
+    while($rowViewRoles = $rolesViewStatement->fetch())
     {
         // Jede Rolle wird nun dem Array hinzugefuegt
-        $parentRoleViewSet[] = array($rowViewRoles->rol_id, $rowViewRoles->rol_name, $rowViewRoles->cat_name);
+        $parentRoleViewSet[] = array($rowViewRoles['rol_id'], $rowViewRoles['rol_name'], $rowViewRoles['cat_name']);
     }
 
     // show form

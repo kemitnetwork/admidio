@@ -668,7 +668,7 @@ class TableAccess
             // now mark all other columns with values of this object as changed
             foreach ($this->dbColumns as $column => $value)
             {
-                if (strlen($value) > 0)
+                if (strlen((string) $value) > 0)
                 {
                     $this->columnsInfos[$column]['changed'] = true;
                 }
@@ -678,7 +678,7 @@ class TableAccess
         if (array_key_exists($columnName, $this->dbColumns))
         {
             // only mark as "changed" if the value is different (use binary safe function!)
-            if (strcmp($this->dbColumns[$columnName], $newValue) !== 0)
+            if ($this->dbColumns[$columnName] !== $newValue)
             {
                 $this->dbColumns[$columnName] = $newValue;
                 $this->columnsValueChanged = true;

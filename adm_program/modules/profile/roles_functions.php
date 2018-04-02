@@ -120,13 +120,13 @@ function getRoleMemberships(string $htmlListId, User $user, \PDOStatement $roleS
             $role->setArray($row);
 
             // if membership will not end, then don't show end date
-            if(strcmp($member->getValue('mem_end', 'Y-m-d'), DATE_MAX) !== 0)
+            if($member->getValue('mem_end', 'Y-m-d') !== DATE_MAX)
             {
                 $showRoleEndDate = true;
             }
 
             // check if membership ends in the past
-            if(strcmp(DATE_NOW, $member->getValue('mem_end', 'Y-m-d')) > 0)
+            if(strcmp($member->getValue('mem_end', 'Y-m-d'), DATE_NOW) < 0)
             {
                 $deleteMode = 'pro_former';
             }
@@ -204,7 +204,6 @@ function getRoleMemberships(string $htmlListId, User $user, \PDOStatement $roleS
                                 {
                                     $roleMemHTML .= '<a class="admidio-icon-link"><img src="'.THEME_URL.'/icons/dummy.png" alt=""/></a>';
                                 }
-
                             }
 
                             // only show info if system setting is activated
