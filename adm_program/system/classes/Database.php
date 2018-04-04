@@ -567,7 +567,7 @@ class Database
      * @return int Return ID value of the last INSERT operation.
      * @see Database#insert_id
      */
-    public function lastInsertId(): string
+    public function lastInsertId(): int
     {
         if ($this->engine === self::PDO_ENGINE_PGSQL)
         {
@@ -1060,7 +1060,7 @@ class Database
      * @return int Return ID value of the last INSERT operation.
      * @see Database#lastInsertId
      */
-    public function insert_id(): string
+    public function insert_id(): int
     {
         global $gLogger;
 
