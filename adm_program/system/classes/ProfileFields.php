@@ -122,7 +122,7 @@ class ProfileFields
         }
 
         // if id-field not exists then return zero
-        if (strpos($column, '_id') > 0)
+        if (admStrContains($column, '_id'))
         {
             return 0;
         }
@@ -239,10 +239,9 @@ class ProfileFields
                         && (admStrContains(admStrToLower($listValue), '.png') || admStrContains(admStrToLower($listValue), '.jpg')))
                         {
                             // if there is imagefile and text separated by | then explode them
-                            if (strpos($listValue, '|') > 0)
+                            if (admStrContains($listValue, '|'))
                             {
-                                $listValueImage = substr($listValue, 0, strpos($listValue, '|'));
-                                $listValueText  = substr($listValue, strpos($listValue, '|') + 1);
+                                list($listValueImage, $listValueText) = explode('|', $listValue);
                             }
                             else
                             {
