@@ -23,10 +23,12 @@ if ($gDebug)
     elseif (\Whoops\Util\Misc::isAjaxRequest())
     {
         $handler = new \Whoops\Handler\JsonResponseHandler();
+        $handler->addTraceToOutput(true);
     }
     else
     {
         $handler = new \Whoops\Handler\PrettyPageHandler();
+        $handler->setPageTitle('Admidio Exception/Error Info');
     }
 
     $run->pushHandler($handler);
