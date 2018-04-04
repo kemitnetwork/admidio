@@ -55,6 +55,8 @@ require_once(ADMIDIO_PATH . '/adm_program/system/autoload.php');
 require_once(ADMIDIO_PATH . '/adm_program/system/logging.php');
 // Add shutdown function
 require_once(ADMIDIO_PATH . '/adm_program/system/shutdown.php');
+// Add Exception/Error handling
+require_once(ADMIDIO_PATH . '/adm_program/system/whoops.php');
 // Add some common functions
 require_once(ADMIDIO_PATH . FOLDER_LIBS_SERVER . '/htmLawed/htmLawed.php');
 require_once(ADMIDIO_PATH . '/adm_program/system/function.php');
