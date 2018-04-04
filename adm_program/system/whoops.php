@@ -30,11 +30,11 @@ if ($gDebug)
         $handler = new \Whoops\Handler\PrettyPageHandler();
         $handler->setPageTitle('Admidio Exception/Error Info');
 
-        $handler->addDataTable('Versions', array(
+        $handler->addDataTable('[Const] Versions', array(
             'ADMIDIO_VERSION_TEXT' => ADMIDIO_VERSION_TEXT,
             'PHP_VERSION'          => PHP_VERSION
         ));
-        $handler->addDataTable('Urls/Paths', array(
+        $handler->addDataTable('[Const] Urls/Paths', array(
             'SCHEME'           => SCHEME,
             'HTTPS'            => HTTPS,
             'PORT'             => PORT,
@@ -48,14 +48,15 @@ if ($gDebug)
             'ADMIDIO_PATH'     => ADMIDIO_PATH,
             'CURRENT_PATH'     => CURRENT_PATH
         ));
-        $handler->addDataTable('Database', array(
+        $handler->addDataTable('[Const] Database', array(
             'DB_ENGINE'   => DB_ENGINE,
             'DB_HOST'     => DB_HOST,
             'DB_PORT'     => DB_PORT,
             'DB_NAME'     => DB_NAME,
-            'DB_USERNAME' => DB_USERNAME
+            'DB_USERNAME' => DB_USERNAME,
+            'DB_PASSWORD' => '********' // DB_PASSWORD
         ));
-        $handler->addDataTable('Tables', array(
+        $handler->addDataTable('[Const] Tables', array(
             'TABLE_PREFIX'            => TABLE_PREFIX,
             'TBL_ANNOUNCEMENTS'       => TBL_ANNOUNCEMENTS,
             'TBL_AUTO_LOGIN'          => TBL_AUTO_LOGIN,
@@ -92,7 +93,7 @@ if ($gDebug)
             'TBL_USER_RELATIONS'      => TBL_USER_RELATIONS,
             'TBL_USER_RELATION_TYPES' => TBL_USER_RELATION_TYPES
         ));
-        $handler->addDataTable('Misc', array(
+        $handler->addDataTable('[Const] Misc', array(
             'COOKIE_PREFIX' => COOKIE_PREFIX
         ));
     }
