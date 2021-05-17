@@ -9,8 +9,8 @@
  *
  *****************************************************************************/
 
-#admidio-main-navbar {
-    background-color: #349aaa;
+ #admidio-main-navbar {
+    background-color: #011627;
     min-height: 4rem;
     position: sticky;
     padding-bottom: 0px;
@@ -33,7 +33,7 @@
 }
 
 #admidio-main-navbar a:hover {
-    color: #000000;
+    color: #011627;
 }
 
 @media (max-width: 767px)
@@ -127,11 +127,11 @@ h6, h5 {
 }
 
 a, .btn-link, .page-link, a.btn {
-    color: #349aaa;
+    color: #011627;
 }
 
 a:hover, .page-link:hover, a.btn:hover {
-    color: #25717d;
+    color: #D94948;
 }
 
 a.btn-primary {
@@ -139,18 +139,18 @@ a.btn-primary {
 }
 
 .btn-primary {
-    background-color: #349aaa;
-    border-color: #349aaa;
+    background-color: #011627;
+    border-color: #011627;
 }
 
 .btn-primary:hover {
-    background-color: #25717d;
-    border-color: #25717d;
+    background-color: #D94948;
+    border-color: #f19465;
 }
 
 .btn-primary.disabled, .btn-primary:disabled {
-    background-color: #6b979f;
-    border-color: #6b979f;
+    background-color: #ddd;
+    border-color: #999;
 }
 
 /* default distance between elements */
@@ -232,13 +232,13 @@ form {
 
 .form-control:focus, .select2-container--bootstrap.select2-container--focus .select2-selection,
 input[type=checkbox]:focus, button:focus {
-    border-color: #349aaa;
+    border-color: #011627;
     background-color: #d6ebee;
     box-shadow: none !important;
 }
 
 .btn-primary:focus {
-    background-color: #25717d !important;
+    background-color: #D94948 !important;
 }
 
 input[type=checkbox] {
@@ -412,7 +412,7 @@ input[data-provide=datepicker], input[data-provide=datepicker-birthday] {
 }
 
 .accordion .card-header {
-    color: #349aaa;
+    color: #011627;
 }
 
 /***********************************/
