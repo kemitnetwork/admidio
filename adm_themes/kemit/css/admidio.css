@@ -9,8 +9,8 @@
  *
  *****************************************************************************/
 
- #admidio-main-navbar {
-    background-color: #011627;
+#admidio-main-navbar {
+    background-color: #0f4c81;
     min-height: 4rem;
     position: sticky;
     padding-bottom: 0px;
@@ -29,18 +29,16 @@
 
 #admidio-main-navbar a {
     color: #263340;
-    font-size: 1rem
+    font-size: 1rem;
 }
 
 #admidio-main-navbar a:hover {
-    color: #011627;
+    color: #0f4c81;
 }
 
-@media (max-width: 767px)
-{
+@media (max-width: 767px) {
     /* navbar should not be fixed at top if in mobile view */
-    #admidio-main-navbar.fixed-top
-    {
+    #admidio-main-navbar.fixed-top {
         position: relative;
         top: auto;
     }
@@ -91,8 +89,7 @@
     background-color: #324b64;
 }
 
-@media (min-width: 768px)
-{
+@media (min-width: 768px) {
     /* sidebar should only be there in non mobile view */
     .admidio-sidebar {
         position: sticky;
@@ -122,16 +119,22 @@ body {
     color: #263340;
 }
 
-h6, h5 {
+h6,
+h5 {
     font-weight: bold;
 }
 
-a, .btn-link, .page-link, a.btn {
-    color: #011627;
+a,
+.btn-link,
+.page-link,
+a.btn {
+    color: #0f4c81;
 }
 
-a:hover, .page-link:hover, a.btn:hover {
-    color: #D94948;
+a:hover,
+.page-link:hover,
+a.btn:hover {
+    color: #d94948;
 }
 
 a.btn-primary {
@@ -139,32 +142,48 @@ a.btn-primary {
 }
 
 .btn-primary {
-    background-color: #011627;
-    border-color: #011627;
+    background-color: #0f4c81;
+    border-color: #0f4c81;
 }
 
 .btn-primary:hover {
-    background-color: #D94948;
+    background-color: #d94948;
     border-color: #f19465;
 }
 
-.btn-primary.disabled, .btn-primary:disabled {
+.btn-primary.disabled,
+.btn-primary:disabled {
     background-color: #ddd;
     border-color: #999;
 }
 
 /* default distance between elements */
-.admidio-blog, .admidio-field-group, .pagination,
-.admidio-info-created-edited, .admidio-img-presenter,
-.navbar-filter, .table-responsive, .admidio-content-header,
-.dataTables_wrapper, .admidio-margin-bottom, .admidio-row {
+.admidio-blog,
+.admidio-field-group,
+.pagination,
+.admidio-info-created-edited,
+.admidio-img-presenter,
+.navbar-filter,
+.table-responsive,
+.admidio-content-header,
+.dataTables_wrapper,
+.admidio-margin-bottom,
+.admidio-row {
     margin-bottom: 40px;
 }
 
 /* add 5px distance to all icons within a icon text combination */
-.admidio-icon-chain, .nav-link .fas, .btn .fas, .alert .fas,
-.admidio-profile-user-right .fas, .checkbox .fas, input[type="radio"],
-label img, .form-control-static img, .admidio-icon-link .fas, a .fas {
+.admidio-icon-chain,
+.nav-link .fas,
+.btn .fas,
+.alert .fas,
+.admidio-profile-user-right .fas,
+.checkbox .fas,
+input[type="radio"],
+label img,
+.form-control-static img,
+.admidio-icon-link .fas,
+a .fas {
     margin-right: 5px;
 }
 
@@ -185,8 +204,7 @@ label img, .form-control-static img, .admidio-icon-link .fas, a .fas {
 }
 
 /* show vertical btn group in mobile view */
-@media (max-width: 767px)
-{
+@media (max-width: 767px) {
     .btn-group {
         display: block;
     }
@@ -230,18 +248,20 @@ form {
     max-width: 1000px;
 }
 
-.form-control:focus, .select2-container--bootstrap.select2-container--focus .select2-selection,
-input[type=checkbox]:focus, button:focus {
-    border-color: #011627;
+.form-control:focus,
+.select2-container--bootstrap.select2-container--focus .select2-selection,
+input[type="checkbox"]:focus,
+button:focus {
+    border-color: #0f4c81;
     background-color: #d6ebee;
     box-shadow: none !important;
 }
 
 .btn-primary:focus {
-    background-color: #D94948 !important;
+    background-color: #d94948 !important;
 }
 
-input[type=checkbox] {
+input[type="checkbox"] {
     margin-right: 10px;
 }
 
@@ -275,7 +295,8 @@ label {
     margin-right: 15px;
 }
 
-input[data-provide=datepicker], input[data-provide=datepicker-birthday] {
+input[data-provide="datepicker"],
+input[data-provide="datepicker-birthday"] {
     width: 200px;
 }
 
@@ -296,13 +317,18 @@ input[data-provide=datepicker], input[data-provide=datepicker-birthday] {
 /* Cards */
 /***********************************/
 
-.admidio-blog, .admidio-field-group {
+.admidio-blog,
+.admidio-field-group {
     border: none;
     max-width: 1000px;
 }
 
-.admidio-blog .card-header, .admidio-blog .card-body, .admidio-blog .card-footer,
-.admidio-field-group .card-header, .admidio-field-group .card-body, .admidio-field-group .card-footer {
+.admidio-blog .card-header,
+.admidio-blog .card-body,
+.admidio-blog .card-footer,
+.admidio-field-group .card-header,
+.admidio-field-group .card-body,
+.admidio-field-group .card-footer {
     border: none;
     background-color: #eeeeee;
 }
@@ -312,7 +338,8 @@ input[data-provide=datepicker], input[data-provide=datepicker-birthday] {
     font-size: 150%;
 }
 
-.card-header .fas, .card-header .fab {
+.card-header .fas,
+.card-header .fab {
     margin-right: 10px;
 }
 
@@ -320,7 +347,8 @@ input[data-provide=datepicker], input[data-provide=datepicker-birthday] {
     margin-right: 0px;
 }
 
-.card-header .dropdown .fas, .card-header .dropdown .fab {
+.card-header .dropdown .fas,
+.card-header .dropdown .fab {
     margin-right: 0px;
 }
 
@@ -347,7 +375,9 @@ input[data-provide=datepicker], input[data-provide=datepicker-birthday] {
     font-size: 100% !important;
 }
 
-.admidio-blog-comment .card-header, .admidio-blog-comment .card-body, .admidio-blog-comment .card-footer {
+.admidio-blog-comment .card-header,
+.admidio-blog-comment .card-body,
+.admidio-blog-comment .card-footer {
     background-color: #dddddd;
 }
 
@@ -412,7 +442,7 @@ input[data-provide=datepicker], input[data-provide=datepicker-birthday] {
 }
 
 .accordion .card-header {
-    color: #011627;
+    color: #0f4c81;
 }
 
 /***********************************/
@@ -473,7 +503,8 @@ input[data-provide=datepicker], input[data-provide=datepicker-birthday] {
     cursor: help;
 }
 
-.admidio-event-highlight .card-header, tr.admidio-event-highlight {
+.admidio-event-highlight .card-header,
+tr.admidio-event-highlight {
     background-color: #cccccc;
 }
 

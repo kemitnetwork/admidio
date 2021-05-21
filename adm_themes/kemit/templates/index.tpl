@@ -24,6 +24,7 @@
     <script type="text/javascript">
         var gRootPath  = "{$urlAdmidio}";
         var gThemePath = "{$urlTheme}";
+        var currentYear = Date.getFullYear();
 
         {$javascriptContent}
 
@@ -133,7 +134,7 @@
                     {include file=$templateFile}
                 {/if}
 
-                <div id="imprint">&copy; 2004 - 2021&nbsp;&nbsp;<a href="https://www.admidio.org">Admidio</a>
+                <div id="imprint">&copy; {$currentYear}&nbsp;&nbsp;<a href="https://www.kemitnetwork.net">Kemitnetwork UG</a>
                     {if $urlImprint != ''}
                         &nbsp;&nbsp;-&nbsp;&nbsp;<a href="{$urlImprint}">{$l10n->get('SYS_IMPRINT')}</a>
                     {/if}
