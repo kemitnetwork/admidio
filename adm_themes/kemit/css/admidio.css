@@ -33,7 +33,7 @@
 }
 
 #admidio-main-navbar a:hover {
-    color: #0f4c81;
+    color: #9e3504;
 }
 
 @media (max-width: 767px) {
@@ -53,7 +53,7 @@
 /***********************************/
 .admidio-sidebar {
     padding: 0px;
-    background-color: #263340;
+    background-color: #0f4c81;
     overflow-y: auto;
 }
 
@@ -81,12 +81,12 @@
 }
 
 .admidio-menu-list .dropdown-item {
-    color: #263340;
+    color: #0f4c81;
 }
 
 .admidio-menu-list a:hover {
     color: #ffffff;
-    background-color: #324b64;
+    background-color: #7ab8f5;
 }
 
 @media (min-width: 768px) {
@@ -398,7 +398,7 @@ input[data-provide="datepicker-birthday"] {
 
 .admidio-card {
     border: none;
-    background-color: #eeeeee;
+    background-color: #badbf7;
     margin-top: 15px;
     margin-bottom: 15px;
     height: 95%;
@@ -407,7 +407,7 @@ input[data-provide="datepicker-birthday"] {
 .admidio-card li {
     padding-left: 0px;
     padding-right: 0px;
-    background-color: #eeeeee;
+    background-color: #badbf7;
 }
 
 /***********************************/
@@ -423,7 +423,7 @@ input[data-provide="datepicker-birthday"] {
 }
 
 .navbar-filter {
-    background-color: #eeeeee;
+    background-color: #badbf7;
 }
 
 .navbar-filter .form-group {
@@ -436,7 +436,7 @@ input[data-provide="datepicker-birthday"] {
 /***********************************/
 
 .accordion .card-header:hover {
-    color: #eeeeee;
+    color: #badbf7;
     background-color: #263340;
     cursor: pointer;
 }
@@ -480,7 +480,7 @@ input[data-provide="datepicker-birthday"] {
 }
 
 .popover-body {
-    background-color: #eeeeee;
+    background-color: #badbf7;
 }
 
 .page-item.active .page-link {
