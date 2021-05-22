@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <!-- (c) 2004 - 2020 The Admidio Team - https://www.admidio.org -->
+<head>   
 
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -9,8 +8,7 @@
 
     <link rel="shortcut icon" type="image/x-icon" href="{$urlTheme}/images/favicon.ico" />
     <link rel="icon" type="image/png" href="{$urlTheme}/images/favicon-32x32.png" sizes="32x32" />
-    <link rel="icon" type="image/png" href="{$urlTheme}/images/favicon-16x16.png" sizes="16x16" />
-    <link rel="apple-touch-icon" type="image/png" href="{$urlTheme}/images/apple-touch-icon.png" sizes="180x180" />
+    <link rel="icon" type="image/png" href="{$urlTheme}/images/favicon-16x16.png" sizes="16x16" />    
 
     <title>{$title}</title>
 
@@ -23,8 +21,7 @@
 
     <script type="text/javascript">
         var gRootPath  = "{$urlAdmidio}";
-        var gThemePath = "{$urlTheme}";
-        var currentYear = Date.getFullYear();
+        var gThemePath = "{$urlTheme}";        
 
         {$javascriptContent}
 
@@ -116,7 +113,7 @@
                 {$menuSidebar}
             </div>
 
-            <div id="content" class="col-12 col-md-9 col-xl-10 admidio-content" role="main">
+            <div id="content" class="col-12 col-md-9 col-xl-12 admidio-content" role="main">
                 <div class="admidio-content-header">
                     <h1 class="admidio-module-headline">{$headline}</h1>
 
@@ -134,7 +131,7 @@
                     {include file=$templateFile}
                 {/if}
 
-                <div id="imprint">&copy; {$currentYear}&nbsp;&nbsp;<a href="https://www.kemitnetwork.net">Kemitnetwork UG</a>
+                <div id="imprint">&copy; {'Y'|date}&nbsp;&nbsp;<a href="https://www.kemitnetwork.net">Kemitnetwork UG</a>
                     {if $urlImprint != ''}
                         &nbsp;&nbsp;-&nbsp;&nbsp;<a href="{$urlImprint}">{$l10n->get('SYS_IMPRINT')}</a>
                     {/if}

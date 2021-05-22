@@ -11,7 +11,7 @@
 
 #admidio-main-navbar {
     background-color: #494bbb;
-    background-image: url("../images/flight.jpg");
+    /*background-image: url("../images/plane.png");*/
     min-height: 4rem;
     position: sticky;
     padding-bottom: 0px;
@@ -29,13 +29,16 @@
     margin-right: 10px;
 }
 
+/*menus login, register*/
 #admidio-main-navbar a {
-    color: #263340;
-    font-size: 1rem;
+    color: #fff;
+    border: 1px solid #494bbb;
+    font-size: 1rem;   
 }
 
-#admidio-main-navbar a:hover {
-    color: #9e3504;
+#admidio-main-navbar a:hover {   
+    border: 1px solid #fff;
+    border-radius: 5px;
 }
 
 @media (max-width: 767px) {
@@ -87,8 +90,9 @@
     color: #7ab8f5;
 }
 
+/*menu items sidebar*/
 .admidio-menu-list a:hover {
-    color: #ffffff;
+    color: #494bbb;
     background-color: #fff;
 }
 
@@ -256,7 +260,7 @@ form {
 input[type="checkbox"]:focus,
 button:focus {
     border-color: #494bbb;
-    background-color: #d6ebee;
+    background-color: #fff; /*background of input elements*/
     box-shadow: none !important;
 }
 
@@ -332,8 +336,8 @@ input[data-provide="datepicker-birthday"] {
 .admidio-field-group .card-header,
 .admidio-field-group .card-body,
 .admidio-field-group .card-footer {
-    border: none;
-    background-color: #eeeeee;
+    border-bottom: 1px solid #eee;
+    background-color: #fff;
 }
 
 .card-header {
