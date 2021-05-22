@@ -10,10 +10,12 @@
  *****************************************************************************/
 
 #admidio-main-navbar {
-    background-color: #0f4c81;
+    background-color: #494bbb;
+    background-image: url("../images/flight.jpg");
     min-height: 4rem;
     position: sticky;
     padding-bottom: 0px;
+    border-bottom: 4px double #fff;
 }
 
 #admidio-main-navbar {
@@ -53,7 +55,7 @@
 /***********************************/
 .admidio-sidebar {
     padding: 0px;
-    background-color: #0f4c81;
+    background-color: #494bbb;
     overflow-y: auto;
 }
 
@@ -74,6 +76,7 @@
 
 .admidio-menu-list {
     overflow-y: auto;
+    background-color: #494bbb;
 }
 
 .admidio-menu-list a {
@@ -81,12 +84,12 @@
 }
 
 .admidio-menu-list .dropdown-item {
-    color: #0f4c81;
+    color: #7ab8f5;
 }
 
 .admidio-menu-list a:hover {
     color: #ffffff;
-    background-color: #7ab8f5;
+    background-color: #fff;
 }
 
 @media (min-width: 768px) {
@@ -128,7 +131,7 @@ a,
 .btn-link,
 .page-link,
 a.btn {
-    color: #0f4c81;
+    color: #494bbb;
 }
 
 a:hover,
@@ -142,8 +145,8 @@ a.btn-primary {
 }
 
 .btn-primary {
-    background-color: #0f4c81;
-    border-color: #0f4c81;
+    background-color: #494bbb;
+    border-color: #494bbb;
 }
 
 .btn-primary:hover {
@@ -252,7 +255,7 @@ form {
 .select2-container--bootstrap.select2-container--focus .select2-selection,
 input[type="checkbox"]:focus,
 button:focus {
-    border-color: #0f4c81;
+    border-color: #494bbb;
     background-color: #d6ebee;
     box-shadow: none !important;
 }
@@ -398,7 +401,7 @@ input[data-provide="datepicker-birthday"] {
 
 .admidio-card {
     border: none;
-    background-color: #badbf7;
+    background-color: #fff;
     margin-top: 15px;
     margin-bottom: 15px;
     height: 95%;
@@ -442,7 +445,7 @@ input[data-provide="datepicker-birthday"] {
 }
 
 .accordion .card-header {
-    color: #0f4c81;
+    color: #494bbb;
 }
 
 /***********************************/
