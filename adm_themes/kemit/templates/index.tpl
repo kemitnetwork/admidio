@@ -113,7 +113,7 @@
                 {$menuSidebar}
             </div>
 
-            <div id="content" class="col-12 col-md-9 col-xl-12 admidio-content" role="main">
+            <div id="content" class="col-12 col-md-9 col-xl-10 admidio-content" role="main">
                 <div class="admidio-content-header">
                     <h1 class="admidio-module-headline">{$headline}</h1>
 

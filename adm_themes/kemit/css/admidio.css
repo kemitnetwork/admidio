@@ -609,3 +609,15 @@ tr.admidio-event-highlight {
 #plugin-latest-documents-files hr {
     margin: 5px 0px;
 }
+
+/* icons */
+.fa-fw {
+    text-align: center;
+    color: #fff;
+    width: 1.25em;
+}
+
+.fa-fw:hover, .fa-fw:active {
+    text-align: center;
+    color: #494bbb;      
+}
