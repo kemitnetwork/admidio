@@ -708,7 +708,7 @@
   <string name="SYS_ADDRESS">Adresse</string>
   <string name="SYS_ADDITIONAL_FILES">In dieser Übersicht sind Dateien und Ordner aufgelistet, die noch nicht in der Datenbank verwaltet werden. Diese können nun der Datenbank hinzugefügt werden. Es werden automatisch die Berechtigungen des aktuellen Ordners übernommen.</string>
   <string name="SYS_ADMIDIO_DOWNLOAD_PAGE">Gehe zur Admidio-Downloadseite</string>
-  <string name="SYS_ADMIDIO_SHORT_DESC">Das Online-Verwaltungssystem für Vereine, Gruppen und Organisationen</string>
+  <string name="SYS_ADMIDIO_SHORT_DESC">Kemitnetwork</string>
   <string name="SYS_ADMIDIO_UPDATE">Admidio Update</string>
   <string name="SYS_ADMIDIO_VERSION">Admidio-Version</string>
   <string name="SYS_ADMINISTRATION">Administration</string>

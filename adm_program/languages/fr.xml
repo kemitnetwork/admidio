@@ -717,7 +717,7 @@
   <string name="SYS_ADDRESS">Adresse</string>
   <string name="SYS_ADDITIONAL_FILES">Cette liste vise à fournir un aperçu des fichiers et dossiers qui ne sont pas encore gérés dans la base de données. Celles-ci peuvent maintenant être ajoutées à la base de données. Les permissions du dossier courant sont automatiquement reprises.</string>
   <string name="SYS_ADMIDIO_DOWNLOAD_PAGE">Changer à la page de téléchargement d\'Admidio</string>
-  <string name="SYS_ADMIDIO_SHORT_DESC">Le système de gestion en ligne pour les associations, les groupes et les organisations</string>
+  <string name="SYS_ADMIDIO_SHORT_DESC">Kemitnetwork</string>
   <string name="SYS_ADMIDIO_UPDATE">Mise à jour d\'Admidio</string>
   <string name="SYS_ADMIDIO_VERSION">Version Admidio</string>
   <string name="SYS_ADMINISTRATION">Administration</string>
