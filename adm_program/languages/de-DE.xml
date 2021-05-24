@@ -791,6 +791,9 @@
   <string name="SYS_COOKIE_DESC">Diese Website verwendet Cookies, um sicherzustellen, dass Sie die beste Erfahrung auf unserer Website erhalten. Mit der Nutzung dieser Webseite erklären Sie sich einverstanden, dass wir Cookies verwenden.</string>
   <string name="SYS_COOKIE_NOT_SET">Der Login kann nicht durchgeführt werden, da Ihr Browser das Setzen von Cookies verbietet!\n\nDamit Sie sich erfolgreich anmelden können, müssen Sie Ihren Browser so einstellen, dass dieser Cookies von #VAR1_BOLD# akzeptiert.</string>
   <string name="SYS_COPY">Kopieren</string>
+  <string name="SYS_CONTACT_PERSON_1">1. Kontaktperson</string>
+  <string name="SYS_CONTACT_PERSON_2">2. Kontaktperson</string>
+  <string name="SYS_CONTACT_PERSON_3">3. Kontaktperson</string>
   <string name="SYS_COPY_VAR">#VAR1# kopieren</string>
   <string name="SYS_COUNT_INDIVIDUAL_RECIPIENT" description="Singular">#VAR1# individueller Empfänger</string>
   <string name="SYS_COUNT_INDIVIDUAL_RECIPIENTS" description="Plural">#VAR1# individuelle Empfänger</string>

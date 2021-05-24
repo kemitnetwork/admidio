@@ -800,6 +800,9 @@
   <string name="SYS_COOKIE_DESC">Ce site Web utilise des cookies pour s\'assurer que tu as la meilleure expérience sur notre site Web. En utilisant ce site Web, tu accepte que nous utilisions des cookies.</string>
   <string name="SYS_COOKIE_NOT_SET">Tu ne peux pas te connecter parce que ton navigateur n\'autorise pas les cookies !\n\nTu dois configurer ton navigateur pour accepter les cookies de #VAR1_BOLD# pour te connecter avec succès.</string>
   <string name="SYS_COPY">Copier</string>
+  <string name="SYS_CONTACT_PERSON_1">Première personne de contact</string>
+  <string name="SYS_CONTACT_PERSON_2">Deuxième personne de contact</string>
+  <string name="SYS_CONTACT_PERSON_3">Troisième personne de contact</string>
   <string name="SYS_COPY_VAR">Copier #VAR1#</string>
   <string name="SYS_COUNT_INDIVIDUAL_RECIPIENT" description="Singular"># VAR1 # destinataire individuel</string>
   <string name="SYS_COUNT_INDIVIDUAL_RECIPIENTS" description="Plural"># VAR1 # destinataires individuels</string>
