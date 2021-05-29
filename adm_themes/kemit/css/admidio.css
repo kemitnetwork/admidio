@@ -10,34 +10,46 @@
  *****************************************************************************/
 
 #admidio-main-navbar {
-    background-color: #494bbb;
-    /*background-image: url("../images/plane.png");*/
+    background-color: #023668;
+    background-image: url("../images/sunset.png");
+    background-repeat: no-repeat;
     min-height: 4rem;
     position: sticky;
     padding-bottom: 0px;
-    border-bottom: 4px double #fff;
+    border-bottom: 4px solid #023668;
 }
 
 #admidio-main-navbar {
-    color: #ffffff;
+    color: #023668;
     font-weight: bold;
     font-size: 1.7rem;
     padding-top: 0px;
 }
 
+
 #admidio-main-navbar .navbar-brand img {
     margin-right: 10px;
 }
 
-/*menus login, register*/
+/*menus logo, login, register*/
 #admidio-main-navbar a {
-    color: #fff;
-    border: 1px solid #494bbb;
-    font-size: 1rem;   
+    color: #023668;    
+    font-size: 1rem;     
 }
 
-#admidio-main-navbar a:hover {   
-    border: 1px solid #fff;
+.nav-item  {
+    border: 3px solid #023668;
+    border-radius: 10px;
+    margin-right: 5px;
+}
+
+.nav-item:hover  {
+    color: #fff;  
+    background-color: #fff;
+}
+
+#admidio-main-navbar {   
+    border: 2px solid #fff;
     border-radius: 5px;
 }
 
@@ -58,7 +70,7 @@
 /***********************************/
 .admidio-sidebar {
     padding: 0px;
-    background-color: #494bbb;
+    background-color: #023668;
     overflow-y: auto;
 }
 
@@ -79,7 +91,7 @@
 
 .admidio-menu-list {
     overflow-y: auto;
-    background-color: #494bbb;
+    background-color: #023668;
 }
 
 .admidio-menu-list a {
@@ -92,9 +104,10 @@
 
 /*menu items sidebar*/
 .admidio-menu-list a:hover {
-    color: #494bbb;
-    background-color: #fff;
+    color: #023668;
+    background-color: #fff;    
 }
+
 
 @media (min-width: 768px) {
     /* sidebar should only be there in non mobile view */
@@ -135,7 +148,7 @@ a,
 .btn-link,
 .page-link,
 a.btn {
-    color: #494bbb;
+    color: #023668;
 }
 
 a:hover,
@@ -149,8 +162,8 @@ a.btn-primary {
 }
 
 .btn-primary {
-    background-color: #494bbb;
-    border-color: #494bbb;
+    background-color: #023668;
+    border-color: #023668;
 }
 
 .btn-primary:hover {
@@ -259,7 +272,7 @@ form {
 .select2-container--bootstrap.select2-container--focus .select2-selection,
 input[type="checkbox"]:focus,
 button:focus {
-    border-color: #494bbb;
+    border-color: #023668;
     background-color: #fff; /*background of input elements*/
     box-shadow: none !important;
 }
@@ -414,9 +427,11 @@ input[data-provide="datepicker-birthday"] {
 .admidio-card li {
     padding-left: 0px;
     padding-right: 0px;
-    background-color: #badbf7;
+    background-color: rgb(240, 235, 235);
 }
-
+.card-title {
+    background-color: #999;
+}
 /***********************************/
 /* Nav-Bars */
 /***********************************/
@@ -430,7 +445,7 @@ input[data-provide="datepicker-birthday"] {
 }
 
 .navbar-filter {
-    background-color: #9a9bd9;
+    background-color: rgb(240, 235, 235);
 }
 
 .navbar-filter .form-group {
@@ -449,7 +464,7 @@ input[data-provide="datepicker-birthday"] {
 }
 
 .accordion .card-header {
-    color: #494bbb;
+    color: #023668;
 }
 
 /***********************************/
@@ -613,11 +628,15 @@ tr.admidio-event-highlight {
 /* icons */
 .fa-fw {
     text-align: center;
-    color: #fff;
+    color: #d94948;
     width: 1.25em;
 }
 
 .fa-fw:hover, .fa-fw:active {
     text-align: center;
-    color: #494bbb;      
+    color: #023668;      
+}
+
+.nav-link {
+margin: 5px;
 }

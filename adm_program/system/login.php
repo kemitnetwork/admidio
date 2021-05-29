@@ -92,10 +92,6 @@ else
 
 $page->addHtml('
     <div id="login_forgot_password_link">
-        <small><a href="'.$forgotPasswordLink.'">'.$gL10n->get('SYS_FORGOT_MY_PASSWORD').'</a></small>
-    </div>
-    <div id="login_admidio_link">
-        <small>Powered by <a href="'.ADMIDIO_HOMEPAGE.'">Admidio</a></small>
-    </div>');
+        <small><a href="'.$forgotPasswordLink.'">'.$gL10n->get('SYS_FORGOT_MY_PASSWORD').'</a></small></div>');
 
 $page->show();
