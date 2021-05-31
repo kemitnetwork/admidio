@@ -886,6 +886,8 @@
   <string name="SYS_DOWNLOAD_ALBUM">Album herunterladen</string>
   <string name="SYS_DOWNLOAD_FILE">Datei herunterladen</string>
   <string name="SYS_DOWNLOAD_PHOTO">Foto herunterladen</string>
+  <string name="SYS_GDPR">Stimmen Sie den Datenschutz-Grundverordnung(DSGVO) zu</string>
+  <string name="SYS_TERMS_OF_USE">Indem Sie sich anmelden, stimmen Sie unseren Nutzungsbedingungen zu</string>
   <string name="SYS_EDIT">Bearbeiten</string>
   <string name="SYS_EDIT_ANNOUNCEMENTS">Ankündigungen bearbeiten</string>
   <string name="SYS_EDIT_CALENDAR">Kalender bearbeiten</string>

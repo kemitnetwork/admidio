@@ -895,6 +895,8 @@
   <string name="SYS_DOWNLOAD_ALBUM">Télécharger l\'album</string>
   <string name="SYS_DOWNLOAD_FILE">Télécharger un fichier</string>
   <string name="SYS_DOWNLOAD_PHOTO">Télécharger la photo</string>
+  <string name="SYS_GDPR">Acceptez le règlement général sur la protection des données(RGPD)</string>
+  <string name="SYS_TERMS_OF_USE">En vous inscrivant, vous acceptez nos &lt;a href="#test.html" target=\"_blank\"&gt;conditions d\'utilisation&lt;/a&gt;</string>
   <string name="SYS_EDIT">Editer</string>
   <string name="SYS_EDIT_ANNOUNCEMENTS">Editer les annonces</string>
   <string name="SYS_EDIT_CALENDAR">Editer calendrier</string>

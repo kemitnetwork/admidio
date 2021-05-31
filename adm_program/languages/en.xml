@@ -886,6 +886,8 @@
   <string name="SYS_DOWNLOAD_ALBUM">Download album</string>
   <string name="SYS_DOWNLOAD_FILE">Download file</string>
   <string name="SYS_DOWNLOAD_PHOTO">Download photo</string>
+  <string name="SYS_GDPR">By registering you accept the General Data Protection Regulation (GDPR)</string>
+  <string name="SYS_TERMS_OF_USE">By registering, you agree to our terms of use</string>
   <string name="SYS_EDIT">Edit</string>
   <string name="SYS_EDIT_ANNOUNCEMENTS">Edit announcements</string>
   <string name="SYS_EDIT_CALENDAR">Edit calendar</string>
