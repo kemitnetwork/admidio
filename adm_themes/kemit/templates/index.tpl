@@ -80,20 +80,20 @@
         <div id="navbarNav" class="collapse navbar-collapse">
             <ul class="navbar-nav ml-auto">
             {if $validLogin}
-                <li class="nav-item">
-                    <a class="nav-link" href="{$urlAdmidio}/adm_program/modules/profile/profile.php">{$l10n->get('PRO_MY_PROFILE')}</a>
+                <li class="nav-item profile">
+                    <a class="nav-link profile-a fas fa-address-card" href="{$urlAdmidio}/adm_program/modules/profile/profile.php">&nbsp;{$l10n->get('PRO_MY_PROFILE')}</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{$urlAdmidio}/adm_program/system/logout.php">{$l10n->get('SYS_LOGOUT')}</a>
+                <li class="nav-item logout">
+                    <a class="nav-link logout-a fas fa-sign-out-alt" href="{$urlAdmidio}/adm_program/system/logout.php">&nbsp;{$l10n->get('SYS_LOGOUT')}</a>
                 </li>
             {else}
-                <li class="nav-item">
-                    <a class="nav-link" href="{$urlAdmidio}/adm_program/system/login.php">{$l10n->get('SYS_LOGIN')}</a>
+                <li class="nav-item login-a">
+                    <a class="nav-link login-a fas fa-sign-in-alt" href="{$urlAdmidio}/adm_program/system/login.php">&nbsp;{$l10n->get('SYS_LOGIN')}</a>
                 </li>
                 {if $registrationEnabled}
-                    <li class="nav-item">
-                        <a class="nav-link" href="{$urlAdmidio}/adm_program/modules/registration/registration.php">{$l10n->get('SYS_REGISTRATION')}</a>
-                    </li>
+                <li class="nav-item register">
+                    <a class="nav-link register-a fas fa-user-plus" href="{$urlAdmidio}/adm_program/modules/registration/registration.php">&nbsp;{$l10n->get('SYS_REGISTRATION')}</a>
+                </li>
                 {/if}
             {/if}
             </ul>

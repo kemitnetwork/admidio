@@ -11,7 +11,7 @@
 
 #admidio-main-navbar {
     background-color: #023668;
-    background-image: url("../images/plane.png");
+    background-image: url("../images/plane-sunset.png");
     /*background-repeat: no-repeat;*/
     min-height: 4rem;
     position: sticky;
@@ -37,15 +37,65 @@
     font-size: 1rem;     
 }
 
-.nav-item  {
+.nav-item .login-a {
     border: 3px solid #023668;
     border-radius: 10px;
     margin-right: 5px;
+    padding: .2rem 1rem;
 }
 
-.nav-item:hover  {
+.nav-item:hover .login-a {
     color: #fff;  
-    background-color: #fff;
+    background-color: #fff;    
+}
+
+.nav-item .register-a {
+    border: 3px solid #023668;
+    border-radius: 10px;
+    margin-right: 5px;
+    padding: .2rem 1rem;
+}
+
+.nav-item:hover .register-a {
+    color: #fff;  
+    background-color: #fff;    
+}
+
+.nav-item .profile-a {
+    border: 3px solid #023668;
+    border-radius: 10px;
+    margin-right: 5px;
+    padding: .2rem 1rem;
+}
+
+.nav-item:hover .profile-a {
+    color: #fff;  
+    background-color: #fff;    
+}
+
+
+.nav-item .logout-a {
+    border: 3px solid #023668;
+    border-radius: 10px;
+    margin-right: 5px;
+    padding: .2rem 1rem;
+}
+
+.nav-item:hover .logout-a {
+    color: #fff;  
+    background-color: #fff;    
+}
+
+.nav-item .register-a {
+    border: 3px solid #023668;
+    border-radius: 10px;
+    margin-right: 5px;
+    padding: .2rem 1rem;
+}
+
+.nav-item:hover .register-a {
+    color: #fff;  
+    background-color: #fff;    
 }
 
 #admidio-main-navbar {   
