@@ -1208,6 +1208,7 @@
   <string name="SYS_PROCESS_CANCELED">Le processus a été annulé.</string>
   <string name="SYS_PROCESSING_ERROR_DESC">Le problème suivant s\'est produit lors du traitement des données.</string>
   <string name="SYS_PROPERTIES">Propriétés</string>
+  <string name="SYS_PROFESSION">Profession</string>
   <string name="SYS_PWACT_PW_SAVED">Nouveau mot de passe enregistré!</string>
   <string name="SYS_PWACT_CODE_INVALID">Soit le nouveau mot de passe a déjà été activé, soit le code d\'activation est incorrect!</string>
   <string name="SYS_QUANTITY">Quantité</string>
