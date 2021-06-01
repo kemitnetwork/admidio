@@ -1079,6 +1079,7 @@
   <string name="SYS_MEMBER_ASSIGNMENT">Attribution des membres</string>
   <string name="SYS_MEMBER_OF_ORGANIZATION" description="MEM_MEMBER_OF">Membres de l\'organisation #VAR1#</string>
   <string name="SYS_MEMBERS">Membres</string>
+  <string name="SYS_MEMBERSHIP_FEE">Contribution des membres</string>
   <string name="SYS_MEMBERS_BETWEEN_PERIOD">Membres entre #VAR1# et #VAR2#</string>
   <string name="SYS_MEMBERS_PER_PAGE">Nombre de membres par page</string>
   <string name="SYS_MEMBERS_PER_PAGE_DESC">Nombre de membres affichés dans la vue HTML. D\'autres membres peuvent être trouvés en naviguant. L\'aperçu avant impression et l\'exportation ne sont pas affectés par cette valeur. (Valeur par défaut : 25)</string>
@@ -1151,7 +1152,7 @@
   <string name="SYS_OK">OK</string>
   <string name="SYS_ON">Désactivé</string>
   <string name="SYS_ONE_TIME">Une fois</string>
-  <string name="SYS_ONLINE_MEMBERSHIP_ADMINISTRATION">Administration de membres en ligne</string>
+  <string name="SYS_ONLINE_MEMBERSHIP_ADMINISTRATION">Zone des membres</string>
   <string name="SYS_ONLY_SET_BY_MOTHER_ORGANIZATION">Ce paramètre ne peut être saisie que par l\'organisation mère.</string>
   <string name="SYS_OPERATING_SYSTEM">Système d\'opération</string>
   <string name="SYS_OPPOSITE_RELATIONSHIP">Relation opposée</string>

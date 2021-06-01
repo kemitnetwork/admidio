@@ -1071,6 +1071,7 @@
   <string name="SYS_MEMBER_ASSIGNMENT">Member assignment</string>
   <string name="SYS_MEMBER_OF_ORGANIZATION" description="MEM_MEMBER_OF">Member of organization #VAR1#</string>
   <string name="SYS_MEMBERS">Members</string>
+  <string name="SYS_MEMBERSHIP_FEE">Membership fees</string>
   <string name="SYS_MEMBERS_BETWEEN_PERIOD">Members between #VAR1# and #VAR2#</string>
   <string name="SYS_MEMBERS_PER_PAGE">Members displayed per page</string>
   <string name="SYS_MEMBERS_PER_PAGE_DESC">Number of members listed in the HTML view. More members can be listed by using the pagination function. This value won\'t affect print preview and export functionality (Default: 25).</string>
@@ -1141,7 +1142,7 @@
   <string name="SYS_OK">OK</string>
   <string name="SYS_ON">On</string>
   <string name="SYS_ONE_TIME">One time</string>
-  <string name="SYS_ONLINE_MEMBERSHIP_ADMINISTRATION">Your membership</string>
+  <string name="SYS_ONLINE_MEMBERSHIP_ADMINISTRATION">Membership</string>
   <string name="SYS_ONLY_SET_BY_MOTHER_ORGANIZATION">This preference can only be set by the parent organization.</string>
   <string name="SYS_OPERATING_SYSTEM">Operating system</string>
   <string name="SYS_OPPOSITE_RELATIONSHIP">Opposite relationship</string>
