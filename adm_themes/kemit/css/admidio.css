@@ -38,64 +38,64 @@
 }
 
 .nav-item .login-a {
-    border: 3px solid #023668;
-    border-radius: 10px;
+    border: 3px solid #d94948;
+    border-radius: 5px;
     margin-right: 5px;
     padding: .2rem 1rem;
+    background-color: #fff;
 }
-
-.nav-item:hover .login-a {
-    color: #fff;  
-    background-color: #fff;    
+.nav-item:hover .login-a {    
+    border: 3px solid #fff;
+    background-color: #d94948;    
 }
-
 .nav-item .register-a {
-    border: 3px solid #023668;
+    border: 3px solid #d94948;
     border-radius: 10px;
     margin-right: 5px;
     padding: .2rem 1rem;
+    background-color: #fff;
 }
-
 .nav-item:hover .register-a {
-    color: #fff;  
-    background-color: #fff;    
+    border: 3px solid #fff;
+    background-color: #d94948;    
 }
 
 .nav-item .profile-a {
-    border: 3px solid #023668;
+    border: 3px solid #d94948;
     border-radius: 10px;
     margin-right: 5px;
     padding: .2rem 1rem;
+    background-color: #fff;
 }
 
 .nav-item:hover .profile-a {
-    color: #fff;  
-    background-color: #fff;    
+    border: 3px solid #fff;
+    background-color: #d94948;
 }
 
-
 .nav-item .logout-a {
-    border: 3px solid #023668;
+    border: 3px solid #d94948;
     border-radius: 10px;
     margin-right: 5px;
     padding: .2rem 1rem;
+    background-color: #fff;
 }
 
 .nav-item:hover .logout-a {
-    color: #fff;  
-    background-color: #fff;    
+    border: 3px solid #fff;
+    background-color: #d94948;  
 }
 
 .nav-item .register-a {
-    border: 3px solid #023668;
+    border: 3px solid #d94948;
     border-radius: 10px;
     margin-right: 5px;
     padding: .2rem 1rem;
 }
 
 .nav-item:hover .register-a {
-    color: #fff;  
-    background-color: #fff;    
+    border: 3px solid #fff;
+    background-color: #d94948;  
 }
 
 #admidio-main-navbar {   
