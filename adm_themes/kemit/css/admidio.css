@@ -45,8 +45,7 @@
     background-color: #fff;
 }
 .nav-item:hover .login-a {    
-    border: 3px solid #fff;
-    background-color: #d94948;    
+    border: 3px solid #fff;       
 }
 .nav-item .register-a {
     border: 3px solid #d94948;
@@ -56,8 +55,7 @@
     background-color: #fff;
 }
 .nav-item:hover .register-a {
-    border: 3px solid #fff;
-    background-color: #d94948;    
+    border: 3px solid #fff;      
 }
 
 .nav-item .profile-a {
@@ -68,9 +66,8 @@
     background-color: #fff;
 }
 
-.nav-item:hover .profile-a {
+.nav-item:hover .profile-a {    
     border: 3px solid #fff;
-    background-color: #d94948;
 }
 
 .nav-item .logout-a {
@@ -82,8 +79,7 @@
 }
 
 .nav-item:hover .logout-a {
-    border: 3px solid #fff;
-    background-color: #d94948;  
+    border: 3px solid #fff;     
 }
 
 .nav-item .register-a {
@@ -94,8 +90,7 @@
 }
 
 .nav-item:hover .register-a {
-    border: 3px solid #fff;
-    background-color: #d94948;  
+    border: 3px dotted #fff;     
 }
 
 #admidio-main-navbar {   
@@ -186,7 +181,7 @@
 /***********************************/
 
 body {
-    color: #263340;
+    color: #023668;
 }
 
 h6,
@@ -509,7 +504,7 @@ input[data-provide="datepicker-birthday"] {
 
 .accordion .card-header:hover {
     color: #badbf7;
-    background-color: #263340;
+    background-color: #023668;
     cursor: pointer;
 }
 
@@ -548,16 +543,16 @@ input[data-provide="datepicker-birthday"] {
 /* Style for popover */
 .popover-header {
     color: white;
-    background-color: #263340;
+    background-color: #023668;
 }
 
 .popover-body {
-    background-color: #badbf7;
+    background-color: #ffffff;
 }
 
 .page-item.active .page-link {
-    background-color: #263340;
-    border-color: #263340;
+    background-color: #023668;
+    border-color: #023668;
 }
 
 #imprint {
@@ -599,7 +594,7 @@ tr.admidio-event-highlight {
 #admidio-password-strength-minimum {
     position: absolute;
     border: 9px solid transparent;
-    border-left-color: #263340;
+    border-left-color: #023668;
     border-right-width: 0;
 }
 
@@ -622,7 +617,7 @@ tr.admidio-event-highlight {
 
 #chat-area span {
     color: #ffffff;
-    background: #263340;
+    background: #023668;
     padding: 4px 8px;
     border-radius: 5px;
     margin-right: 10px;

@@ -148,6 +148,7 @@ $page->addJavascript('
         }
     }
 
+
     function formSubmitEvent() {
         $(".button-membership-period-form").click(function(event) {
             var memberId  = $(this).attr("data-admidio");
@@ -184,8 +185,10 @@ $page->addJavascript('
             });
         });
     }
+
+    
 ');
-$page->addJavascript('
+$page->addJavascript('    
     $(".admMemberInfo").click(function() {
         showHideMembershipInformation($(this))
     });
@@ -203,6 +206,8 @@ $page->addJavascript('
     formSubmitEvent();',
     true
 );
+
+
 
 // if user has right then show link to edit profile
 if($gCurrentUser->hasRightEditProfile($user))
@@ -278,7 +283,38 @@ if($gCurrentUser->isAdministrator())
 // *******************************************************************************
 // User data block
 // *******************************************************************************
-
+$page->addHtml('
+<div id="agreementModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">    
+    <div class="modal-content">
+      <div class="modal-header" style="color: #ffffff; background-color: #023668;"><h4 class="modal-title">'
+      .$gL10n->get('SYS_TERMS_TITLE').     
+      '</h4></div>
+      <div class="modal-body"><p>'
+      .$gL10n->get('SYS_TERMS_CONTENT').
+      '</p></div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary fas fa-times" alt="Close" data-dismiss="modal"></button>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="gdprModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">    
+    <div class="modal-content">
+      <div class="modal-header" style="color: #ffffff; background-color: #023668;"><h4 class="modal-title">'
+      .$gL10n->get('SYS_GDPR_TITLE').     
+      '</h4></div>
+      <div class="modal-body"><p>'
+      .$gL10n->get('SYS_GDPR_CONTENT').
+      '</p></div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary fas fa-times" alt="Close" data-dismiss="modal"></button>
+      </div>
+    </div>
+  </div>
+</div>
+');
 $page->addHtml('
 <div class="card admidio-field-group" id="user_data_panel">
     <div class="card-header">'.$gL10n->get('SYS_MASTER_DATA').'</div>

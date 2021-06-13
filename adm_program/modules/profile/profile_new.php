@@ -444,7 +444,40 @@ if($getNewUser === 2)
 {
     // Registrierung
     $form->addSubmitButton('btn_save', $gL10n->get('SYS_SEND'), array('icon' => 'fa-envelope'));
-}
+    // Block for modal
+$page->addHtml('
+<div id="agreementModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">    
+    <div class="modal-content">
+      <div class="modal-header" style="color: #ffffff; background-color: #023668;"><h4 class="modal-title">'
+      .$gL10n->get('SYS_TERMS_TITLE').     
+      '</h4></div>
+      <div class="modal-body"><p>'
+      .$gL10n->get('SYS_TERMS_CONTENT').
+      '</p></div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary fas fa-times" alt="Close" data-dismiss="modal"></button>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="gdprModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">    
+    <div class="modal-content">
+      <div class="modal-header" style="color: #ffffff; background-color: #023668;"><h4 class="modal-title">'
+      .$gL10n->get('SYS_GDPR_TITLE').     
+      '</h4></div>
+      <div class="modal-body"><p>'
+      .$gL10n->get('SYS_GDPR_CONTENT').
+      '</p></div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary fas fa-times" alt="Close" data-dismiss="modal"></button>
+      </div>
+    </div>
+  </div>
+</div>
+');
+} 
 else
 {
     $form->addSubmitButton('btn_save', $gL10n->get('SYS_SAVE'), array('icon' => 'fa-check'));
@@ -460,4 +493,5 @@ if($getNewUser === 0)
 }
 
 $page->addHtml($form->show());
+
 $page->show();
